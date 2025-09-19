@@ -118,22 +118,22 @@ export function Hero() {
         </motion.div>
       </div>
   {/* Floating Guarantee Badge */}
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    animate={{
-      opacity: 1,
-      scale: [1, 1.05, 1], // Subtle pulse every 3s
-    }}
-    transition={{
-      duration: 0.6,
-      delay: 1.2,
-      scale: { duration: 2, repeat: Infinity, repeatDelay: 1 }
-    }}
-    className="fixed bottom-4 left-4 sm:top-4 sm:right-4 z-50 flex items-center space-x-2 bg-green-600/20 border border-green-400/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3"
-  >
-    <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-green-300 flex-shrink-0" />
-    <span className="text-xs sm:text-sm font-semibold text-green-100 hidden sm:block">Garantía {renderTerm('ROI')}: 90 Días o Dinero de Vuelta</span>
-  </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{
+          opacity: 1,
+          scale: [1, 1.05, 1], // Subtle pulse every 3s
+        }}
+        transition={{
+          duration: 0.6,
+          delay: 1.2,
+          scale: { duration: 2, repeat: Infinity, repeatDelay: 1 }
+        }}
+        className="fixed bottom-4 left-4 sm:top-4 sm:right-4 z-50 flex items-center space-x-2 bg-green-600/20 border border-green-400/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3 pointer-events-none"
+      >
+        <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-green-300 flex-shrink-0" />
+        <span className="text-xs sm:text-sm font-semibold text-green-100 hidden sm:block">Garantía {renderTerm('ROI')}: 90 Días o Dinero de Vuelta</span>
+      </motion.div>
 
       </section>
     </TooltipProvider>

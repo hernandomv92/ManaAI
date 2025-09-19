@@ -1,4 +1,6 @@
-import { Metadata } from 'next';
+"use client";
+
+import { useState } from 'react';
 import { Navbar } from '@/components/marketing/Navbar';
 import { Hero } from '@/components/marketing/Hero';
 import { SolutionsGrid } from '@/components/marketing/SolutionsGrid';
@@ -8,18 +10,24 @@ import { FloatingWhatsApp } from '@/components/marketing/FloatingWhatsApp';
 import { ChatWidget } from '@/components/marketing/ChatWidget';
 import { Quiz } from '@/components/marketing/Quiz';
 import { LeadMagnet } from '@/components/marketing/LeadMagnet';
-import PageClient from '@/components/marketing/PageClient';
 import { siteContent } from '@/lib/content';
 
-export const metadata: Metadata = {
-  title: 'Inicio',
-  description: siteContent.site.description,
-  openGraph: {
-    title: `${siteContent.site.name} - ${siteContent.site.tagline}`,
-    description: siteContent.site.description,
-  },
-};
+export default function PageClient() {
+  const [quizResult, setQuizResult] = useState<{industry: string, challenge: string} | null>(null);
 
-export default function Home() {
-  return <PageClient />;
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <div id="quiz-section">
+        <Quiz onQuizComplete={(result) => setQuizResult(result)} />
+      </div>
+      <SolutionsGrid quizResult={quizResult?.challenge || null} />
+      <Testimonials />
+      <LeadMagnet />
+      <Footer />
+      <FloatingWhatsApp />
+      <ChatWidget />
+    </main>
+  );
 }

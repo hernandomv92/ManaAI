@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-const MotionCard = motion(Card);
+import { BlogCard } from '@/components/blog/BlogCard';
 
 export default function BlogPage() {
   const { blog } = siteContent;
@@ -48,49 +47,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blog.posts.map((post, index) => (
-              <MotionCard
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-brand-800/50 border-brand-700/50 backdrop-blur-sm hover:bg-brand-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-600/10 rounded-2xl group"
-              >
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-3">
-                    <Badge className="bg-brand-600/20 text-brand-300 hover:bg-brand-600/30">
-                      {post.category}
-                    </Badge>
-                    <div className="flex items-center space-x-3 text-sm text-white/60">
-                      <div className="flex items-center space-x-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{new Date(post.date).toLocaleDateString('es-ES')}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <Clock className="h-4 w-4" />
-                        <span>{post.readTime}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl font-bold text-white group-hover:text-brand-300 transition-colors line-clamp-2">
-                    {post.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-white/70 leading-relaxed mb-6 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <Button 
-                    variant="ghost" 
-                    className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 group/btn w-full justify-center"
-                    asChild
-                  >
-                    <Link href={`/blog/${post.id}`}>
-                      Leer más
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </MotionCard>
+              <BlogCard post={post} index={index} />
             ))}
           </div>
 

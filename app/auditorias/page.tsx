@@ -135,7 +135,7 @@ export default function AuditoriasPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {auditData.bullets.map((bullet, index) => (
+            {auditData!.bullets.map((bullet, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}

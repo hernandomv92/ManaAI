@@ -3,25 +3,43 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from "@/components/ui/tooltip";
 import { siteContent } from "@/lib/content";
 
-export function Hero() {
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hola, quiero automatizar mi negocio");
-    window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, '_blank');
-  };
+function renderTerm(term: string) {
+  if (siteContent.glossary[term]) {
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span className="text-brand-300 underline decoration-dotted cursor-help">{term}</span>
+        </TooltipTrigger>
+        <TooltipContent side="top">
+          <p>{siteContent.glossary[term]}</p>
+        </TooltipContent>
+      </Tooltip>
+    );
+  }
+  return <span>{term}</span>;
+}
 
-  const scrollToSolutions = () => {
-    const solutionsSection = document.getElementById('soluciones');
-    if (solutionsSection) {
-      solutionsSection.scrollIntoView({ behavior: 'smooth' });
+export function Hero() {
+  const scrollToQuiz = () => {
+    const quizSection = document.getElementById('quiz-section');
+    if (quizSection) {
+      quizSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const { socialProof } = siteContent;
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <TooltipProvider>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800" />
       <div className="absolute inset-0 bg-grid-pattern opacity-20" />
@@ -43,7 +61,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
             >
-              {siteContent.hero.title}
+              Utiliza {renderTerm('IA')} Probada para Multiplicar Ventas en 30 Días (Comprobado por 500+ Negocios), o Te Devolvemos el 100%.
             </motion.h1>
             
             <motion.p
@@ -52,7 +70,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed"
             >
-              {siteContent.hero.subtitle}
+              Agentes con {renderTerm('IA')}, procesos orquestados y {renderTerm('Data')} listos para vender más.
             </motion.p>
 
             {/* Early Testimonial */}
@@ -78,36 +96,13 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
           >
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Button
-                onClick={scrollToSolutions}
-                size="lg"
-                className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
-              >
-                {siteContent.hero.primaryCTA}
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              {/* Guarantee Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.2 }}
-                className="flex items-center space-x-2 bg-green-600/20 border border-green-400/30 rounded-xl px-4 py-3"
-              >
-                <Shield className="h-5 w-5 text-green-300" />
-                <span className="text-sm font-semibold text-green-100">Garantía ROI: 90 Días o Dinero de Vuelta</span>
-              </motion.div>
-            </div>
-            
             <Button
-              onClick={handleWhatsApp}
-              variant="outline"
+              onClick={scrollToQuiz}
               size="lg"
-              className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-brand-300 group"
+              className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
             >
-              <MessageCircle className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              {siteContent.hero.secondaryCTA}
+              {siteContent.hero.primaryCTA}
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </motion.div>
@@ -121,6 +116,24 @@ export function Hero() {
           <div className="w-1 h-16 bg-gradient-to-b from-brand-300 to-transparent rounded-full opacity-60" />
         </motion.div>
       </div>
-    </section>
+  {/* Floating Guarantee Badge */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{
+      opacity: 1,
+      scale: [1, 1.05, 1], // Subtle pulse every 3s
+    }}
+    transition={{
+      duration: 0.6,
+      delay: 1.2,
+      scale: { duration: 2, repeat: Infinity, repeatDelay: 1 }
+    }}
+    className="fixed bottom-4 left-4 sm:top-4 sm:right-4 z-50 flex items-center space-x-2 bg-green-600/20 border border-green-400/30 rounded-xl px-3 py-2 sm:px-4 sm:py-3"
+  >
+    <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-green-300 flex-shrink-0" />
+    <span className="text-xs sm:text-sm font-semibold text-green-100 hidden sm:block">Garantía {renderTerm('ROI')}: 90 Días o Dinero de Vuelta</span>
+  </motion.div>
+
+      </section>
+    </TooltipProvider>
   );
-}

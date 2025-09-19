@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteContent } from "@/lib/content";
 

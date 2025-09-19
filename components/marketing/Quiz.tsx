@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle, 
-  DialogTrigger 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
 } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
@@ -20,7 +20,11 @@ interface QuizState {
   challenge: string;
 }
 
-export function Quiz() {
+interface QuizProps {
+  onQuizComplete?: (result: QuizState) => void;
+}
+
+export function Quiz({ onQuizComplete }: QuizProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState<"start" | "questions" | "result">("start");
   const [answers, setAnswers] = useState<QuizState>({ industry: "", challenge: "" });
@@ -60,6 +64,17 @@ export function Quiz() {
       setRecommendation("Explora todas nuestras soluciones personalizadas.");
     }
     setStep("result");
+
+    // Notify parent after showing result
+    setTimeout(() => {
+      if (onQuizComplete) {
+        onQuizComplete(answers);
+      }
+      setIsOpen(false);
+      setStep("start");
+      setAnswers({ industry: "", challenge: "" });
+      setRecommendation("");
+    }, 2000);
   };
 
   const handleClose = () => {
@@ -137,8 +152,8 @@ export function Quiz() {
               </Select>
             </div>
 
-            <Button 
-              onClick={handleSubmit} 
+            <Button
+              onClick={handleSubmit}
               disabled={!answers.industry || !answers.challenge}
               className="w-full bg-brand-600 hover:bg-brand-500 disabled:opacity-50"
             >

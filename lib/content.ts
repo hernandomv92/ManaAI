@@ -16,9 +16,9 @@ export const siteContent = {
 
   // Hero section
   hero: {
-    title: "Aumenta tus ventas en 30 días con IA que funciona—o te devolvemos tu dinero.",
+    title: "Utiliza IA Probada para Multiplicar Ventas en 30 Días (Comprobado por 500+ Negocios), o Te Devolvemos el 100%.",
     subtitle: "Agentes con IA, procesos orquestados y datos listos para vender más.",
-    primaryCTA: "Explorar soluciones",
+    primaryCTA: "Obtén tu Plan de IA (en 30 Segundos)",
     secondaryCTA: "Habla con un experto",
     whatsappNumber: "573238253871", // WhatsApp number for +573238253871
   },
@@ -33,6 +33,7 @@ export const siteContent = {
         icon: "Search",
         title: "Auditorías IA",
         subtitle: "Diagnóstico express que revela oportunidades ocultas",
+        microProof: "Identificamos +25% más oportunidades en 48h para 200+ empresas",
         bullets: [
           "Análisis completo: Identifica +25% más oportunidades de automatización en 48 horas",
           "Plan accionable: Roadmap personalizado para ROI inmediato sin inversión inicial",
@@ -44,6 +45,7 @@ export const siteContent = {
         icon: "Bot",
         title: "Agentes con IA",
         subtitle: "Bots inteligentes que venden mientras duermes",
+        microProof: "+30% cierres en WhatsApp para e-commerce español",
         bullets: [
           "Automatiza chats: Cierra +30% más deals en WhatsApp con respuestas contextuales 24/7",
           "Integración seamless: Conecta con tu CRM y multiplica leads cualificados x3",
@@ -55,6 +57,7 @@ export const siteContent = {
         icon: "Workflow",
         title: "Orquestación n8n",
         subtitle: "Conecta todo y elimina el caos operativo",
+        microProof: "Ahorramos 40+ horas semanales a growth labs",
         bullets: [
           "Workflows automáticos: Reduce errores humanos en 90% y acelera procesos x4",
           "Integraciones inteligentes: Une sistemas legacy con IA moderna sin código",
@@ -66,6 +69,7 @@ export const siteContent = {
         icon: "Database",
         title: "Scrapers/Data",
         subtitle: "Datos frescos para estrategias que convierten",
+        microProof: "+50% conversiones para growth labs con datos enriquecidos",
         bullets: [
           "Extracción automatizada: Recopila insights de competidores en tiempo real",
           "Enriquecimiento masivo: Convierte leads fríos en calientes con +50% precisión",
@@ -77,6 +81,7 @@ export const siteContent = {
         icon: "Globe",
         title: "Sitios con IA",
         subtitle: "Web que vende sola desde el día 1",
+        microProof: "+35% conversiones para SaaS con sitios automatizados",
         bullets: [
           "Conversión optimizada: Aumenta tasas de cierre en 35% con personalización dinámica",
           "Automatizaciones integradas: Chatbots y funnels que capturan leads 24/7",
@@ -88,6 +93,7 @@ export const siteContent = {
         icon: "Shield",
         title: "Garantía de Resultados",
         subtitle: "Vende más o te devolvemos el dinero",
+        microProof: "500+ negocios con ROI garantizado o reembolso 100%",
         bullets: [
           "ROI medible: +20% ventas en 90 días o reembolso completo sin preguntas",
           "Soporte inquebrantable: Ajustes continuos para maximizar tu impacto",
@@ -141,6 +147,16 @@ export const siteContent = {
         proof: "Mejoramos ROI en 60% gracias a la orquestación n8n"
       }
     ]
+  },
+
+  // Glossary for tooltips
+  glossary: {
+    IA: "Inteligencia Artificial que automatiza ventas y procesos sin complicaciones",
+    ROI: "Retorno de Inversión: Mide el beneficio económico de nuestras soluciones",
+    n8n: "Herramienta de orquestación que conecta apps y automatiza flujos de trabajo",
+    Scrapers: "Herramientas que extraen datos valiosos de internet de forma automática y ética",
+    agentes: "Bots inteligentes que interactúan con clientes como un equipo humano 24/7",
+    Data: "Datos enriquecidos y limpios para tomar decisiones de negocio más inteligentes"
   },
 
   // Final CTA

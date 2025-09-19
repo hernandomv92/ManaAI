@@ -11,8 +11,8 @@ import {
   Shield,
   ArrowRight
 } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { siteContent } from "@/lib/content";
 
 const iconMap = {
@@ -24,7 +24,11 @@ const iconMap = {
   Shield
 };
 
-export function SolutionsGrid() {
+interface SolutionsGridProps {
+  quizResult?: string | null;
+}
+
+export function SolutionsGrid({ quizResult }: SolutionsGridProps) {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -39,6 +43,20 @@ export function SolutionsGrid() {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0 }
   };
+
+  // Reorder solutions based on quiz result
+  let orderedItems = [...siteContent.solutions.items];
+  if (quizResult) {
+    const priorities: { [key: string]: string[] } = {
+      leads: ['datos', 'agentes', 'procesos', 'auditorias', 'sitios', 'garantia'],
+      sales: ['agentes', 'sitios', 'datos', 'procesos', 'auditorias', 'garantia'],
+      processes: ['procesos', 'auditorias', 'agentes', 'datos', 'sitios', 'garantia'],
+    };
+    const order = priorities[quizResult] || priorities.leads || orderedItems.map(item => item.id);
+    orderedItems = order.map(id => siteContent.solutions.items.find(item => item.id === id)!);
+  }
+
+  const defaultOpen = quizResult ? orderedItems[0].id : undefined;
 
   return (
     <section id="soluciones" className="py-20 bg-gradient-to-b from-brand-950 to-brand-900">
@@ -59,67 +77,69 @@ export function SolutionsGrid() {
           </p>
         </motion.div>
 
-        {/* Solutions Grid */}
+        {/* Solutions Accordion */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {siteContent.solutions.items.map((solution, index) => {
-            const IconComponent = iconMap[solution.icon as keyof typeof iconMap];
-            
-            return (
-              <motion.div
-                key={solution.id}
-                variants={item}
-                className="group"
-              >
-                <Card className="bg-brand-800/50 border-brand-700/50 backdrop-blur-sm hover:bg-brand-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-600/10 rounded-2xl h-full">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        className="p-3 bg-brand-600/20 rounded-xl group-hover:bg-brand-600/30 transition-colors"
-                      >
-                        <IconComponent className="h-6 w-6 text-brand-300" />
-                      </motion.div>
-                      <div className="text-xs font-medium text-brand-300 bg-brand-600/10 px-3 py-1 rounded-full">
-                        0{index + 1}
+          <Accordion type="single" collapsible defaultValue={defaultOpen} className="w-full">
+            {orderedItems.map((solution, index) => {
+              const IconComponent = iconMap[solution.icon as keyof typeof iconMap];
+              
+              return (
+                <motion.div
+                  key={solution.id}
+                  variants={item}
+                  className="mb-4"
+                >
+                  <AccordionItem value={solution.id} className="border-brand-700/50 bg-brand-800/30 backdrop-blur-sm rounded-2xl overflow-hidden">
+                    <AccordionTrigger className="px-6 py-4 text-left hover:no-underline bg-transparent border-none">
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-center space-x-4">
+                          <motion.div
+                            whileHover={{ scale: 1.1, rotate: 5 }}
+                            className="p-3 bg-brand-600/20 rounded-xl transition-colors"
+                          >
+                            <IconComponent className="h-6 w-6 text-brand-300" />
+                          </motion.div>
+                          <div>
+                            <h3 className="text-xl font-bold text-white">{solution.title}</h3>
+                            <p className="text-sm text-white/60">{solution.subtitle}</p>
+                            <p className="text-xs text-brand-300 mt-1 italic">"{solution.microProof}"</p>
+                          </div>
+                        </div>
+                        <div className="text-xs font-medium text-brand-300 bg-brand-600/10 px-3 py-1 rounded-full">
+                          0{index + 1}
+                        </div>
                       </div>
-                    </div>
-                    <CardTitle className="text-xl font-bold text-white group-hover:text-brand-300 transition-colors">
-                      {solution.title}
-                    </CardTitle>
-                    <p className="text-sm text-white/60 font-medium">
-                      {solution.subtitle}
-                    </p>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <ul className="space-y-2 mb-6">
-                      {solution.bullets.map((bullet, bulletIndex) => (
-                        <li key={bulletIndex} className="flex items-start space-x-2 text-sm text-white/70">
-                          <div className="w-1.5 h-1.5 bg-brand-300 rounded-full mt-2 flex-shrink-0" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href={`/${solution.id}`}>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 group/btn w-full justify-center"
-                      >
-                        Ver más
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-6 pt-0 bg-brand-800/50">
+                      <ul className="space-y-2 mb-6">
+                        {solution.bullets.map((bullet, bulletIndex) => (
+                          <li key={bulletIndex} className="flex items-start space-x-2 text-sm text-white/70">
+                            <div className="w-1.5 h-1.5 bg-brand-300 rounded-full mt-2 flex-shrink-0" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link href={`/${solution.id}`}>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 w-full justify-center"
+                        >
+                          Ver más
+                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </Link>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              );
+            })}
+          </Accordion>
         </motion.div>
       </div>
     </section>

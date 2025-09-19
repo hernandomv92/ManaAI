@@ -1,15 +1,14 @@
 import { Metadata } from 'next';
+import { useState } from 'react';
 import { Navbar } from '@/components/marketing/Navbar';
 import { Hero } from '@/components/marketing/Hero';
 import { SolutionsGrid } from '@/components/marketing/SolutionsGrid';
 import { Testimonials } from '@/components/marketing/Testimonials';
-import { CTA } from '@/components/marketing/CTA';
 import { Footer } from '@/components/marketing/Footer';
 import { FloatingWhatsApp } from '@/components/marketing/FloatingWhatsApp';
 import { ChatWidget } from '@/components/marketing/ChatWidget';
 import { Quiz } from '@/components/marketing/Quiz';
 import { LeadMagnet } from '@/components/marketing/LeadMagnet';
-import { DualCTA } from '@/components/marketing/DualCTA';
 import { siteContent } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -22,18 +21,18 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const [quizResult, setQuizResult] = useState<{industry: string, challenge: string} | null>(null);
+
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
       <div id="quiz-section">
-        <Quiz />
+        <Quiz onQuizComplete={(result) => setQuizResult(result)} />
       </div>
-      <SolutionsGrid />
+      <SolutionsGrid quizResult={quizResult?.challenge || null} />
       <Testimonials />
-      <CTA />
       <LeadMagnet />
-      <DualCTA />
       <Footer />
       <FloatingWhatsApp />
       <ChatWidget />

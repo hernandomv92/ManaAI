@@ -33,6 +33,11 @@ export function Testimonials() {
                 className="flex items-center justify-center"
               >
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300 w-full text-center space-y-2">
+                  <Avatar className="h-12 w-12 mx-auto border-2 border-brand-300/20">
+                    <AvatarFallback className="bg-brand-600 text-white font-semibold text-sm">
+                      {companyProof.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
+                  </Avatar>
                   <span className="text-white/70 font-semibold text-sm block">
                     {companyProof.name}
                   </span>
@@ -45,7 +50,7 @@ export function Testimonials() {
           </div>
         </motion.div>
 
-        {/* Testimonial */}
+        {/* Main Testimonial */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +97,8 @@ export function Testimonials() {
             {/* Author */}
             <div className="flex items-center space-x-4">
               <Avatar className="h-14 w-14 border-2 border-brand-300/20">
-                <AvatarImage 
-                  src={socialProof.testimonial.avatar} 
+                <AvatarImage
+                  src={socialProof.testimonial.avatar}
                   alt={socialProof.testimonial.author}
                 />
                 <AvatarFallback className="bg-brand-600 text-white font-semibold">

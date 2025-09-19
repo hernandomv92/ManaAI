@@ -20,7 +20,7 @@ export const siteContent = {
     subtitle: "Agentes con IA, procesos orquestados y datos listos para vender más.",
     primaryCTA: "Explorar soluciones",
     secondaryCTA: "Habla con un experto",
-    whatsappNumber: "<TU_NUMERO>", // TODO: Replace with actual WhatsApp number
+    whatsappNumber: "573238253871", // WhatsApp number for +573238253871
   },
 
   // Solutions section

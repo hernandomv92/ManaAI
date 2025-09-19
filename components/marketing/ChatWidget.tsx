@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot } from "lucide-react";
+import { MessageCircle, User, X, Send, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -119,7 +119,7 @@ export function ChatWidget() {
     <>
       {/* Chat Widget Button */}
       <motion.div
-        className="fixed bottom-6 right-20 z-30"
+        className="fixed bottom-6 right-6 z-30"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6, type: "spring" }}
@@ -130,7 +130,7 @@ export function ChatWidget() {
           aria-label="Abrir chat asistente"
           aria-expanded={isOpen}
         >
-          <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-200" />
+          <User className="h-6 w-6 group-hover:scale-110 transition-transform duration-200" />
         </Button>
       </motion.div>
 

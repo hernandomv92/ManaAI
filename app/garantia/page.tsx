@@ -112,6 +112,47 @@ export default function GarantiaPage() {
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
               90 días de garantía | Reembolso 100% si no hay resultados
             </p>
+
+            {/* Explainer Video and Urgency Timer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="space-y-6 max-w-4xl mx-auto"
+            >
+              {/* Video Embed */}
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black/20">
+                <iframe
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0" // Replace with actual 15-second explainer video ID
+                  className="w-full h-full"
+                  title="Cómo garantizamos tu ROI"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <p className="text-sm text-white/50 text-center italic">
+                Mira cómo garantizamos tu ROI — o full refund en 90 días
+              </p>
+
+              {/* Urgency Timer and Stat */}
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-2xl p-6">
+                {/* Pulsing Timer Badge */}
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="flex items-center space-x-2 bg-gradient-to-r from-green-600/20 to-blue-600/20 border border-green-400/30 rounded-xl px-4 py-3"
+                >
+                  <Clock className="h-4 w-4 text-green-300" />
+                  <span className="text-sm font-semibold text-green-100">90 días de protección</span>
+                </motion.div>
+                {/* Stat */}
+                <div className="text-center sm:text-left">
+                  <p className="text-white/70 text-sm">Únete a</p>
+                  <p className="text-2xl font-bold text-white">500+ negocios</p>
+                  <p className="text-white/70 text-sm">que ya venden más con IA</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

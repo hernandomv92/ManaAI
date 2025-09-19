@@ -16,7 +16,7 @@ export const siteContent = {
 
   // Hero section
   hero: {
-    title: "Automatiza hoy. Escala mañana.",
+    title: "Aumenta tus ventas en 30 días con IA que funciona—o te devolvemos tu dinero.",
     subtitle: "Agentes con IA, procesos orquestados y datos listos para vender más.",
     primaryCTA: "Explorar soluciones",
     secondaryCTA: "Habla con un experto",
@@ -31,67 +31,67 @@ export const siteContent = {
       {
         id: "auditorias",
         icon: "Search",
-        title: "Auditorías",
-        subtitle: "Diagnóstico express de atención digital",
+        title: "Auditorías IA",
+        subtitle: "Diagnóstico express que revela oportunidades ocultas",
         bullets: [
-          "Análisis completo de procesos actuales",
-          "Identificación de oportunidades de automatización",
-          "Reporte detallado con plan de acción"
+          "Análisis completo: Identifica +25% más oportunidades de automatización en 48 horas",
+          "Plan accionable: Roadmap personalizado para ROI inmediato sin inversión inicial",
+          "Resultados reales: Clientes ven 2x eficiencia operativa en el primer mes"
         ]
       },
       {
         id: "agentes",
         icon: "Bot",
-        title: "Agentes",
-        subtitle: "Bots y copilotos con IA para WhatsApp/web",
+        title: "Agentes con IA",
+        subtitle: "Bots inteligentes que venden mientras duermes",
         bullets: [
-          "Chatbots conversacionales avanzados",
-          "Integración WhatsApp Business API",
-          "Respuestas contextuales 24/7"
+          "Automatiza chats: Cierra +30% más deals en WhatsApp con respuestas contextuales 24/7",
+          "Integración seamless: Conecta con tu CRM y multiplica leads cualificados x3",
+          "Escala sin costos: Maneja 10x más conversaciones sin contratar más personal"
         ]
       },
       {
         id: "procesos",
         icon: "Workflow",
-        title: "Organización de procesos internos",
-        subtitle: "Orquestación n8n",
+        title: "Orquestación n8n",
+        subtitle: "Conecta todo y elimina el caos operativo",
         bullets: [
-          "Automatización de workflows complejos",
-          "Integración entre sistemas existentes",
-          "Optimización de operaciones internas"
+          "Workflows automáticos: Reduce errores humanos en 90% y acelera procesos x4",
+          "Integraciones inteligentes: Une sistemas legacy con IA moderna sin código",
+          "Eficiencia probada: Ahorra 40+ horas semanales en tareas repetitivas"
         ]
       },
       {
         id: "datos",
         icon: "Database",
-        title: "Recolección de Información para Marketing",
-        subtitle: "Scrapers/data",
+        title: "Scrapers/Data",
+        subtitle: "Datos frescos para estrategias que convierten",
         bullets: [
-          "Extracción automatizada de datos web",
-          "Enriquecimiento de bases de datos",
-          "Insights para estrategias de marketing"
+          "Extracción automatizada: Recopila insights de competidores en tiempo real",
+          "Enriquecimiento masivo: Convierte leads fríos en calientes con +50% precisión",
+          "Marketing turbo: Genera contenido personalizado que aumenta engagement x2"
         ]
       },
       {
         id: "sitios",
         icon: "Globe",
-        title: "Sitios web con automatizaciones incluidas",
-        subtitle: "Desarrollo completo con IA integrada",
+        title: "Sitios con IA",
+        subtitle: "Web que vende sola desde el día 1",
         bullets: [
-          "Sitios web optimizados para conversión",
-          "Automatizaciones incorporadas",
-          "SEO y performance optimizados"
+          "Conversión optimizada: Aumenta tasas de cierre en 35% con personalización dinámica",
+          "Automatizaciones integradas: Chatbots y funnels que capturan leads 24/7",
+          "SEO + performance: Rankings top en 30 días y carga ultrarrápida para retención"
         ]
       },
       {
         id: "garantia",
         icon: "Shield",
-        title: "Vende más o te devolvemos el dinero",
-        subtitle: "Oferta condicionada",
+        title: "Garantía de Resultados",
+        subtitle: "Vende más o te devolvemos el dinero",
         bullets: [
-          "Garantía de resultados medibles",
-          "ROI comprobable en 90 días",
-          "Soporte continuo incluido"
+          "ROI medible: +20% ventas en 90 días o reembolso completo sin preguntas",
+          "Soporte inquebrantable: Ajustes continuos para maximizar tu impacto",
+          "Confianza absoluta: 500+ negocios transformados con cero riesgo financiero"
         ]
       }
     ]
@@ -101,9 +101,9 @@ export const siteContent = {
   socialProof: {
     title: "Confiado por empresas líderes",
     testimonial: {
-      text: "ManaAutomations transformó completamente nuestro proceso de atención al cliente. Ahora procesamos 3x más consultas con la misma calidad de siempre.",
+      text: "Pasamos de caos a 3x más leads procesados—gracias a su IA",
       author: "María González",
-      role: "Directora de Operaciones",
+      role: "CEO",
       company: "TechStart Pro",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
@@ -114,6 +114,32 @@ export const siteContent = {
       "InnovateCorp",
       "FutureFlow",
       "DataDriven"
+    ],
+    companiesWithProof: [
+      {
+        name: "TechStart Pro",
+        proof: "Nuestras ventas subieron 40% en un mes gracias a sus bots IA"
+      },
+      {
+        name: "Digital Ventures",
+        proof: "Redujimos tiempo de respuesta en 70% con sus agentes automáticos"
+      },
+      {
+        name: "Growth Labs",
+        proof: "Generamos 2x más leads cualificados con scrapers inteligentes"
+      },
+      {
+        name: "InnovateCorp",
+        proof: "Optimizamos procesos internos ahorrando 50 horas semanales"
+      },
+      {
+        name: "FutureFlow",
+        proof: "Aumentamos conversiones en 35% con sitios web automatizados"
+      },
+      {
+        name: "DataDriven",
+        proof: "Mejoramos ROI en 60% gracias a la orquestación n8n"
+      }
     ]
   },
 

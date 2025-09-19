@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteContent } from "@/lib/content";
 
@@ -17,6 +17,8 @@ export function Hero() {
       solutionsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const { socialProof } = siteContent;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -41,17 +43,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
             >
-              {siteContent.hero.title.split(' ').map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  className={index === 2 || index === 4 ? "text-brand-300 block" : ""}
-                >
-                  {word}{' '}
-                </motion.span>
-              ))}
+              {siteContent.hero.title}
             </motion.h1>
             
             <motion.p
@@ -62,6 +54,21 @@ export function Hero() {
             >
               {siteContent.hero.subtitle}
             </motion.p>
+
+            {/* Early Testimonial */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="max-w-2xl mx-auto bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-2xl p-6 text-left"
+            >
+              <blockquote className="text-lg italic text-white/90 font-medium">
+                "{socialProof.testimonial.text}"
+              </blockquote>
+              <div className="mt-4 flex items-center space-x-3 text-sm text-brand-300">
+                <span className="font-semibold">– {socialProof.testimonial.author}, {socialProof.testimonial.role}</span>
+              </div>
+            </motion.div>
           </div>
 
           {/* CTAs */}
@@ -71,14 +78,27 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.0 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
           >
-            <Button
-              onClick={scrollToSolutions}
-              size="lg"
-              className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
-            >
-              {siteContent.hero.primaryCTA}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Button
+                onClick={scrollToSolutions}
+                size="lg"
+                className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
+              >
+                {siteContent.hero.primaryCTA}
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              
+              {/* Guarantee Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="flex items-center space-x-2 bg-green-600/20 border border-green-400/30 rounded-xl px-4 py-3"
+              >
+                <Shield className="h-5 w-5 text-green-300" />
+                <span className="text-sm font-semibold text-green-100">Garantía ROI: 90 Días o Dinero de Vuelta</span>
+              </motion.div>
+            </div>
             
             <Button
               onClick={handleWhatsApp}

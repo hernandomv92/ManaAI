@@ -23,19 +23,22 @@ export function Testimonials() {
             {socialProof.title}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {socialProof.companies.map((company, index) => (
+            {socialProof.companiesWithProof.map((companyProof, index) => (
               <motion.div
-                key={company}
+                key={companyProof.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="flex items-center justify-center"
               >
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300 w-full text-center">
-                  <span className="text-white/70 font-semibold text-sm">
-                    {company}
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300 w-full text-center space-y-2">
+                  <span className="text-white/70 font-semibold text-sm block">
+                    {companyProof.name}
                   </span>
+                  <p className="text-xs text-brand-300 italic leading-tight">
+                    "{companyProof.proof}"
+                  </p>
                 </div>
               </motion.div>
             ))}

@@ -63,6 +63,7 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'grid-pattern': 'repeating-linear-gradient(0deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 20px), repeating-linear-gradient(90deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 20px)',
       },
       borderRadius: {
         lg: 'var(--radius)',

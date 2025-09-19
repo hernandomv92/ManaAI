@@ -9,7 +9,7 @@ export const siteContent = {
 
   // Navigation
   navigation: [
-    { name: "Soluciones", href: "#soluciones" },
+    { name: "Soluciones", href: "/#soluciones" },
     { name: "Blog", href: "/blog" },
     { name: "Nosotros", href: "/nosotros" },
   ],

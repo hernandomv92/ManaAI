@@ -23,8 +23,8 @@ export function Navbar() {
   }, []);
 
   const isActive = (href: string) => {
-    if (href.startsWith("#")) return false;
-    return pathname === href;
+    const baseHref = href.split('#')[0] || '/';
+    return pathname === baseHref;
   };
 
   const navVariants = {

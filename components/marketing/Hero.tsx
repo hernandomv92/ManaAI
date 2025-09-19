@@ -12,14 +12,15 @@ import {
 import { siteContent } from "@/lib/content";
 
 function renderTerm(term: string) {
-  if (siteContent.glossary[term]) {
+  const glossaryEntry = (siteContent.glossary as Record<string, string | undefined>)[term];
+  if (glossaryEntry) {
     return (
       <Tooltip>
         <TooltipTrigger asChild>
           <span className="text-brand-300 underline decoration-dotted cursor-help">{term}</span>
         </TooltipTrigger>
         <TooltipContent side="top">
-          <p>{siteContent.glossary[term]}</p>
+          <p>{glossaryEntry}</p>
         </TooltipContent>
       </Tooltip>
     );
@@ -137,3 +138,4 @@ export function Hero() {
       </section>
     </TooltipProvider>
   );
+}

@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Search, 
-  Bot, 
-  Workflow, 
-  Database, 
-  Globe, 
+import Link from "next/link";
+import {
+  Search,
+  Bot,
+  Workflow,
+  Database,
+  Globe,
   Shield,
   ArrowRight
 } from "lucide-react";
@@ -104,14 +105,16 @@ export function SolutionsGrid() {
                         </li>
                       ))}
                     </ul>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 group/btn w-full justify-center"
-                    >
-                      Ver más
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                    <Link href={`/${solution.id}`}>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 group/btn w-full justify-center"
+                      >
+                        Ver más
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>

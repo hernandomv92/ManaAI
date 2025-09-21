@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,9 +11,9 @@ import {
   DialogTrigger
 } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 interface QuizState {
   industry: string;
@@ -21,99 +21,122 @@ interface QuizState {
 }
 
 interface QuizProps {
-  onQuizComplete?: (result: QuizState) => void;
+  onQuizComplete?: (result: QuizState & { email?: string }) => void;
 }
+
+const INDUSTRY_OPTIONS = [
+  { value: "ecommerce", label: "E-commerce" },
+  { value: "services", label: "Servicios profesionales" },
+  { value: "saas", label: "Producto o SaaS" },
+  { value: "other", label: "Otro" }
+];
+
+const CHALLENGE_OPTIONS = [
+  { value: "leads", label: "Generar leads cualificados" },
+  { value: "sales", label: "Cerrar ventas mas rapido" },
+  { value: "processes", label: "Automatizar procesos clave" },
+  { value: "retention", label: "Retener y reactivar clientes" }
+];
 
 export function Quiz({ onQuizComplete }: QuizProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState<"start" | "questions" | "result">("start");
+  const [step, setStep] = useState<"intro" | "questions" | "result">("intro");
   const [answers, setAnswers] = useState<QuizState>({ industry: "", challenge: "" });
   const [recommendation, setRecommendation] = useState<string>("");
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
-  const industries = [
-    { value: "ecommerce", label: "E-commerce" },
-    { value: "services", label: "Servicios" },
-    { value: "tech", label: "Tecnología" },
-    { value: "other", label: "Otro" }
-  ];
+  const resetQuiz = () => {
+    setStep("intro");
+    setAnswers({ industry: "", challenge: "" });
+    setRecommendation("");
+    setEmail("");
+    setSubmitted(false);
+  };
 
-  const challenges = [
-    { value: "leads", label: "Generar más leads" },
-    { value: "sales", label: "Cerrar más ventas" },
-    { value: "processes", label: "Automatizar procesos" },
-    { value: "other", label: "Otro" }
-  ];
+  const handleDialogChange = (open: boolean) => {
+    setIsOpen(open);
+    if (!open) {
+      resetQuiz();
+    }
+  };
 
   const handleStart = () => {
     setStep("questions");
   };
 
   const handleAnswer = (key: keyof QuizState, value: string) => {
-    setAnswers(prev => ({ ...prev, [key]: value }));
+    setAnswers((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = () => {
-    // Simple logic for recommendation
+  const buildRecommendation = () => {
     if (answers.challenge === "leads") {
-      setRecommendation("Te recomendamos nuestros Scrapers/Data para enriquecer leads.");
-    } else if (answers.challenge === "sales") {
-      setRecommendation("Te recomendamos Agentes IA para cerrar ventas automáticamente.");
-    } else if (answers.challenge === "processes") {
-      setRecommendation("Te recomendamos Orquestación n8n para optimizar flujos.");
-    } else {
-      setRecommendation("Explora todas nuestras soluciones personalizadas.");
+      return "Activa agentes IA que cualifican y enrutan leads sin supervision.";
     }
-    setStep("result");
-
-    // Notify parent after showing result
-    setTimeout(() => {
-      if (onQuizComplete) {
-        onQuizComplete(answers);
-      }
-      setIsOpen(false);
-      setStep("start");
-      setAnswers({ industry: "", challenge: "" });
-      setRecommendation("");
-    }, 2000);
+    if (answers.challenge === "sales") {
+      return "Orquesta secuencias omnicanal con IA que empuja cada oportunidad.";
+    }
+    if (answers.challenge === "processes") {
+      return "Mapea procesos criticos y automatizalos con n8n y dashboards.";
+    }
+    if (answers.challenge === "retention") {
+      return "Crea flujos de reactivacion con datos enriquecidos y triggers IA.";
+    }
+    return "Explora nuestras soluciones modulares y arma tu stack IA paso a paso.";
   };
 
-  const handleClose = () => {
-    setIsOpen(false);
-    setStep("start");
-    setAnswers({ industry: "", challenge: "" });
-    setRecommendation("");
+  const handleSubmitAnswers = () => {
+    setRecommendation(buildRecommendation());
+    setStep("result");
+  };
+
+  const handleEmailSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitted(true);
+    if (onQuizComplete) {
+      onQuizComplete({ ...answers, email });
+    }
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleDialogChange}>
       <DialogTrigger asChild>
         <Button
           size="lg"
-          className="w-full max-w-xs sm:w-auto sm:max-w-none whitespace-normal break-words text-center leading-snug bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300"
+          className="w-full max-w-xs bg-amber-300 text-base font-semibold text-brand-950 shadow-md transition-colors duration-200 hover:bg-amber-200 sm:max-w-none"
         >
-          ¿Tu negocio listo para IA que vende? Descubre en 60 segundos.
-          <ArrowRight className="ml-2 h-5 w-5" />
+          Tu negocio ya vende con IA sin dormir? Haz el test (60 s)
+          <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md bg-brand-900/95 border-brand-700/50 backdrop-blur-sm text-white">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-white">
-            {step === "start" && "¿Listo para IA que vende?"}
-            {step === "questions" && "Responde 2 preguntas rápidas"}
-            {step === "result" && "Tu recomendación personalizada"}
+            {step === "intro" && "Diagnostico express de IA"}
+            {step === "questions" && "Tu negocio en 60 segundos"}
+            {step === "result" && "Reporte personalizado listo"}
           </DialogTitle>
           <DialogDescription className="text-white/70">
-            {step === "start" && "Descubre si tu negocio está preparado para automatizaciones que generan ventas."}
-            {step === "questions" && "Solo toma 60 segundos."}
-            {step === "result" && "Basado en tus respuestas, aquí va tu sugerencia."}
+            {step === "intro" && "Descubre si estas listo para automatizar ventas con IA probada."}
+            {step === "questions" && "Selecciona la opcion que mejor describe tu realidad actual."}
+            {step === "result" && submitted
+              ? "Ya enviamos el reporte a tu bandeja."
+              : "Deja tu email y recibe el plan accionable con metricas y siguientes pasos."}
           </DialogDescription>
         </DialogHeader>
 
-        {step === "start" && (
+        {step === "intro" && (
           <div className="space-y-6 text-center">
-            <p className="text-lg text-white/80">Evalúa tu situación actual y recibe recomendaciones personalizadas.</p>
+            <p className="text-lg text-white/80">
+              Te mostramos que automatizar primero, cuanto tardaras y que resultado puedes esperar.
+            </p>
+            <div className="flex flex-col gap-3 text-sm text-white/60">
+              <span>✔️ 3 preguntas rapidas</span>
+              <span>✔️ Roadmap listo para compartir con tu equipo</span>
+              <span>✔️ Benchmarks reales de negocios como el tuyo</span>
+            </div>
             <Button onClick={handleStart} className="w-full bg-brand-600 hover:bg-brand-500">
-              Empezar Quiz
+              Empezar ahora
             </Button>
           </div>
         )}
@@ -121,15 +144,17 @@ export function Quiz({ onQuizComplete }: QuizProps) {
         {step === "questions" && (
           <div className="space-y-6">
             <div>
-              <label className="text-sm font-medium text-white/80 mb-2 block">1. ¿En qué industria opera tu negocio?</label>
+              <label className="mb-2 block text-sm font-medium text-white/80">
+                1. En que industria vendes mas?
+              </label>
               <Select value={answers.industry} onValueChange={(value) => handleAnswer("industry", value)}>
                 <SelectTrigger className="bg-brand-800/50 border-brand-700/50 text-white">
                   <SelectValue placeholder="Selecciona tu industria" />
                 </SelectTrigger>
                 <SelectContent className="bg-brand-900 border-brand-700">
-                  {industries.map((ind) => (
-                    <SelectItem key={ind.value} value={ind.value} className="text-white">
-                      {ind.label}
+                  {INDUSTRY_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value} className="text-white">
+                      {option.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -137,15 +162,17 @@ export function Quiz({ onQuizComplete }: QuizProps) {
             </div>
 
             <div>
-              <label className="text-sm font-medium text-white/80 mb-2 block">2. ¿Cuál es tu principal desafío actual?</label>
+              <label className="mb-2 block text-sm font-medium text-white/80">
+                2. Cual es tu prioridad #1 ahora mismo?
+              </label>
               <Select value={answers.challenge} onValueChange={(value) => handleAnswer("challenge", value)}>
                 <SelectTrigger className="bg-brand-800/50 border-brand-700/50 text-white">
-                  <SelectValue placeholder="Selecciona tu desafío" />
+                  <SelectValue placeholder="Selecciona el reto principal" />
                 </SelectTrigger>
                 <SelectContent className="bg-brand-900 border-brand-700">
-                  {challenges.map((ch) => (
-                    <SelectItem key={ch.value} value={ch.value} className="text-white">
-                      {ch.label}
+                  {CHALLENGE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value} className="text-white">
+                      {option.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -153,36 +180,48 @@ export function Quiz({ onQuizComplete }: QuizProps) {
             </div>
 
             <Button
-              onClick={handleSubmit}
+              onClick={handleSubmitAnswers}
               disabled={!answers.industry || !answers.challenge}
               className="w-full bg-brand-600 hover:bg-brand-500 disabled:opacity-50"
             >
-              Descubrir mi solución
+              Quiero mi plan IA
             </Button>
           </div>
         )}
 
         {step === "result" && (
           <div className="space-y-6 text-center">
-            <Badge className="bg-green-600/20 text-green-300 border-green-400/30">
-              Recomendación Personalizada
+            <Badge className="mx-auto bg-brand-500/20 text-brand-200 border-brand-400/30">
+              Tu plan IA personalizado
             </Badge>
             <p className="text-lg text-white/90">{recommendation}</p>
-            <div className="space-y-3">
-              <Link href="/agentes">
-                <Button className="w-full bg-brand-600 hover:bg-brand-500">
-                  Explorar Agentes IA
-                  <ArrowRight className="ml-2 h-5 w-5" />
+            {!submitted ? (
+              <form onSubmit={handleEmailSubmit} className="space-y-4 text-left">
+                <Input
+                  type="email"
+                  required
+                  placeholder="tu@email.com"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  className="bg-brand-800/50 border-brand-700/50 text-white placeholder:text-white/50"
+                />
+                <Button type="submit" className="w-full bg-amber-300 text-brand-950 hover:bg-amber-200">
+                  Enviar mi reporte IA
                 </Button>
-              </Link>
-              <Button variant="outline" onClick={handleClose} className="w-full border-white/20 text-white">
-                Cerrar
-              </Button>
-            </div>
+              </form>
+            ) : (
+              <div className="space-y-4 text-center">
+                <p className="text-sm text-white/70">
+                  Revisa tu bandeja (y la carpeta de promociones). Te compartimos un PDF con roadmap, metricas y la propuesta de siguiente paso.
+                </p>
+                <Button onClick={() => handleDialogChange(false)} className="w-full bg-brand-600 hover:bg-brand-500">
+                  Volver a la pagina
+                </Button>
+              </div>
+            )}
           </div>
         )}
       </DialogContent>
     </Dialog>
   );
 }
-

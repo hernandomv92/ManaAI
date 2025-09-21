@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Calendar, Phone } from "lucide-react";
+import { MessageCircle, Calendar } from "lucide-react";
 import { siteContent } from "@/lib/content";
 import {
   DropdownMenu,
@@ -32,35 +32,11 @@ export function FloatingWhatsApp() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <motion.button
-            className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-green-500/25 transition-all duration-300 group relative"
+            className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-xl transition-transform duration-200 group"
             aria-label="Contacto"
-            animate={{
-              boxShadow: [
-                "0 0 0 0 rgba(34, 197, 94, 0.4)",
-                "0 0 0 20px rgba(34, 197, 94, 0.0)",
-              ]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeOut"
-            }}
+            whileHover={{ scale: 1.03 }}
           >
             <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-200" />
-            
-            {/* Pulse animation */}
-            <motion.div
-              className="absolute inset-0 bg-green-500 rounded-full -z-10"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.6, 0, 0.6],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeOut"
-              }}
-            />
           </motion.button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-white/95 backdrop-blur-sm border-gray-200 w-48 mr-4 shadow-lg rounded-xl border-0 p-2">
@@ -88,10 +64,12 @@ export function FloatingWhatsApp() {
         whileHover={{ opacity: 1, y: 0 }}
       >
         <div className="bg-brand-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg border border-brand-700">
-          Contacto rápido
+          Contacto rapido
           <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-brand-900" />
         </div>
       </motion.div>
     </motion.div>
   );
 }
+
+

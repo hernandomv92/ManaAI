@@ -1,7 +1,9 @@
-"use client";
+﻿"use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, Shield } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Tooltip,
@@ -29,94 +31,88 @@ function renderTerm(term: string) {
 }
 
 export function Hero() {
+  const { socialProof } = siteContent;
+  const testimonial = socialProof.testimonial;
+
+  const badge = "Garantia 100% resultados";
+  const promise = "Si no logramos al menos +20% ventas en 30 dias, devolvemos el 100% de tu inversion.";
+  const primaryCTA = "Obten tu Plan de IA en 30 Segundos";
+  const credibility = {
+    result: "+45% ventas en 30 dias",
+    client: "TechStart Pro",
+    caseLink: "/casos/techstart-pro",
+    caseLabel: "Ver caso de exito"
+  };
+
   const scrollToQuiz = () => {
-    const quizSection = document.getElementById('quiz-section');
+    const quizSection = document.getElementById("quiz-section");
     if (quizSection) {
-      quizSection.scrollIntoView({ behavior: 'smooth' });
+      quizSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const { socialProof } = siteContent;
-
   return (
     <TooltipProvider>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-20" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800">
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-8"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8"
         >
-          {/* Main Title */}
-          <div className="space-y-4">
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
-            >
-              Utiliza {renderTerm('IA')} Probada para Multiplicar Ventas en 30 Días (Comprobado por 500+ Negocios), o Te Devolvemos el 100%.
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed"
-            >
-              Agentes con {renderTerm('IA')}, procesos orquestados y {renderTerm('Data')} listos para vender más.
-            </motion.p>
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white/70">
+            <Shield className="h-4 w-4 text-brand-300" aria-hidden="true" />
+            {badge}
+          </span>
 
-            {/* Early Testimonial */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-              className="max-w-2xl mx-auto bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-2xl p-6 text-left"
-            >
-              <blockquote className="text-lg italic text-white/90 font-medium">
-                "{socialProof.testimonial.text}"
-              </blockquote>
-              <div className="mt-4 flex items-center space-x-3 text-sm text-brand-300">
-                <span className="font-semibold">– {socialProof.testimonial.author}, {socialProof.testimonial.role}</span>
+          <div className="mt-6 flex flex-col items-center gap-6">
+            <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+              Multiplica tus ventas en <span className="text-brand-300">30 dias</span> con <span className="text-brand-300">IA probada</span>.
+            </h1>
+
+            <p className="max-w-2xl text-base font-medium text-white/70 sm:text-lg">{promise}</p>
+
+            <p className="max-w-3xl text-base text-white/80 sm:text-lg">
+              Agentes con {renderTerm("IA")}, procesos orquestados y datos limpios listos para vender mas.
+            </p>
+
+            <div className="flex flex-col items-center gap-3 text-sm text-white/70">
+              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm">
+                <Image
+                  src={testimonial.avatar}
+                  alt={"Foto de " + testimonial.author}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full object-cover"
+                />
+                <div className="text-left">
+                  <p className="text-base font-semibold text-white">{credibility.result}</p>
+                  <p className="text-xs text-white/60">Caso real: {credibility.client}</p>
+                </div>
               </div>
-            </motion.div>
+              <Link
+                href={credibility.caseLink}
+                className="inline-flex items-center gap-1 text-xs font-semibold text-brand-300 hover:text-brand-200"
+              >
+                {credibility.caseLabel}
+                <ArrowRight className="h-3 w-3" aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div className="flex w-full flex-col items-center gap-4 pt-6 sm:flex-row sm:justify-center">
+              <Button
+                onClick={scrollToQuiz}
+                size="lg"
+                className="w-full max-w-xs whitespace-normal break-words bg-brand-600 text-lg font-semibold text-white shadow-xl transition-colors duration-300 hover:bg-brand-500 sm:max-w-none"
+              >
+                {primaryCTA}
+                <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+              </Button>
+            </div>
           </div>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
-          >
-            <Button
-              onClick={scrollToQuiz}
-              size="lg"
-              className="w-full max-w-xs sm:w-auto sm:max-w-none whitespace-normal break-words text-center leading-snug bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
-            >
-              {siteContent.hero.primaryCTA}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
         </motion.div>
-
-        {/* Floating Animation */}
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-1 h-16 bg-gradient-to-b from-brand-300 to-transparent rounded-full opacity-60" />
-        </motion.div>
-      </div>
-
       </section>
     </TooltipProvider>
   );

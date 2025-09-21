@@ -1,7 +1,8 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,8 @@ import {
   TooltipTrigger
 } from "@/components/ui/tooltip";
 import { siteContent } from "@/lib/content";
+
+const rotatingWords = ["Procesos", "Ventas", "Clientes"];
 
 function renderTerm(term: string) {
   const glossaryEntry = (siteContent.glossary as Record<string, string | undefined>)[term];
@@ -34,8 +37,16 @@ export function Hero() {
   const { socialProof } = siteContent;
   const testimonial = socialProof.testimonial;
 
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 1000);
+    return () => window.clearInterval(interval);
+  }, []);
+
   const badge = "Garantia 100% resultados";
-  const promise = "Si no logramos al menos +20% ventas en 30 dias, devolvemos el 100% de tu inversion.";
   const primaryCTA = "Obten tu Plan de IA en 30 Segundos";
   const credibility = {
     result: "+45% ventas en 30 dias",
@@ -69,10 +80,10 @@ export function Hero() {
 
           <div className="mt-6 flex flex-col items-center gap-6">
             <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              Multiplica tus ventas en <span className="text-brand-300">30 dias</span> con <span className="text-brand-300">IA probada</span>.
+              Trabajamos para optimizar tus
+              <span className="block text-brand-300 sm:inline sm:pl-3">{rotatingWords[wordIndex]}</span>.
             </h1>
 
-            <p className="max-w-2xl text-base font-medium text-white/70 sm:text-lg">{promise}</p>
 
             <p className="max-w-3xl text-base text-white/80 sm:text-lg">
               Agentes con {renderTerm("IA")}, procesos orquestados y datos limpios listos para vender mas.

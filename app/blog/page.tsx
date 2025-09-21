@@ -46,8 +46,7 @@ export default function BlogPage() {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blog.posts.map((post, index) => (
-              <BlogCard post={post} index={index} />
+            {blog.posts.map((post, index) => (`r`n              <BlogCard key={post.id ?? index} post={post} index={index} />
             ))}
           </div>
 
@@ -77,3 +76,7 @@ export default function BlogPage() {
     </main>
   );
 }
+
+
+
+

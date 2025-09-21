@@ -249,8 +249,7 @@ export function ChatWidget() {
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         placeholder={siteContent.chat.placeholder}
-                        disabled={isTyping}
-                        className="flex-1 bg-brand-700/50 border-brand-600/30 text-white placeholder:text-white/60 focus:border-brand-500 focus:ring-brand-500/20 rounded-xl"
+                        className="flex-1 bg-white/10 border border-brand-600/40 text-white placeholder:text-white/70 focus-visible:ring-brand-500 focus-visible:ring-offset-0 focus-visible:outline-none rounded-xl"
                       />
                       <Button
                         type="submit"

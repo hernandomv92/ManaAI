@@ -45,65 +45,64 @@ export function ChatWidget() {
     }
   }, [isOpen]);
 
-  // Mock response function
-  const getBotResponse = (userMessage: string): string => {
-    const message = userMessage.toLowerCase();
-    const { mockResponses } = siteContent.chat;
-
-    if (message.includes('precio') || message.includes('costo') || message.includes('cuanto')) {
-      return mockResponses.precios;
-    }
-    if (message.includes('implementa') || message.includes('como') || message.includes('proceso')) {
-      return mockResponses.implementación;
-    }
-    if (message.includes('tiempo') || message.includes('cuando') || message.includes('cuanto tarda')) {
-      return mockResponses.tiempos;
-    }
-    if (message.includes('soporte') || message.includes('ayuda') || message.includes('mantenimiento')) {
-      return mockResponses.soporte;
-    }
-    
-    return "Interesante pregunta. Te recomiendo agendar una consulta gratuita para darte una respuesta más específica. ¿Te gustaría que te ayude con información sobre precios, implementación, tiempos o soporte?";
-  };
-
   const sendMessage = async (text: string) => {
-    if (!text.trim()) return;
+    const trimmed = text.trim();
+    if (!trimmed) return;
 
-    // Add user message
     const userMessage: Message = {
-      id: Date.now().toString(),
-      text,
+      id: crypto.randomUUID(),
+      text: trimmed,
       sender: 'user',
-      timestamp: new Date()
+      timestamp: new Date(),
     };
-    
+
+    const historyPayload = [...messages, userMessage].map(({ sender, text }) => ({ sender, text }));
+
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
     setIsTyping(true);
 
-    // Simulate typing delay
-    setTimeout(() => {
-      const botResponse = getBotResponse(text);
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: botResponse,
-        sender: 'bot',
-        timestamp: new Date()
-      };
-      
-      setMessages(prev => [...prev, botMessage]);
-      setIsTyping(false);
-      
-      // TODO: Replace with actual API call to backend
-      // const response = await fetch('/api/chat', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ message: text, history: messages })
-      // });
-      // const data = await response.json();
-    }, 1000 + Math.random() * 2000);
-  };
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: trimmed,
+          history: historyPayload,
+        }),
+      });
 
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const data = await response.json();
+      const replyText =
+        typeof data.reply === 'string' && data.reply.trim().length > 0
+          ? data.reply
+          : 'Lo siento, no pude procesar la respuesta en este momento.';
+
+      const botMessage: Message = {
+        id: crypto.randomUUID(),
+        text: replyText,
+        sender: 'bot',
+        timestamp: new Date(),
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Chat request failed', error);
+      const errorMessage: Message = {
+        id: crypto.randomUUID(),
+        text: 'Tuvimos un problema al contactar al asistente. Intenta de nuevo en unos momentos.',
+        sender: 'bot',
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsTyping(false);
+    }
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     sendMessage(inputValue);

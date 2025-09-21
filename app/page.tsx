@@ -7,7 +7,6 @@ import { Footer } from '@/components/marketing/Footer';
 import { FloatingWhatsApp } from '@/components/marketing/FloatingWhatsApp';
 import { ChatWidget } from '@/components/marketing/ChatWidget';
 import { Quiz } from '@/components/marketing/Quiz';
-import { LeadMagnet } from '@/components/marketing/LeadMagnet';
 import PageClient from '@/components/marketing/PageClient';
 import { siteContent } from '@/lib/content';
 

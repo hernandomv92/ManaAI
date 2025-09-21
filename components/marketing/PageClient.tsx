@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Navbar } from "@/components/marketing/Navbar";
@@ -11,7 +11,6 @@ import { Footer } from "@/components/marketing/Footer";
 import { FloatingWhatsApp } from "@/components/marketing/FloatingWhatsApp";
 import { ChatWidget } from "@/components/marketing/ChatWidget";
 import { Quiz } from "@/components/marketing/Quiz";
-import { LeadMagnet } from "@/components/marketing/LeadMagnet";
 
 export default function PageClient() {
   const [quizResult, setQuizResult] = useState<{ industry: string; challenge: string } | null>(null);
@@ -27,7 +26,6 @@ export default function PageClient() {
       </div>
       <SolutionsGrid quizResult={quizResult?.challenge || null} />
       <Testimonials />
-      <LeadMagnet />
       <Footer />
       <FloatingWhatsApp />
       <ChatWidget />

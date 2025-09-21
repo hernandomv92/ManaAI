@@ -1,6 +1,5 @@
-"use client";
+﻿"use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -15,6 +14,12 @@ import {
 import { siteContent } from "@/lib/content";
 
 const rotatingWords = ["Procesos", "Ventas", "Clientes"];
+
+const quote = {
+  text: "Zuckerberg considera que en el futuro habrá más agentes hechos con inteligencia artificial que humanos. Muchos negocios y creadores de contenido los adoptarán para conectar aún más con sus clientes y seguidores.",
+  author: "Mark Zuckerberg",
+  role: "CEO de Meta"
+};
 
 function renderTerm(term: string) {
   const glossaryEntry = (siteContent.glossary as Record<string, string | undefined>)[term];
@@ -34,9 +39,6 @@ function renderTerm(term: string) {
 }
 
 export function Hero() {
-  const { socialProof } = siteContent;
-  const testimonial = socialProof.testimonial;
-
   const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
@@ -48,12 +50,6 @@ export function Hero() {
 
   const badge = "Garantia 100% resultados";
   const primaryCTA = "Obten tu Plan de IA en 30 Segundos";
-  const credibility = {
-    result: "+45% ventas en 30 dias",
-    client: "TechStart Pro",
-    caseLink: "/casos/techstart-pro",
-    caseLabel: "Ver caso de exito"
-  };
 
   const scrollToQuiz = () => {
     const quizSection = document.getElementById("quiz-section");
@@ -84,32 +80,18 @@ export function Hero() {
               <span className="block text-brand-300 sm:inline sm:pl-3">{rotatingWords[wordIndex]}</span>.
             </h1>
 
-
             <p className="max-w-3xl text-base text-white/80 sm:text-lg">
-              Agentes con {renderTerm("IA")}, procesos orquestados y datos limpios listos para vender mas.
+              Integramos IA, automatizaciones y datos en un flujo que acelera cada etapa de tu negocio.
             </p>
 
             <div className="flex flex-col items-center gap-3 text-sm text-white/70">
-              <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-sm">
-                <Image
-                  src={testimonial.avatar}
-                  alt={"Foto de " + testimonial.author}
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 rounded-full object-cover"
-                />
-                <div className="text-left">
-                  <p className="text-base font-semibold text-white">{credibility.result}</p>
-                  <p className="text-xs text-white/60">Caso real: {credibility.client}</p>
+              <div className="w-full max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6 text-left backdrop-blur-sm">
+                <p className="text-base leading-relaxed text-white">“{quote.text}”</p>
+                <div className="mt-4 flex flex-col gap-1 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
+                  <span className="font-semibold text-white">{quote.author}</span>
+                  <span>{quote.role}</span>
                 </div>
               </div>
-              <Link
-                href={credibility.caseLink}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-brand-300 hover:text-brand-200"
-              >
-                {credibility.caseLabel}
-                <ArrowRight className="h-3 w-3" aria-hidden="true" />
-              </Link>
             </div>
 
             <div className="flex w-full flex-col items-center gap-4 pt-6 sm:flex-row sm:justify-center">

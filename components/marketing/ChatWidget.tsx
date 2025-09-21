@@ -119,7 +119,7 @@ export function ChatWidget() {
     <>
       {/* Chat Widget Button */}
       <motion.div
-        className="fixed bottom-6 right-6 z-30"
+        className="fixed bottom-6 right-4 z-30 sm:right-6"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6, type: "spring" }}
@@ -153,7 +153,7 @@ export function ChatWidget() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8, y: 20 }}
               transition={{ duration: 0.3, type: "spring" }}
-              className="fixed bottom-6 right-6 z-50 w-96 h-[500px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)]"
+              className="fixed bottom-6 right-4 z-50 w-96 h-[500px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)] sm:right-6"
               onKeyDown={handleKeyDown}
             >
               <Card className="h-full bg-brand-900/95 backdrop-blur-lg border-brand-600/30 shadow-2xl rounded-2xl overflow-hidden">
@@ -272,3 +272,4 @@ export function ChatWidget() {
     </>
   );
 }
+

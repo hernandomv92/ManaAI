@@ -23,7 +23,7 @@ export function FloatingWhatsApp() {
 
   return (
     <motion.div
-      className="fixed bottom-20 right-6 z-40"
+      className="fixed bottom-24 right-4 z-40 sm:bottom-20 sm:right-6"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1, duration: 0.6, type: "spring" }}

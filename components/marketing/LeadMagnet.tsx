@@ -28,7 +28,7 @@ export function LeadMagnet() {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="fixed top-4 right-4 md:top-20 md:right-8 z-50 bg-white/90 backdrop-blur-sm border-brand-300 text-brand-900 hover:bg-white hover:border-brand-500 shadow-lg px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300"
+          className="fixed top-4 left-1/2 z-50 w-[calc(100vw-2rem)] max-w-sm -translate-x-1/2 transform text-xs font-semibold bg-white/90 backdrop-blur-sm border-brand-300 text-brand-900 hover:bg-white hover:border-brand-500 shadow-lg px-4 py-3 rounded-xl transition-all duration-300 sm:text-sm sm:max-w-md md:left-auto md:right-8 md:top-20 md:w-auto md:px-6 md:py-3 md:translate-x-0"
         >
           <Download className="mr-2 h-4 w-4" />
           Guía Gratuita: 7 Hacks IA para Triplicar Conversiones

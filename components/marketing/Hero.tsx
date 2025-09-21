@@ -99,7 +99,7 @@ export function Hero() {
             <Button
               onClick={scrollToQuiz}
               size="lg"
-              className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
+              className="w-full max-w-xs sm:w-auto sm:max-w-none whitespace-normal break-words text-center leading-snug bg-brand-600 hover:bg-brand-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300 hover:scale-105 group"
             >
               {siteContent.hero.primaryCTA}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

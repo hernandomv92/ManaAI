@@ -283,7 +283,7 @@ export const siteContent = {
 
   // Footer
   footer: {
-    copyright: "© 2024 ManaAutomations AI. Todos los derechos reservados.",
+    copyright: "© 2025 ManaAutomations AI. Todos los derechos reservados.",
     links: [
       { name: "Privacidad", href: "/privacidad" },
       { name: "Términos", href: "/terminos" },

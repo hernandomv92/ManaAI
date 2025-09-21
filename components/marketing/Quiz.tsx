@@ -89,7 +89,7 @@ export function Quiz({ onQuizComplete }: QuizProps) {
       <DialogTrigger asChild>
         <Button
           size="lg"
-          className="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300"
+          className="w-full max-w-xs sm:w-auto sm:max-w-none whitespace-normal break-words text-center leading-snug bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-brand-600/25 transition-all duration-300"
         >
           ¿Tu negocio listo para IA que vende? Descubre en 60 segundos.
           <ArrowRight className="ml-2 h-5 w-5" />
@@ -185,3 +185,4 @@ export function Quiz({ onQuizComplete }: QuizProps) {
     </Dialog>
   );
 }
+

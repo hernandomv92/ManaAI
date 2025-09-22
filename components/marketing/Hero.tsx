@@ -44,7 +44,7 @@ export function Hero() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 1000);
+    }, 1300);
     return () => window.clearInterval(interval);
   }, []);
 

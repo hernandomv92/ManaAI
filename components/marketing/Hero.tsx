@@ -17,25 +17,28 @@ const rotatingWords = ["Procesos", "Ventas", "Clientes"];
 
 const painCards = [
   {
-    title: "Negocios sin Lumora Partners",
-    intro: "Cuando todo depende de ti y de tu equipo, el estrés nunca se acaba:",
+    titlePrimary: "Negocios sin",
+    titleBrand: "Lumora Partners",
+    intro: "Cuando todo depende de ti y de tu equipo, el estres nunca se acaba.",
     points: [
       "Los clientes se cansan de esperar y algunos se van con la competencia.",
       "Los errores en facturas se convierten en discusiones y pagos atrasados.",
-      "Saltas entre WhatsApp, correos y llamadas sin una visión clara de lo que pasa.",
-      "Las urgencias interrumpen tu día y apagas incendios en lugar de hacer crecer tu negocio."
+      "Saltas entre WhatsApp, correos y llamadas sin una vision clara de lo que pasa.",
+      "Las urgencias interrumpen tu dia y apagas incendios en lugar de hacer crecer tu negocio."
     ]
   },
   {
-    title: "Negocios con Lumora Partners",
-    intro: "Con Lumora, tu negocio fluye y tú recuperas el control:",
+    titlePrimary: "Negocios con",
+    titleBrand: "Lumora Partners",
+    intro: "Con Lumora Partners, tu negocio fluye y recuperas el control.",
     points: [
-      "Cada cliente recibe respuesta rápida y siente que lo atienden con prioridad.",
+      "Cada cliente recibe respuesta rapida y siente que lo atienden con prioridad.",
       "Las facturas se procesan solas, sin errores ni demoras.",
-      "Todos los mensajes y llamadas están en un solo lugar, con la historia completa.",
-      "Las tareas críticas se asignan solas y tu equipo sabe siempre qué hacer.",
-      "✨ Resultado: menos estrés, más confianza de tus clientes y más tiempo para enfocarte en crecer."
-    ]
+      "Todos los mensajes y llamadas estan en un solo lugar, con la historia completa.",
+      "Las tareas criticas se asignan solas y tu equipo sabe siempre que hacer.",
+      "Resultado: menos estres, mas confianza de tus clientes y mas tiempo para enfocarte en crecer."
+    ],
+    highlight: true
   }
 ];
 
@@ -106,15 +109,23 @@ export function Hero() {
               <div className="grid w-full max-w-3xl items-stretch gap-3 sm:grid-cols-2">
                 {painCards.map((card) => (
                   <div
-                    key={card.title}
-                    className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 text-left backdrop-blur-sm"
+                    key={`${card.titlePrimary}-${card.titleBrand}`}
+                    className={`flex h-full flex-col rounded-2xl border p-6 text-left backdrop-blur-sm transition-all duration-300 ${card.highlight ? "border-brand-300 bg-gradient-to-br from-brand-500/20 via-brand-500/10 to-brand-400/10 shadow-[0_25px_45px_-25px_rgba(56,189,248,0.55)]" : "border-white/10 bg-white/5"}`}
                   >
-                    <h3 className="text-lg font-semibold text-white">{card.title}</h3>
-                    <p className="mt-2 text-sm text-white/70">{card.intro}</p>
+                    <h3 className="text-lg font-semibold text-white">
+                      {card.titlePrimary}{" "}
+                      <span className="text-brand-300">{card.titleBrand}</span>
+                    </h3>
+                    <p className={`mt-2 text-sm ${card.highlight ? "text-white/80" : "text-white/70"}`}
+                    >
+                      {card.intro}
+                    </p>
                     <ul className="mt-4 space-y-3 text-sm text-white/80">
                       {card.points.map((point) => (
                         <li key={point} className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-300" />
+                          <span
+                            className={`mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full ${card.highlight ? "bg-brand-300" : "bg-white/60"}`}
+                          />
                           <span className="leading-relaxed">{point}</span>
                         </li>
                       ))}

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -15,11 +15,28 @@ import { siteContent } from "@/lib/content";
 
 const rotatingWords = ["Procesos", "Ventas", "Clientes"];
 
-const quote = {
-  text: "Mark Zuckerberg considera que en el futuro habrá más agentes hechos con inteligencia artificial que humanos. Según el CEO de Meta, muchos negocios y creadores de contenido implementarán estas tecnologías para conectar aún más con sus clientes y seguidores.",
-  author: "Mark Zuckerberg",
-  role: "CEO de Meta"
-};
+const painCards = [
+  {
+    title: "Negocios fisicos sin orden",
+    intro: "La operacion diaria se frena cuando todo depende de tareas manuales.",
+    points: [
+      "Los correos de clientes se pierden entre bandejas sin seguimiento.",
+      "La recepcion y el envio de facturas se retrasan por capturas y planillas.",
+      "Los canales de comunicacion operan sin contexto y duplican conversaciones.",
+      "Cada consulta urgente se atiende a ultimo momento porque no hay procesos claros."
+    ]
+  },
+  {
+    title: "Negocios online sin automatizacion",
+    intro: "El crecimiento digital se detiene si los sistemas no hablan entre si.",
+    points: [
+      "Pedidos y pagos llegan por distintas plataformas sin sincronizacion central.",
+      "Soporte responde tarde porque los tickets se mezclan con mensajes sueltos.",
+      "Las campanas generan leads que nadie sigue por falta de alertas automaticas.",
+      "Los reportes clave se arman a mano y las decisiones llegan tarde."
+    ]
+  }
+];
 
 function renderTerm(term: string) {
   const glossaryEntry = (siteContent.glossary as Record<string, string | undefined>)[term];
@@ -49,7 +66,7 @@ export function Hero() {
   }, []);
 
   const badge = "Asegura el futuro de tu negocio";
-  const primaryCTA = "Obtén una llamada para diagnosticar tu negocio";
+  const primaryCTA = "Obt?n una llamada para diagnosticar tu negocio";
 
   const scrollToQuiz = () => {
     const quizSection = document.getElementById("quiz-section");
@@ -84,13 +101,25 @@ export function Hero() {
               Integramos {renderTerm("IA")}, automatizaciones y datos en un flujo que acelera cada etapa de tu negocio.
             </p>
 
-            <div className="flex flex-col items-center gap-3 text-sm text-white/70">
-              <div className="w-full max-w-xl rounded-2xl border border-white/10 bg-white/5 p-6 text-left backdrop-blur-sm">
-                <p className="text-base leading-relaxed text-white">&ldquo;{quote.text}&rdquo;</p>
-                <div className="mt-4 flex flex-col gap-1 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
-                  <span className="font-semibold text-white">{quote.author}</span>
-                  <span>{quote.role}</span>
-                </div>
+            <div className="flex w-full flex-col items-center gap-3 text-sm text-white/70">
+              <div className="grid w-full max-w-3xl items-stretch gap-3 sm:grid-cols-2">
+                {painCards.map((card) => (
+                  <div
+                    key={card.title}
+                    className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/5 p-6 text-left backdrop-blur-sm"
+                  >
+                    <h3 className="text-lg font-semibold text-white">{card.title}</h3>
+                    <p className="mt-2 text-sm text-white/70">{card.intro}</p>
+                    <ul className="mt-4 space-y-3 text-sm text-white/80">
+                      {card.points.map((point) => (
+                        <li key={point} className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-300" />
+                          <span className="leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
 

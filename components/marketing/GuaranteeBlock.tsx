@@ -39,7 +39,7 @@ export function GuaranteeBlock() {
           </div>
 
           <div className="space-y-4 rounded-3xl border border-white/10 bg-black/20 p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Como aseguramos el resultado</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Cómo aseguramos el resultado</h3>
             <ul className="space-y-4">
               {GUARANTEE.steps.map((step) => (
                 <li key={step.title} className="flex items-start gap-3 text-sm text-white/80">

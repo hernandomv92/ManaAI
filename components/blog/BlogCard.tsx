@@ -3,9 +3,7 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 
 interface BlogPost {
   id: number;
@@ -54,16 +52,9 @@ export function BlogCard({ post, index }: BlogCardProps) {
           <p className="text-white/70 leading-relaxed mb-6 line-clamp-3">
             {post.excerpt}
           </p>
-          <Button 
-            variant="ghost" 
-            className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 group/btn w-full justify-center"
-            asChild
-          >
-            <Link href={`/blog/${post.id}`}>
-              Leer más
-              <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
+          <p className="text-xs uppercase tracking-[0.3em] text-brand-200/70 text-center">
+            Suscríbete al newsletter para recibir el análisis completo
+          </p>
         </CardContent>
       </Card>
     </motion.div>

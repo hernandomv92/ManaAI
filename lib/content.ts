@@ -184,51 +184,51 @@ export const siteContent = {
     posts: [
       {
         id: 1,
-        title: "Cómo la IA está transformando el servicio al cliente en 2024",
-        excerpt: "Descubre las últimas tendencias en chatbots y agentes virtuales que están revolucionando la atención al cliente.",
-        date: "2024-01-15",
-        readTime: "5 min",
+        title: "Primer trimestre 2025: OpenAI lanza GPT-5 Turbo Enterprise",
+        excerpt: "El nuevo modelo ofrece controles de cumplimiento y auditoría nativos, convirtiéndose en la referencia para empresas altamente reguladas.",
+        date: "2025-01-18",
+        readTime: "6 min",
         category: "IA"
       },
       {
         id: 2,
-        title: "Automatización de procesos: ROI comprobado en 90 días",
-        excerpt: "Casos de estudio reales de empresas que han automatizado sus procesos y visto resultados inmediatos.",
-        date: "2024-01-10",
-        readTime: "7 min", 
+        title: "Salesforce Einstein Copilot suma analítica predictiva en tiempo real",
+        excerpt: "La actualización 2025 permite a los equipos comerciales simular escenarios de ventas y coordinar automatizaciones sin escribir código.",
+        date: "2025-01-09",
+        readTime: "7 min",
         category: "Automatización"
       },
       {
         id: 3,
-        title: "WhatsApp Business API: Guía completa para empresas",
-        excerpt: "Todo lo que necesitas saber para implementar chatbots en WhatsApp y multiplicar tu alcance.",
-        date: "2024-01-05",
-        readTime: "6 min",
-        category: "WhatsApp"
+        title: "Amazon Connect integra agentes generativos para soporte 24/7",
+        excerpt: "La plataforma de contact center ahora detecta intención y resuelve incidencias comunes con IA generativa respaldada por AWS Bedrock.",
+        date: "2025-01-03",
+        readTime: "5 min",
+        category: "CX"
       },
       {
         id: 4,
-        title: "Scrapers inteligentes: Cómo obtener datos valiosos automáticamente",
-        excerpt: "Técnicas avanzadas de web scraping y extracción de datos para alimentar tus estrategias de marketing.",
-        date: "2023-12-28",
+        title: "UiPath presenta flujos autónomos certificados para banca",
+        excerpt: "Los nuevos workflows reducen 60% el tiempo de onboarding de clientes y cumplen con las pautas de seguridad financiera europeas.",
+        date: "2024-12-19",
         readTime: "8 min",
-        category: "Data"
+        category: "Procesos"
       },
       {
         id: 5,
-        title: "Integración n8n: Conecta todos tus sistemas sin código",
-        excerpt: "Aprende a orquestar workflows complejos y conectar herramientas usando n8n y automatización visual.",
-        date: "2023-12-20",
-        readTime: "10 min",
-        category: "Integraciones"
+        title: "Microsoft Fabric incorpora copilotos de datos para BI",
+        excerpt: "Fabric 2025 habilita preguntas en lenguaje natural sobre lakes empresariales y genera dashboards listos para presentar.",
+        date: "2024-12-11",
+        readTime: "9 min",
+        category: "Data"
       },
       {
         id: 6,
-        title: "El futuro de la automatización empresarial: Tendencias 2024",
-        excerpt: "Predicciones y tendencias que definirán el panorama de la automatización empresarial este año.",
-        date: "2023-12-15",
-        readTime: "12 min",
-        category: "Tendencias"
+        title: "HubSpot libera automatizaciones multicanal impulsadas por IA",
+        excerpt: "La suite de marketing 2025 ajusta campañas en vivo mezclando email, WhatsApp y anuncios según el comportamiento del lead.",
+        date: "2024-11-28",
+        readTime: "6 min",
+        category: "Growth"
       }
     ]
   },

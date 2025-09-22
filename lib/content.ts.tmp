@@ -1,0 +1,74 @@
+export const siteContent = {
+  // Site metadata
+  site: {
+    name: "Lumora Partners",
+    tagline: "Automatiza hoy. Escala mañana.",
+    description: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
+    url: "https://lumorapartners.com",
+  },
+
+  // Navigation
+  navigation: [
+    { name: "Soluciones", href: "/#soluciones" },
+    { name: "Blog", href: "/blog" },
+    { name: "Nosotros", href: "/nosotros" },
+  ],
+
+  // Hero section
+  hero: {
+    title: "Utiliza IA Probada para Multiplicar Ventas en 30 Días (Comprobado por 500+ Negocios), o Te Devolvemos el 100%.",
+    subtitle: "Agentes con IA, procesos orquestados y datos listos para vender más.",
+    primaryCTA: "Obtén tu Plan de IA (en 30 Segundos)",
+    secondaryCTA: "Habla con un experto",
+    whatsappNumber: "573238253871", // WhatsApp number for +573238253871
+  },
+
+  // Solutions section
+  solutions: {
+    title: "Nuestras Soluciones",
+    intro: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
+    items: [
+      {
+        id: "auditorias",
+        icon: "Search",
+        title: "Auditorías IA",
+        subtitle: "Diagnóstico express que revela oportunidades ocultas",
+        microProof: "Identificamos +25% más oportunidades en 48h para 200+ empresas",
+        bullets: [
+          "Análisis completo: Identifica +25% más oportunidades de automatización en 48 horas",
+          "Plan accionable: Roadmap personalizado para ROI inmediato sin inversión inicial",
+          "Resultados reales: Clientes ven 2x eficiencia operativa en el primer mes"
+        ]
+      },
+      {
+        id: "embudo-ia",
+        icon: "Globe",
+        title: "Embudo IA Autónomo",
+        subtitle: "Sitio y agentes coordinados que captan, nutren y cierran ventas solos",
+        microProof: "Webs +35% en conversión y agentes con +30% cierres en WhatsApp",
+        bullets: [
+          "Presencia 24/7: Sitios personalizados que adaptan el mensaje y elevan conversiones +35%",
+          "Conversaciones inteligentes: Agentes IA multicanal que responden y cierran +30% más oportunidades",
+          "Seguimiento automático: Integración con tu CRM para nutrir leads sin esfuerzo"
+        ]
+      },
+      {
+        id: "ops-ia",
+        icon: "Workflow",
+        title: "Operaciones IA 360",
+        subtitle: "Orquesta workflows n8n con datos frescos para ejecutar sin fricciones",
+        microProof: "Equipos que ahorran 40+ horas y elevan campañas con datos enriquecidos",
+        bullets: [
+          "Automatización integral: Flujos n8n conectan equipos y reducen errores humanos en 90%",
+          "Datos en tiempo real: Scrapers éticos nutren decisiones y elevan conversiones en 50%",
+          "Gobernanza clara: Monitoreo y alertas para iterar procesos sin detener operaciones"
+        ]
+      }
+    ]
+  },
+
+  // Social proof
+  socialProof: {
+    title: "Confiado por empresas líderes",
+    testimonial: {
+      text: "Pasamos de caos a 3x más leads procesados�

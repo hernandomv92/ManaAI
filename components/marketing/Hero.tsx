@@ -23,8 +23,8 @@ const painCards = [
     points: [
       "Los clientes se cansan de esperar y algunos se van con la competencia.",
       "Los errores en facturas se convierten en discusiones y pagos atrasados.",
-      "Saltas entre WhatsApp, correos y llamadas sin una vision clara de lo que pasa.",
-      "Las urgencias interrumpen tu dia y apagas incendios en lugar de hacer crecer tu negocio."
+      "Saltas entre WhatsApp, correos y llamadas sin una visión clara de lo que pasa.",
+      "Las urgencias interrumpen tu día y apagas incendios en lugar de hacer crecer tu negocio."
     ]
   },
   {
@@ -32,11 +32,11 @@ const painCards = [
     titleBrand: "Lumora Partners",
     intro: "Con Lumora Partners, tu negocio fluye y recuperas el control.",
     points: [
-      "Cada cliente recibe respuesta rapida y siente que lo atienden con prioridad.",
+      "Cada cliente recibe respuesta rápida y siente que lo atienden con prioridad.",
       "Las facturas se procesan solas, sin errores ni demoras.",
-      "Todos los mensajes y llamadas estan en un solo lugar, con la historia completa.",
-      "Las tareas criticas se asignan solas y tu equipo sabe siempre que hacer.",
-      "Resultado: menos estres, mas confianza de tus clientes y mas tiempo para enfocarte en crecer."
+      "Todos los mensajes y llamadas están en un solo lugar, con la historia completa.",
+      "Las tareas críticas se asignan solas y tu equipo sabe siempre qué hacer.",
+      "Resultado: menos estrés, más confianza de tus clientes y más tiempo para enfocarte en crecer."
     ],
     highlight: true
   }

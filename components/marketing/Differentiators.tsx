@@ -10,6 +10,18 @@ const iconMap = {
   Eye,
 } as const;
 
+type DifferentiatorIcon = keyof typeof iconMap;
+
+type DifferentiatorItem = {
+  label: string;
+  summary: string;
+  metric: string;
+  detail: string;
+  icon: DifferentiatorIcon;
+  footerTitle: string;
+  footerBadges?: string[];
+};
+
 const DIFFERENTIATORS = {
   title: "Lo que nos hace distintos",
   intro: "No ofrecemos soluciones genéricas. Diseñamos orden real adaptado a tu negocio.",
@@ -20,6 +32,8 @@ const DIFFERENTIATORS = {
       metric: "Nada de plantillas genéricas",
       detail: "Diagnosticamos tu operación y adaptamos cada flujo a tu realidad. La solución encaja contigo, no al revés.",
       icon: "Wrench",
+      footerTitle: "Adaptado a tu negocio",
+      footerBadges: ["Flexible", "Personalizado"],
     },
     {
       label: "Implementación acompañada",
@@ -27,6 +41,8 @@ const DIFFERENTIATORS = {
       metric: "Iteramos contigo paso a paso",
       detail: "Trabajamos junto a tu equipo hasta que todo fluya con claridad y sin fricciones. Estamos presentes en cada ajuste.",
       icon: "Handshake",
+      footerTitle: "Caminamos contigo",
+      footerBadges: ["Cercano", "Práctico"],
     },
     {
       label: "Visión a largo plazo",
@@ -34,6 +50,8 @@ const DIFFERENTIATORS = {
       metric: "Bases sólidas que escalan",
       detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan.",
       icon: "BarChart3",
+      footerTitle: "Crece sin caos",
+      footerBadges: ["Escalable", "Duradero"],
     },
     {
       label: "Transparencia total",
@@ -41,14 +59,16 @@ const DIFFERENTIATORS = {
       metric: "Datos claros, sin humo",
       detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos.",
       icon: "Eye",
+      footerTitle: "Todo claro, siempre",
+      footerBadges: ["Datos", "Confianza"],
     },
-  ],
+  ] satisfies DifferentiatorItem[],
 } as const;
 
 export function Differentiators() {
   const [active, setActive] = useState(0);
   const activeItem = DIFFERENTIATORS.items[active];
-  const IconComp = iconMap[activeItem.icon as keyof typeof iconMap];
+  const IconComp = iconMap[activeItem.icon];
 
   return (
     <section className="bg-brand-950/90 py-18">
@@ -98,17 +118,21 @@ export function Differentiators() {
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-colors group-hover:bg-white/10 group-hover:ring-white/20">
                   <IconComp className="text-sky-300" size={28} strokeWidth={1.75} aria-hidden />
                 </span>
-                <div className="text-sm text-white/70">Diferenciador clave</div>
+                <div className="text-sm text-white/70">{activeItem.footerTitle}</div>
               </div>
 
-              <div className="hidden items-center gap-2 md:flex">
-                <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10">
-                  Simple
-                </span>
-                <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10">
-                  Enfocado
-                </span>
-              </div>
+              {activeItem.footerBadges && activeItem.footerBadges.length > 0 ? (
+                <div className="hidden items-center gap-2 md:flex">
+                  {activeItem.footerBadges.map((badge) => (
+                    <span
+                      key={badge}
+                      className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10"
+                    >
+                      {badge}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

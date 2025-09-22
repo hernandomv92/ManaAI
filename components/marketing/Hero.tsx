@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -17,23 +17,24 @@ const rotatingWords = ["Procesos", "Ventas", "Clientes"];
 
 const painCards = [
   {
-    title: "Negocios sin Lumora",
-    intro: "Cuando todo depende de tareas manuales, el crecimiento se frena.",
+    title: "Negocios sin Lumora Partners",
+    intro: "Cuando todo depende de ti y de tu equipo, el estrés nunca se acaba:",
     points: [
-      "Correos de clientes quedan sin respuesta porque nadie centraliza el inbox.",
-      "Facturas se capturan a mano y los errores retrasan pagos y contabilidad.",
-      "Cada canal (WhatsApp, email, llamadas) opera aislado y se pierde el contexto.",
-      "Consultas urgentes dependen de hojas de calculo sin procesos claros."
+      "Los clientes se cansan de esperar y algunos se van con la competencia.",
+      "Los errores en facturas se convierten en discusiones y pagos atrasados.",
+      "Saltas entre WhatsApp, correos y llamadas sin una visión clara de lo que pasa.",
+      "Las urgencias interrumpen tu día y apagas incendios en lugar de hacer crecer tu negocio."
     ]
   },
   {
-    title: "Negocio con Lumora",
-    intro: "Orquestamos procesos con IA para que tu equipo avance en piloto automatico.",
+    title: "Negocios con Lumora Partners",
+    intro: "Con Lumora, tu negocio fluye y tú recuperas el control:",
     points: [
-      "Centralizamos correo y tickets con bandejas inteligentes y SLAs automatizados.",
-      "Automatizamos recepcion y envio de facturas con validaciones en tiempo real.",
-      "Unificamos canales en un CRM con historial completo y rutas inteligentes.",
-      "Activamos flujos priorizados que notifican a cada responsable sin retrasos."
+      "Cada cliente recibe respuesta rápida y siente que lo atienden con prioridad.",
+      "Las facturas se procesan solas, sin errores ni demoras.",
+      "Todos los mensajes y llamadas están en un solo lugar, con la historia completa.",
+      "Las tareas críticas se asignan solas y tu equipo sabe siempre qué hacer.",
+      "✨ Resultado: menos estrés, más confianza de tus clientes y más tiempo para enfocarte en crecer."
     ]
   }
 ];
@@ -66,7 +67,7 @@ export function Hero() {
   }, []);
 
   const badge = "Asegura el futuro de tu negocio";
-  const primaryCTA = "Obt?n una llamada para diagnosticar tu negocio";
+  const primaryCTA = "Agenda tu Auditoría Gratuita";
 
   const scrollToQuiz = () => {
     const quizSection = document.getElementById("quiz-section");

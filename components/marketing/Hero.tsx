@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/tooltip";
 import { siteContent } from "@/lib/content";
 
-const rotatingWords = ["Procesos", "Ventas", "Clientes"];
+const rotatingWords = ["Operaciones", "Comunicaciones", "Finanzas", "Proyectos", "Decisiones", "Clientes"];
 
 const painCards = [
   {
@@ -97,7 +97,7 @@ export function Hero() {
 
           <div className="mt-6 flex flex-col items-center gap-6">
             <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              Trabajamos para optimizar tus
+              Ponemos en orden tus
               <span className="block text-brand-300 sm:inline sm:pl-3">{rotatingWords[wordIndex]}</span>.
             </h1>
 

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
@@ -9,7 +9,7 @@ const heroCard = {
   subtitle: "Deja que la IA organice tus flujos mientras tu te enfocas en crecer.",
   items: [
     {
-      title: "Correos filtrados automáticamente",
+      title: "Correos filtrados automaticamente",
       description: "Detectamos facturas, cotizaciones y pedidos en tu inbox."
     },
     {
@@ -56,7 +56,7 @@ export function Hero() {
           {badge}
         </span>
 
-        <div className="mt-6 flex w-full flex-col items-center gap-6">
+        <div className="mt-6 flex w-full flex-col items-center gap-5">
           <h1 className="max-w-4xl text-3xl font-semibold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
             {titleBase}
             <span className="block text-brand-300 sm:inline sm:pl-3">
@@ -67,24 +67,20 @@ export function Hero() {
           <p className="max-w-3xl text-base text-white/80 sm:text-lg">{subtitle}</p>
 
           <div className="flex w-full flex-col items-center text-sm text-white/80">
-            <div className="relative w-full max-w-4xl">
-              <div className="absolute inset-0 rounded-[2rem] bg-brand-400/20 blur-3xl" aria-hidden="true" />
-              <div className="relative rounded-[2rem] border border-brand-300/70 bg-gradient-to-br from-brand-500/20 via-brand-500/10 to-brand-400/10 p-8 text-left shadow-[0_25px_45px_-25px_rgba(56,189,248,0.55)] backdrop-blur-sm sm:p-10">
-                <h2 className="text-2xl font-semibold text-white sm:text-3xl">
+            <div className="relative w-full max-w-2xl">
+              <div className="absolute inset-0 rounded-2xl bg-brand-400/25 blur-xl" aria-hidden="true" />
+              <div className="relative rounded-2xl border border-brand-300/50 bg-gradient-to-br from-brand-500/15 via-brand-500/10 to-brand-400/10 p-5 text-left shadow-[0_16px_28px_-18px_rgba(56,189,248,0.55)] backdrop-blur-sm sm:p-6">
+                <h2 className="text-lg font-semibold text-white sm:text-xl">
                   {heroCard.title}
                 </h2>
-                <p className="mt-4 text-base text-white/80 sm:text-lg">
+                <p className="mt-3 text-base text-white/80">
                   {heroCard.subtitle}
                 </p>
 
-                <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-brand-200/80">
-                  {heroCard.sectionLabel}
-                </p>
-
-                <ul className="mt-6 grid gap-4 text-sm text-white/80 sm:grid-cols-2">
+                <ul className="mt-5 space-y-3 text-sm text-white/80">
                   {heroCard.items.map((item) => (
-                    <li key={item.title} className="flex gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
-                      <span className="mt-1 h-2 w-2 flex-shrink-0 rounded-full bg-brand-300" />
+                    <li key={item.title} className="flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-300" />
                       <div>
                         <p className="font-semibold text-white">{item.title}</p>
                         <p className="mt-1 text-white/70">{item.description}</p>
@@ -93,15 +89,18 @@ export function Hero() {
                   ))}
                 </ul>
 
-                <p className="mt-8 text-sm font-medium text-white/90">
+                <p className="mt-5 text-sm font-medium text-white/90">
                   {heroCard.closing}
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center gap-4 pt-6 sm:flex-row sm:justify-center">
-            <PrimaryButton onClick={handlePrimaryClick}>
+          <div className="flex justify-center pt-6">
+            <PrimaryButton
+              onClick={handlePrimaryClick}
+              className="w-auto max-w-none px-8 py-4 sm:px-10"
+            >
               {primaryCTA}
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </PrimaryButton>
@@ -111,3 +110,4 @@ export function Hero() {
     </section>
   );
 }
+

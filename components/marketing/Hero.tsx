@@ -48,8 +48,8 @@ export function Hero() {
     return () => window.clearInterval(interval);
   }, []);
 
-  const badge = "Garantía 100% resultados";
-  const primaryCTA = "Obtén tu Plan de IA en 30 segundos";
+  const badge = "Asegura el futuro de tu negocio";
+  const primaryCTA = "Obtén una llamada para diagnosticar tu negocio";
 
   const scrollToQuiz = () => {
     const quizSection = document.getElementById("quiz-section");

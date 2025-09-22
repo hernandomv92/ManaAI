@@ -49,11 +49,8 @@ export function BlogCard({ post, index }: BlogCardProps) {
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-0">
-          <p className="text-white/70 leading-relaxed mb-6 line-clamp-3">
+          <p className="text-white/70 leading-relaxed line-clamp-3">
             {post.excerpt}
-          </p>
-          <p className="text-xs uppercase tracking-[0.3em] text-brand-200/70 text-center">
-            Suscríbete al newsletter para recibir el análisis completo
           </p>
         </CardContent>
       </Card>

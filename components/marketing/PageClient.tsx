@@ -9,11 +9,10 @@ import { Testimonials } from "@/components/marketing/Testimonials";
 import { Footer } from "@/components/marketing/Footer";
 import { FloatingWhatsApp } from "@/components/marketing/FloatingWhatsApp";
 import { ChatWidget } from "@/components/marketing/ChatWidget";
-import { StickyCTA } from "@/components/marketing/StickyCTA";
 
 export default function PageClient() {
   return (
-    <main className="min-h-screen pb-24">
+    <main className="min-h-screen pb-0">
       <Navbar />
       <Hero />
       <GuaranteeBlock />
@@ -23,7 +22,6 @@ export default function PageClient() {
       <Footer />
       <FloatingWhatsApp />
       <ChatWidget />
-      <StickyCTA />
     </main>
   );
 }

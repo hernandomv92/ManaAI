@@ -18,7 +18,7 @@ const painCards = [
   {
     titlePrimary: "Negocios sin",
     titleBrand: "Lumora Partners",
-    intro: "Cuando todo depende de ti y de tu equipo, el estres nunca se acaba.",
+    intro: "Cuando todo depende de ti y de tu equipo, el estrés nunca se acaba.",
     points: [
       "Los clientes se cansan de esperar y algunos se van con la competencia.",
       "Los errores en facturas se convierten en discusiones y pagos atrasados.",
@@ -114,8 +114,7 @@ export function Hero() {
                       {card.titlePrimary}{" "}
                       <span className="text-brand-300">{card.titleBrand}</span>
                     </h3>
-                    <p className={`mt-2 text-sm ${card.highlight ? "text-white/80" : "text-white/70"}`}
-                    >
+                    <p className={`mt-2 text-sm ${card.highlight ? "text-white/80" : "text-white/70"}`}>
                       {card.intro}
                     </p>
                     <ul className="mt-4 space-y-3 text-sm text-white/80">

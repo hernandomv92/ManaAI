@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { Sparkles, Wrench, Handshake, BarChart3, Eye } from "lucide-react";
+import { Sparkles, Wrench, Handshake, BarChart3, Eye, ArrowRight } from "lucide-react";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 const iconMap = {
   Wrench,
@@ -24,30 +25,30 @@ type DifferentiatorItem = {
 
 const DIFFERENTIATORS = {
   title: "Lo que nos hace distintos",
-  intro: "No ofrecemos soluciones genéricas. Diseñamos orden real adaptado a tu negocio.",
+  intro: "No ofrecemos soluciones genÃ©ricas. DiseÃ±amos orden real adaptado a tu negocio.",
   items: [
     {
       label: "Soluciones a tu medida",
-      summary: "Procesos diseñados para tu forma de trabajar.",
-      metric: "Nada de plantillas genéricas",
-      detail: "Diagnosticamos tu operación y adaptamos cada flujo a tu realidad. La solución encaja contigo, no al revés.",
+      summary: "Procesos diseÃ±ados para tu forma de trabajar.",
+      metric: "Nada de plantillas genÃ©ricas",
+      detail: "Diagnosticamos tu operaciÃ³n y adaptamos cada flujo a tu realidad. La soluciÃ³n encaja contigo, no al revÃ©s.",
       icon: "Wrench",
       footerTitle: "Adaptado a tu negocio",
       footerBadges: ["Flexible", "Personalizado"],
     },
     {
-      label: "Implementación acompañada",
+      label: "ImplementaciÃ³n acompaÃ±ada",
       summary: "No entregamos software y nos vamos.",
       metric: "Iteramos contigo paso a paso",
       detail: "Trabajamos junto a tu equipo hasta que todo fluya con claridad y sin fricciones. Estamos presentes en cada ajuste.",
       icon: "Handshake",
       footerTitle: "Caminamos contigo",
-      footerBadges: ["Cercano", "Práctico"],
+      footerBadges: ["Cercano", "PrÃ¡ctico"],
     },
     {
-      label: "Visión a largo plazo",
+      label: "VisiÃ³n a largo plazo",
       summary: "Evitamos que el caos vuelva a empezar.",
-      metric: "Bases sólidas que escalan",
+      metric: "Bases sÃ³lidas que escalan",
       detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan.",
       icon: "BarChart3",
       footerTitle: "Crece sin caos",
@@ -57,7 +58,7 @@ const DIFFERENTIATORS = {
       label: "Transparencia total",
       summary: "Ves el impacto en tiempo real.",
       metric: "Datos claros, sin humo",
-      detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos.",
+      detail: "Mostramos cÃ³mo trabajamos y quÃ© resultados logramos en cada etapa. TÃº sabes siempre dÃ³nde estamos y hacia dÃ³nde vamos.",
       icon: "Eye",
       footerTitle: "Todo claro, siempre",
       footerBadges: ["Datos", "Confianza"],
@@ -69,6 +70,12 @@ export function Differentiators() {
   const [active, setActive] = useState(0);
   const activeItem = DIFFERENTIATORS.items[active];
   const IconComp = iconMap[activeItem.icon];
+
+  const handleCTA = () => {
+    if (typeof window !== "undefined") {
+      window.open("https://calendly.com/manaautomations", "_blank", "noreferrer");
+    }
+  };
 
   return (
     <section className="bg-brand-950/90 py-18">
@@ -136,7 +143,15 @@ export function Differentiators() {
             </div>
           </div>
         </div>
+
+        <div className="mt-12 flex justify-center">
+          <PrimaryButton onClick={handleCTA} className="max-w-xs sm:max-w-none sm:px-12 sm:py-4">
+            Agenda tu AuditorÃ­a Gratuita
+            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+          </PrimaryButton>
+        </div>
       </div>
     </section>
   );
 }
+

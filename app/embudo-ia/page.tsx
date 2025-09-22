@@ -115,7 +115,7 @@ export default function EmbudoIAPage() {
               {funnelData?.subtitle || 'Sitios y agentes coordinados que convierten clientes mientras tú duermes.'}
             </p>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Desde $2,800 USD | Implementación completa en 6 semanas
+               Implementación completa en 6 semanas
             </p>
           </motion.div>
         </div>

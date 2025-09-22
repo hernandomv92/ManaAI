@@ -115,7 +115,7 @@ export default function OpsIAPage() {
               {opsData?.subtitle || "Orquesta workflows n8n y datos frescos para ejecutar sin fricciones."}
             </p>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Desde $3,200 USD | Implementación en 6-8 semanas
+               Implementación en 6-8 semanas
             </p>
           </motion.div>
         </div>

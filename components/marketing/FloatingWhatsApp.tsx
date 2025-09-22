@@ -64,7 +64,7 @@ export function FloatingWhatsApp() {
         whileHover={{ opacity: 1, y: 0 }}
       >
         <div className="bg-brand-900 text-white text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg border border-brand-700">
-          Contacto rapido
+          Contacto rápido
           <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-brand-900" />
         </div>
       </motion.div>

@@ -10,7 +10,7 @@ const PARTNER_LOGOS = [
   {
     name: "TechStart Pro",
     industry: "E-commerce",
-    proof: "+45% ventas en 30 dias",
+    proof: "+45% ventas en 30 días",
     gradient: "from-sky-400 to-blue-500"
   },
   {
@@ -39,8 +39,8 @@ const PARTNER_LOGOS = [
   },
   {
     name: "DataDriven",
-    industry: "Consultoria",
-    proof: "ROI +60% con orquestacion n8n",
+    industry: "Consultoría",
+    proof: "ROI +60% con orquestación n8n",
     gradient: "from-cyan-500 to-blue-600"
   }
 ];
@@ -49,10 +49,10 @@ export function Testimonials() {
   const { socialProof } = siteContent;
   const testimonial = socialProof.testimonial;
   const caseStudy = {
-    quote: "Pasamos de caos a 3x mas leads procesados gracias a su IA.",
-    before: "4 horas al dia respondiendo leads manualmente en WhatsApp.",
-    after: "Agentes IA cualificando leads 24/7 con seguimiento automatico.",
-    metric: "+45% ventas en 30 dias",
+    quote: "Pasamos de caos a 3x más leads procesados gracias a su IA.",
+    before: "4 horas al día respondiendo leads manualmente en WhatsApp.",
+    after: "Agentes IA cualificando leads 24/7 con seguimiento automático.",
+    metric: "+45% ventas en 30 días",
     author: testimonial.author,
     role: testimonial.role,
     company: testimonial.company,
@@ -95,14 +95,14 @@ export function Testimonials() {
                 href={caseStudy.caseLink}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-brand-200"
               >
-                Ver caso de exito completo
+                Ver caso de éxito completo
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
 
             <div className="grid gap-4 text-left sm:grid-cols-3">
               <div className="col-span-1 rounded-2xl border border-brand-500/30 bg-brand-500/10 px-4 py-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-200/80">Metrica</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand-200/80">Métrica</p>
                 <p className="mt-2 text-2xl font-semibold text-white">{caseStudy.metric}</p>
                 <p className="mt-1 text-xs text-white/60">Crecimiento trimestral auditado por su equipo financiero.</p>
               </div>
@@ -111,7 +111,7 @@ export function Testimonials() {
                 <p className="mt-2 text-sm text-white/80">{caseStudy.before}</p>
               </div>
               <div className="col-span-1 rounded-2xl border border-brand-400/40 bg-brand-400/10 px-4 py-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-white/70">Despues</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-white/70">Después</p>
                 <p className="mt-2 text-sm text-white/90">{caseStudy.after}</p>
               </div>
             </div>
@@ -119,7 +119,7 @@ export function Testimonials() {
 
           <div className="space-y-8">
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/60">
-              Confiado por equipos que viven de las metricas
+              Confiado por equipos que viven de las métricas
             </p>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {PARTNER_LOGOS.map((company) => (

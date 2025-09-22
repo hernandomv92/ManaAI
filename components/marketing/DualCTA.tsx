@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from 'framer-motion';
 import { MessageCircle, Calendar, Zap } from 'lucide-react';
@@ -21,7 +21,7 @@ export function DualCTA() {
   };
 
   const handleWhatsAppDiagnosis = () => {
-    const message = encodeURIComponent("Hola, quiero hacer el Diagnóstico IA Gratuito para mi negocio.");
+    const message = encodeURIComponent("Hola, quiero hacer el DiagnÃ³stico IA Gratuito para mi negocio.");
     window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, '_blank');
   };
 
@@ -42,10 +42,10 @@ export function DualCTA() {
           className="space-y-4"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-            ¿No estás listo para comprometerte aún?
+            Â¿No estÃ¡s listo para comprometerte aÃºn?
           </h2>
           <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Haz nuestro Diagnóstico IA Gratuito y obtén tu plan personalizado en minutos. O agenda una llamada para hablar con un experto.
+            Haz nuestro DiagnÃ³stico IA Gratuito y obtÃ©n tu plan personalizado en minutos. O agenda una llamada para hablar con un experto.
           </p>
         </motion.div>
 
@@ -63,7 +63,7 @@ export function DualCTA() {
             className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-green-500/25 transition-all duration-300 group flex items-center space-x-2"
           >
             <Zap className="h-5 w-5 group-hover:scale-110 transition-transform" />
-            <span>Diagnóstico IA Gratuito</span>
+            <span>DiagnÃ³stico IA Gratuito</span>
           </Button>
 
           {/* Schedule Call Button */}
@@ -85,7 +85,7 @@ export function DualCTA() {
           viewport={{ once: true }}
           className="text-sm text-white/50"
         >
-          Sin compromiso. Solo información valiosa para hacer crecer tu negocio.
+          Sin compromiso. Solo informaciÃ³n valiosa para hacer crecer tu negocio.
         </motion.p>
       </div>
     </motion.section>

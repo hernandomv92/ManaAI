@@ -16,7 +16,7 @@ import { siteContent } from "@/lib/content";
 const rotatingWords = ["Procesos", "Ventas", "Clientes"];
 
 const quote = {
-  text: "Mark Zuckerberg considera que en el futuro habra mas agentes hechos con inteligencia artificial que humanos. Segun el CEO de Meta, muchos negocios y creadores de contenido implementaran estas tecnologias para conectar aun mas con sus clientes y seguidores.",
+  text: "Mark Zuckerberg considera que en el futuro habrá más agentes hechos con inteligencia artificial que humanos. Según el CEO de Meta, muchos negocios y creadores de contenido implementarán estas tecnologías para conectar aún más con sus clientes y seguidores.",
   author: "Mark Zuckerberg",
   role: "CEO de Meta"
 };
@@ -48,8 +48,8 @@ export function Hero() {
     return () => window.clearInterval(interval);
   }, []);
 
-  const badge = "Garantia 100% resultados";
-  const primaryCTA = "Obten tu Plan de IA en 30 Segundos";
+  const badge = "Garantía 100% resultados";
+  const primaryCTA = "Obtén tu Plan de IA en 30 segundos";
 
   const scrollToQuiz = () => {
     const quizSection = document.getElementById("quiz-section");

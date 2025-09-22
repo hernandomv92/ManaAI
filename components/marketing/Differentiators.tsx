@@ -9,21 +9,21 @@ const DIFFERENTIATORS = {
   items: [
     {
       label: "IA enfocada en ventas",
-      summary: "Bots entrenados en tus playbooks, no prompts genericos.",
+      summary: "Bots entrenados en tus playbooks, no prompts genéricos.",
       metric: "+32% tasa de cierre promedio",
       detail: "Activamos agentes multicanal con entrenamiento propietario y QA semanal para iterar mensajes."
     },
     {
-      label: "Implementacion en 30 dias",
+      label: "Implementación en 30 días",
       summary: "Workflows n8n y CRM conectados en semanas, no meses.",
       metric: "70% menos retrabajo operativo",
-      detail: "Mapeamos procesos criticos, lanzamos pilotos en 10 dias y los llevamos a produccion en sprints cortos."
+      detail: "Mapeamos procesos críticos, lanzamos pilotos en 10 días y los llevamos a producción en sprints cortos."
     },
     {
-      label: "Garantia con skin in the game",
-      summary: "Solo cobramos si la metrica acordada sube.",
+      label: "Garantía con skin in the game",
+      summary: "Solo cobramos si la métrica acordada sube.",
       metric: "500+ equipos con resultados auditados",
-      detail: "Definimos metricas compartidas, reportamos semanalmente y firmamos la clausula de devolucion total."
+      detail: "Definimos métricas compartidas, reportamos semanalmente y firmamos la cláusula de devolución total."
     }
   ]
 };

@@ -3,20 +3,20 @@
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const GUARANTEE = {
-  title: "Garantia de crecimiento medible",
-  summary: "Definimos la metrica que importa, implementamos en 30 dias y si no aumentamos al menos un 20% tus ventas en 90 dias, devolvemos cada dolar.",
+  title: "Garantía de crecimiento medible",
+  summary: "Definimos la métrica que importa, implementamos en 30 días y si no aumentamos al menos un 20% tus ventas en 90 días, devolvemos cada dólar.",
   stats: [
-    { label: "Negocios acompanados", value: "500+" },
+    { label: "Negocios acompañados", value: "500+" },
     { label: "Tickets medios", value: "$2.5K - $50K" },
-    { label: "Tiempo promedio", value: "30 dias" }
+    { label: "Tiempo promedio", value: "30 días" }
   ],
   steps: [
     {
       title: "1. Objetivo compartido",
-      description: "Alineamos la metrica que impacta tu revenue y la medimos desde el dia uno."
+      description: "Alineamos la métrica que impacta tu revenue y la medimos desde el día uno."
     },
     {
-      title: "2. Implementacion acompanada",
+      title: "2. Implementación acompañada",
       description: "Iteramos semanalmente con tu equipo para activar agentes IA, procesos y dashboards."
     },
     {
@@ -51,7 +51,7 @@ export function GuaranteeBlock() {
           </div>
 
           <div className="space-y-4 rounded-3xl border border-white/10 bg-black/20 p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Como aseguramos el resultado</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Cómo aseguramos el resultado</h3>
             <ul className="space-y-4">
               {GUARANTEE.steps.map((step) => (
                 <li key={step.title} className="flex items-start gap-3 text-sm text-white/80">
@@ -66,7 +66,7 @@ export function GuaranteeBlock() {
               ))}
             </ul>
             <p className="rounded-2xl border border-brand-500/40 bg-brand-500/10 px-4 py-4 text-xs text-white/70">
-              Cada proyecto incluye auditoria final y reporte que firmamos contigo. Si la metrica acordada no se cumple, reembolsamos en 5 dias habiles.
+              Cada proyecto incluye auditoría final y reporte que firmamos contigo. Si la métrica acordada no se cumple, reembolsamos en 5 días hábiles.
             </p>
           </div>
         </div>

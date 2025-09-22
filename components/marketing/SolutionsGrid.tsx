@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -130,7 +130,7 @@ export function SolutionsGrid({ quizResult }: SolutionsGridProps) {
                           size="sm"
                           className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 w-full justify-center"
                         >
-                          Ver más
+                          Ver mÃ¡s
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                       </Link>

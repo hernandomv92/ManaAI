@@ -8,7 +8,6 @@ import { SolutionsGrid } from "@/components/marketing/SolutionsGrid";
 import { Testimonials } from "@/components/marketing/Testimonials";
 import { Footer } from "@/components/marketing/Footer";
 import { FloatingWhatsApp } from "@/components/marketing/FloatingWhatsApp";
-import { ChatWidget } from "@/components/marketing/ChatWidget";
 
 export default function PageClient() {
   return (
@@ -21,7 +20,6 @@ export default function PageClient() {
       <Testimonials />
       <Footer />
       <FloatingWhatsApp />
-      <ChatWidget />
     </main>
   );
 }

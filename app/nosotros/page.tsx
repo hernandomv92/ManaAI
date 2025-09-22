@@ -9,7 +9,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Navbar } from '@/components/marketing/Navbar';
 import { Footer } from '@/components/marketing/Footer';
 import { FloatingWhatsApp } from '@/components/marketing/FloatingWhatsApp';
-import { ChatWidget } from '@/components/marketing/ChatWidget';
 import { siteContent } from '@/lib/content';
 
 const container = {
@@ -257,7 +256,6 @@ export default function AboutPage() {
 
       <Footer />
       <FloatingWhatsApp />
-      <ChatWidget />
     </main>
   );
 }

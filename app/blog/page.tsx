@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Navbar } from '@/components/marketing/Navbar';
 import { Footer } from '@/components/marketing/Footer';
 import { FloatingWhatsApp } from '@/components/marketing/FloatingWhatsApp';
-import { ChatWidget } from '@/components/marketing/ChatWidget';
 import { siteContent } from '@/lib/content';
 
 export const metadata: Metadata = {
@@ -73,7 +72,6 @@ export default function BlogPage() {
 
       <Footer />
       <FloatingWhatsApp />
-      <ChatWidget />
     </main>
   );
 }

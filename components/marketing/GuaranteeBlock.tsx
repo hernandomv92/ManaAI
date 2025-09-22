@@ -3,12 +3,12 @@
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const GUARANTEE = {
-  title: "Crecimiento con bases solidas",
+  title: "Crecimiento con bases sólidas",
   subtitle: "Organizamos tus procesos y unificamos tus canales para que tu negocio crezca sin caos ni sobresaltos.",
   steps: [
     {
-      title: "Diagnostico claro",
-      description: "Revisamos contigo como trabajas hoy y detectamos donde se pierden tiempo y oportunidades."
+      title: "Diagnóstico claro",
+      description: "Revisamos contigo cómo trabajas hoy y detectamos dónde se pierden tiempo y oportunidades."
     },
     {
       title: "Procesos ordenados",
@@ -16,10 +16,10 @@ const GUARANTEE = {
     },
     {
       title: "Crecimiento enfocado",
-      description: "Con la casa en orden, tu y tu equipo se enfocan en lo importante: clientes, ventas y expansion."
+      description: "Con la casa en orden, tú y tu equipo se enfocan en lo importante: clientes, ventas y expansión."
     }
   ],
-  note: "Sin promesas vacias: nuestro trabajo no es magia, es orden. Cuando tu negocio opera con claridad, el crecimiento llega solo."
+  note: "Sin promesas vacías: nuestro trabajo no es magia, es orden. Cuando tu negocio opera con claridad, el crecimiento llega solo."
 };
 
 export function GuaranteeBlock() {
@@ -30,7 +30,7 @@ export function GuaranteeBlock() {
           <div className="space-y-6 text-left">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-500/40 bg-brand-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-brand-200">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              Garantia de enfoque real
+              Garantía de enfoque real
             </span>
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold text-white sm:text-4xl">{GUARANTEE.title}</h2>

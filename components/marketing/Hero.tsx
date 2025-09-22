@@ -1,10 +1,9 @@
 ﻿"use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import {
   Tooltip,
   TooltipContent,
@@ -72,10 +71,9 @@ export function Hero() {
   const badge = "Asegura el futuro de tu negocio";
   const primaryCTA = "Agenda tu Auditoría Gratuita";
 
-  const scrollToQuiz = () => {
-    const quizSection = document.getElementById("quiz-section");
-    if (quizSection) {
-      quizSection.scrollIntoView({ behavior: "smooth" });
+  const handlePrimaryClick = () => {
+    if (typeof window !== "undefined") {
+      window.open("https://calendly.com/manaautomations", "_blank", "noreferrer");
     }
   };
 
@@ -136,14 +134,10 @@ export function Hero() {
             </div>
 
             <div className="flex w-full flex-col items-center gap-4 pt-6 sm:flex-row sm:justify-center">
-              <Button
-                onClick={scrollToQuiz}
-                size="lg"
-                className="w-full max-w-xs whitespace-normal break-words bg-brand-600 text-lg font-semibold text-white shadow-xl transition-colors duration-300 hover:bg-brand-500 sm:max-w-none"
-              >
+              <PrimaryButton onClick={handlePrimaryClick}>
                 {primaryCTA}
                 <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-              </Button>
+              </PrimaryButton>
             </div>
           </div>
         </motion.div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Hero } from "@/components/marketing/Hero";
 import { GuaranteeBlock } from "@/components/marketing/GuaranteeBlock";
@@ -10,26 +9,21 @@ import { Testimonials } from "@/components/marketing/Testimonials";
 import { Footer } from "@/components/marketing/Footer";
 import { FloatingWhatsApp } from "@/components/marketing/FloatingWhatsApp";
 import { ChatWidget } from "@/components/marketing/ChatWidget";
-import { Quiz } from "@/components/marketing/Quiz";
+import { StickyCTA } from "@/components/marketing/StickyCTA";
 
 export default function PageClient() {
-  const [quizResult, setQuizResult] = useState<{ industry: string; challenge: string } | null>(null);
-
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pb-24">
       <Navbar />
       <Hero />
       <GuaranteeBlock />
       <Differentiators />
-      <div id="quiz-section">
-        <Quiz onQuizComplete={(result) => setQuizResult(result)} />
-      </div>
-      <SolutionsGrid quizResult={quizResult?.challenge || null} />
+      <SolutionsGrid />
       <Testimonials />
       <Footer />
       <FloatingWhatsApp />
       <ChatWidget />
+      <StickyCTA />
     </main>
   );
 }
-

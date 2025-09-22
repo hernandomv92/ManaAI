@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { ArrowRight, Shield } from "lucide-react";
@@ -9,12 +9,12 @@ const heroCard = {
   subtitle: "Deja que la IA organice tus flujos mientras tu te enfocas en crecer.",
   items: [
     {
-      title: "Correos filtrados automaticamente",
+      title: "Correos filtrados automáticamente",
       description: "Detectamos facturas, cotizaciones y pedidos en tu inbox."
     },
     {
       title: "Datos organizados en segundos",
-      description: "La informacion se extrae y se guarda en tu base de datos o Google Sheets sin errores."
+      description: "La información se extrae y se guarda en tu base de datos o Google Sheets sin errores."
     },
     {
       title: "Procesos conectados",
@@ -22,10 +22,10 @@ const heroCard = {
     },
     {
       title: "Respuestas inteligentes",
-      description: "El sistema envia confirmaciones o notificaciones al instante, para que nada quede pendiente."
+      description: "El sistema envía confirmaciones o notificaciones al instante, para que nada quede pendiente."
     }
   ],
-  closing: "Menos revisiones manuales, mas control y tiempo libre para enfocarte en tus clientes."
+  closing: "Menos revisiones manuales, más control y tiempo libre para enfocarte en tus clientes."
 };
 
 export function Hero() {
@@ -33,7 +33,7 @@ export function Hero() {
   const primaryCTA = "Agenda tu Auditoria Gratuita";
   const titleBase = "Del desorden a la claridad: tu negocio,";
   const titleHighlight = "potenciado con IA";
-  const subtitle = "Haz mas con menos esfuerzo (y cero estres).";
+  const subtitle = "Haz más con menos esfuerzo (y cero estrés).";
 
   const handlePrimaryClick = () => {
     if (typeof window !== "undefined") {
@@ -96,11 +96,8 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex justify-center pt-6">
-            <PrimaryButton
-              onClick={handlePrimaryClick}
-              className="w-auto max-w-none px-8 py-4 sm:px-10"
-            >
+          <div className="flex w-full flex-col items-center gap-4 pt-6 sm:flex-row sm:justify-center">
+            <PrimaryButton onClick={handlePrimaryClick}>
               {primaryCTA}
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </PrimaryButton>
@@ -110,4 +107,3 @@ export function Hero() {
     </section>
   );
 }
-

@@ -17,23 +17,23 @@ const rotatingWords = ["Procesos", "Ventas", "Clientes"];
 
 const painCards = [
   {
-    title: "Negocios fisicos sin orden",
-    intro: "La operacion diaria se frena cuando todo depende de tareas manuales.",
+    title: "Negocios sin Lumora",
+    intro: "Cuando todo depende de tareas manuales, el crecimiento se frena.",
     points: [
-      "Los correos de clientes se pierden entre bandejas sin seguimiento.",
-      "La recepcion y el envio de facturas se retrasan por capturas y planillas.",
-      "Los canales de comunicacion operan sin contexto y duplican conversaciones.",
-      "Cada consulta urgente se atiende a ultimo momento porque no hay procesos claros."
+      "Correos de clientes quedan sin respuesta porque nadie centraliza el inbox.",
+      "Facturas se capturan a mano y los errores retrasan pagos y contabilidad.",
+      "Cada canal (WhatsApp, email, llamadas) opera aislado y se pierde el contexto.",
+      "Consultas urgentes dependen de hojas de calculo sin procesos claros."
     ]
   },
   {
-    title: "Negocios online sin automatizacion",
-    intro: "El crecimiento digital se detiene si los sistemas no hablan entre si.",
+    title: "Negocio con Lumora",
+    intro: "Orquestamos procesos con IA para que tu equipo avance en piloto automatico.",
     points: [
-      "Pedidos y pagos llegan por distintas plataformas sin sincronizacion central.",
-      "Soporte responde tarde porque los tickets se mezclan con mensajes sueltos.",
-      "Las campanas generan leads que nadie sigue por falta de alertas automaticas.",
-      "Los reportes clave se arman a mano y las decisiones llegan tarde."
+      "Centralizamos correo y tickets con bandejas inteligentes y SLAs automatizados.",
+      "Automatizamos recepcion y envio de facturas con validaciones en tiempo real.",
+      "Unificamos canales en un CRM con historial completo y rutas inteligentes.",
+      "Activamos flujos priorizados que notifican a cada responsable sin retrasos."
     ]
   }
 ];

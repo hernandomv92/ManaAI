@@ -1,10 +1,10 @@
 export const siteContent = {
   // Site metadata
   site: {
-    name: "ManaAutomations AI",
+    name: "Lumora Partners",
     tagline: "Automatiza hoy. Escala mañana.",
     description: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
-    url: "https://manaautomations.ai",
+    url: "https://lumorapartners.com",
   },
 
   // Navigation
@@ -174,7 +174,7 @@ export const siteContent = {
     },
     story: {
       title: "Nuestra Historia",
-      content: "Fundada por un equipo de ingenieros especializados en IA y automatización, ManaAutomations nació de la necesidad de hacer la inteligencia artificial verdaderamente útil para las empresas. Después de años trabajando en grandes corporaciones, decidimos democratizar el acceso a tecnologías avanzadas para empresas de todos los tamaños."
+      content: "Fundada por un equipo de ingenieros especializados en IA y automatización, Lumora Partners nació de la necesidad de hacer la inteligencia artificial verdaderamente útil para las empresas. Después de años trabajando en grandes corporaciones, decidimos democratizar el acceso a tecnologías avanzadas para empresas de todos los tamaños."
     },
     process: {
       title: "Cómo Trabajamos",
@@ -283,7 +283,7 @@ export const siteContent = {
 
   // Footer
   footer: {
-    copyright: "© 2025 ManaAutomations AI. Todos los derechos reservados.",
+    copyright: "© 2025 Lumora Partners. Todos los derechos reservados.",
     links: [
       { name: "Privacidad", href: "/privacidad" },
       { name: "Términos", href: "/terminos" },

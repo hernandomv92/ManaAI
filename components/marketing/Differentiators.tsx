@@ -5,25 +5,31 @@ import { Sparkles } from "lucide-react";
 
 const DIFFERENTIATORS = {
   title: "Lo que nos hace distintos",
-  intro: "Hacemos IA que mueve tu pipeline: estrategia, despliegue y accountability en un mismo equipo.",
+  intro: "No ofrecemos soluciones genéricas. Diseñamos orden real adaptado a tu negocio.",
   items: [
     {
-      label: "IA enfocada en ventas",
-      summary: "Bots entrenados en tus playbooks, no prompts genéricos.",
-      metric: "+32% tasa de cierre promedio",
-      detail: "Activamos agentes multicanal con entrenamiento propietario y QA semanal para iterar mensajes."
+      label: "Soluciones a tu medida",
+      summary: "Procesos diseñados para tu forma de trabajar.",
+      metric: "Nada de plantillas genéricas",
+      detail: "Diagnosticamos tu operación y adaptamos cada flujo a tu realidad. La solución encaja contigo, no al revés."
     },
     {
-      label: "Implementación en 30 días",
-      summary: "Workflows n8n y CRM conectados en semanas, no meses.",
-      metric: "70% menos retrabajo operativo",
-      detail: "Mapeamos procesos críticos, lanzamos pilotos en 10 días y los llevamos a producción en sprints cortos."
+      label: "Implementación acompañada",
+      summary: "No entregamos software y nos vamos.",
+      metric: "Iteramos contigo paso a paso",
+      detail: "Trabajamos junto a tu equipo hasta que todo fluya con claridad y sin fricciones. Estamos presentes en cada ajuste."
     },
     {
-      label: "Garantía con skin in the game",
-      summary: "Solo cobramos si la métrica acordada sube.",
-      metric: "500+ equipos con resultados auditados",
-      detail: "Definimos métricas compartidas, reportamos semanalmente y firmamos la cláusula de devolución total."
+      label: "Visión a largo plazo",
+      summary: "Evitamos que el caos vuelva a empezar.",
+      metric: "Bases sólidas que escalan",
+      detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan."
+    }
+    {
+      label: "Transparencia total",
+      summary: "Ves el impacto en tiempo real.",
+      metric: "Datos claros, sin humo",
+      detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos."
     }
   ]
 };

@@ -1,7 +1,14 @@
 ﻿"use client";
 
 import { useState } from "react";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Wrench, Handshake, BarChart3, Eye } from "lucide-react";
+
+const iconMap = {
+  Wrench,
+  Handshake,
+  BarChart3,
+  Eye,
+} as const;
 
 const DIFFERENTIATORS = {
   title: "Lo que nos hace distintos",
@@ -11,32 +18,37 @@ const DIFFERENTIATORS = {
       label: "Soluciones a tu medida",
       summary: "Procesos diseñados para tu forma de trabajar.",
       metric: "Nada de plantillas genéricas",
-      detail: "Diagnosticamos tu operación y adaptamos cada flujo a tu realidad. La solución encaja contigo, no al revés."
+      detail: "Diagnosticamos tu operación y adaptamos cada flujo a tu realidad. La solución encaja contigo, no al revés.",
+      icon: "Wrench",
     },
     {
       label: "Implementación acompañada",
       summary: "No entregamos software y nos vamos.",
       metric: "Iteramos contigo paso a paso",
-      detail: "Trabajamos junto a tu equipo hasta que todo fluya con claridad y sin fricciones. Estamos presentes en cada ajuste."
+      detail: "Trabajamos junto a tu equipo hasta que todo fluya con claridad y sin fricciones. Estamos presentes en cada ajuste.",
+      icon: "Handshake",
     },
     {
       label: "Visión a largo plazo",
       summary: "Evitamos que el caos vuelva a empezar.",
       metric: "Bases sólidas que escalan",
-      detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan."
+      detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan.",
+      icon: "BarChart3",
     },
     {
       label: "Transparencia total",
       summary: "Ves el impacto en tiempo real.",
       metric: "Datos claros, sin humo",
-      detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos."
-    }
-  ]
-};
+      detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos.",
+      icon: "Eye",
+    },
+  ],
+} as const;
 
 export function Differentiators() {
   const [active, setActive] = useState(0);
   const activeItem = DIFFERENTIATORS.items[active];
+  const IconComp = iconMap[activeItem.icon as keyof typeof iconMap];
 
   return (
     <section className="bg-brand-950/90 py-18">
@@ -74,11 +86,29 @@ export function Differentiators() {
             </div>
           </div>
 
-          <div className="space-y-6 rounded-3xl border border-white/10 bg-black/20 p-6">
+          <div className="flex min-h-[280px] flex-col justify-between rounded-3xl border border-white/10 bg-black/20 p-6 md:p-8">
             <div className="space-y-2">
               <p className="text-sm font-semibold uppercase tracking-wide text-brand-200">{activeItem.metric}</p>
               <h3 className="text-2xl font-semibold text-white">{activeItem.summary}</h3>
               <p className="text-base text-white/75">{activeItem.detail}</p>
+            </div>
+
+            <div className="group mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-colors group-hover:bg-white/10 group-hover:ring-white/20">
+                  <IconComp className="text-sky-300" size={28} strokeWidth={1.75} aria-hidden />
+                </span>
+                <div className="text-sm text-white/70">Diferenciador clave</div>
+              </div>
+
+              <div className="hidden items-center gap-2 md:flex">
+                <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10">
+                  Simple
+                </span>
+                <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10">
+                  Enfocado
+                </span>
+              </div>
             </div>
           </div>
         </div>

@@ -24,10 +24,10 @@ const DIFFERENTIATORS = {
       summary: "Evitamos que el caos vuelva a empezar.",
       metric: "Bases sólidas que escalan",
       detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan."
-    }
+    },
     {
       label: "Transparencia total",
-      summary: "Ves el impacto en tiempos real.",
+      summary: "Ves el impacto en tiempo real.",
       metric: "Datos claros, sin humo",
       detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos."
     }

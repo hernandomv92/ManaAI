@@ -27,7 +27,7 @@ const DIFFERENTIATORS = {
     }
     {
       label: "Transparencia total",
-      summary: "Ves el impacto en tiempo real.",
+      summary: "Ves el impacto en tiempos real.",
       metric: "Datos claros, sin humo",
       detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos."
     }

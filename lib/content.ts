@@ -41,63 +41,27 @@ export const siteContent = {
         ]
       },
       {
-        id: "agentes",
-        icon: "Bot",
-        title: "Agentes con IA",
-        subtitle: "Bots inteligentes que venden mientras duermes",
-        microProof: "+30% cierres en WhatsApp para e-commerce español",
-        bullets: [
-          "Automatiza chats: Cierra +30% más deals en WhatsApp con respuestas contextuales 24/7",
-          "Integración seamless: Conecta con tu CRM y multiplica leads cualificados x3",
-          "Escala sin costos: Maneja 10x más conversaciones sin contratar más personal"
-        ]
-      },
-      {
-        id: "procesos",
-        icon: "Workflow",
-        title: "Orquestación n8n",
-        subtitle: "Conecta todo y elimina el caos operativo",
-        microProof: "Ahorramos 40+ horas semanales a growth labs",
-        bullets: [
-          "Workflows automáticos: Reduce errores humanos en 90% y acelera procesos x4",
-          "Integraciones inteligentes: Une sistemas legacy con IA moderna sin código",
-          "Eficiencia probada: Ahorra 40+ horas semanales en tareas repetitivas"
-        ]
-      },
-      {
-        id: "datos",
-        icon: "Database",
-        title: "Scrapers/Data",
-        subtitle: "Datos frescos para estrategias que convierten",
-        microProof: "+50% conversiones para growth labs con datos enriquecidos",
-        bullets: [
-          "Extracción automatizada: Recopila insights de competidores en tiempo real",
-          "Enriquecimiento masivo: Convierte leads fríos en calientes con +50% precisión",
-          "Marketing turbo: Genera contenido personalizado que aumenta engagement x2"
-        ]
-      },
-      {
-        id: "sitios",
+        id: "embudo-ia",
         icon: "Globe",
-        title: "Sitios con IA",
-        subtitle: "Web que vende sola desde el día 1",
-        microProof: "+35% conversiones para SaaS con sitios automatizados",
+        title: "Embudo IA Autónomo",
+        subtitle: "Sitio y agentes coordinados que captan, nutren y cierran ventas solos",
+        microProof: "Webs +35% en conversión y agentes con +30% cierres en WhatsApp",
         bullets: [
-          "Conversión optimizada: Aumenta tasas de cierre en 35% con personalización dinámica",
-          "Automatizaciones integradas: Chatbots y funnels que capturan leads 24/7",
-          "SEO + performance: Rankings top en 30 días y carga ultrarrápida para retención"
+          "Presencia 24/7: Sitios personalizados que adaptan el mensaje y elevan conversiones +35%",
+          "Conversaciones inteligentes: Agentes IA multicanal que responden y cierran +30% más oportunidades",
+          "Seguimiento automático: Integración con tu CRM para nutrir leads sin esfuerzo"
         ]
       },
       {
-        id: "garantia",
-        icon: "Shield",
-        title: "Garantía de Resultados",
-        subtitle: "Vende más o te devolvemos el dinero",
-        microProof: "500+ negocios con ROI garantizado o reembolso 100%",
+        id: "ops-ia",
+        icon: "Workflow",
+        title: "Operaciones IA 360",
+        subtitle: "Orquesta workflows n8n con datos frescos para ejecutar sin fricciones",
+        microProof: "Equipos que ahorran 40+ horas y elevan campañas con datos enriquecidos",
         bullets: [
-          "ROI medible: +20% ventas en 90 días o reembolso completo sin preguntas",
-          "Soporte inquebrantable: Ajustes continuos para maximizar tu impacto",
-          "Confianza absoluta: 500+ negocios transformados con cero riesgo financiero"
+          "Automatización integral: Flujos n8n conectan equipos y reducen errores humanos en 90%",
+          "Datos en tiempo real: Scrapers éticos nutren decisiones y elevan conversiones en 50%",
+          "Gobernanza clara: Monitoreo y alertas para iterar procesos sin detener operaciones"
         ]
       }
     ]

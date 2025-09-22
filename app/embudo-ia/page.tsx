@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Bot, MessageCircle, Brain, Zap, CheckCircle, Clock, Shield } from 'lucide-react';
+import { Globe, Bot, MessageCircle, Zap, CheckCircle, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -26,68 +26,74 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
-export default function AgentesPage() {
+export default function EmbudoIAPage() {
   const { solutions } = siteContent;
-  const agentData = solutions.items.find(item => item.id === 'agentes');
+  const funnelData = solutions.items.find(item => item.id === 'embudo-ia');
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hola, quiero más información sobre los Agentes IA");
+    const message = encodeURIComponent('Hola, quiero un Embudo IA Autónomo funcionando en mi negocio');
     window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, '_blank');
   };
 
-  const agentProcess = [
+  const funnelProcess = [
+    {
+      icon: Globe,
+      title: 'Arquitectura Web de Alto Impacto',
+      description: 'Creamos la narrativa, diseño y estructura del sitio con pruebas A/B para convertir visitas en oportunidades desde el día uno.'
+    },
     {
       icon: MessageCircle,
-      title: "Diseño de Flujo Conversacional",
-      description: "Creamos diálogos naturales y contextuales basados en tus necesidades de negocio y audiencia objetivo."
+      title: 'Flujos Conversacionales Mapeados',
+      description: 'Definimos journeys clave y mensajes por canal para que cada interacción guíe al usuario al siguiente paso del embudo.'
     },
     {
       icon: Bot,
-      title: "Integración de Canales",
-      description: "Conectamos el agente con WhatsApp, web, email y otros canales para una experiencia omnicanal."
-    },
-    {
-      icon: Brain,
-      title: "Entrenamiento del Modelo IA",
-      description: "Entrenamos el agente con tus datos específicos para respuestas precisas y personalizadas."
+      title: 'Agentes IA Omnicanal',
+      description: 'Entrenamos agentes conectados a WhatsApp, chat web y email que mantienen contexto y disparan acciones automáticas.'
     },
     {
       icon: Zap,
-      title: "Despliegue y Monitoreo",
-      description: "Lanzamos el agente y lo monitoreamos continuamente para optimizar rendimiento y precisión."
+      title: 'Medición y Optimización Continua',
+      description: 'Integramos CRM, dashboards y alertas para iterar el embudo cada semana con datos reales.'
     }
   ];
 
   const benefits = [
-    "Atención 24/7 sin costos adicionales de personal",
-    "Reducción del 80% en tiempos de respuesta",
-    "Capacidad para manejar 10x más consultas simultáneas",
-    "Interacciones personalizadas que aumentan conversiones en 35%"
+    'Embudo operativo 24/7 que atiende y convierte sin equipo extra',
+    '+35% en conversiones promedio en las primeras 6 semanas',
+    '+30% cierres asistidos por agentes IA conectados a tu CRM',
+    'Reportes claros: sabes qué canal genera cada venta y en qué paso optimizar'
   ];
 
   const faqs = [
     {
-      question: "¿Qué es un agente IA?",
-      answer: "Un agente IA es un asistente virtual inteligente que entiende lenguaje natural, mantiene contexto de conversación y toma decisiones autónomas para resolver consultas de clientes."
+      question: '¿Qué incluye exactamente el Embudo IA Autónomo?',
+      answer: 'Incluye el sitio web optimizado, agentes IA multicanal, integraciones con tus herramientas comerciales, automatizaciones de seguimiento y monitoreo continuo durante el primer mes.'
     },
     {
-      question: "¿Cuánto tiempo toma la implementación?",
-      answer: "Agentes simples: 2-4 semanas. Agentes complejos con múltiples integraciones: 6-8 semanas. Incluimos pruebas exhaustivas antes del lanzamiento."
+      question: '¿Cuánto tiempo toma tenerlo en producción?',
+      answer: 'El despliegue típico toma 4-6 semanas. Avanzamos en paralelo: diseño del sitio, entrenamiento del agente, integraciones y pruebas. Vas viendo avances semanales.'
     },
     {
-      question: "¿Se integra con WhatsApp Business?",
-      answer: "Sí, somos especialistas en WhatsApp Business API. También integramos con Facebook Messenger, Telegram, sitios web y CRMs populares como HubSpot y Salesforce."
+      question: '¿Se conecta con mi CRM y herramientas actuales?',
+      answer: 'Sí. Nos integramos con HubSpot, Salesforce, Close, Zoho y CRMs personalizados, además de herramientas de marketing como Mailchimp, Klaviyo o ActiveCampaign.'
     },
     {
-      question: "¿Puedo personalizar las respuestas?",
-      answer: "Totalmente. El agente aprende de tu base de conocimiento, FAQs y patrones de interacción. Puedes actualizar respuestas en tiempo real sin programación."
+      question: '¿Qué soporte recibo después del lanzamiento?',
+      answer: 'Incluimos un mes de soporte evolutivo con optimizaciones semanales y dashboards compartidos. Luego puedes continuar con nuestro plan de mejoras mensuales.'
     }
+  ];
+
+  const highlightExplanations = [
+    'Sitio modular con copy probado, personalización dinámica y analítica lista para escalar campañas.',
+    'Bots IA que responden en segundos y mantienen contexto en WhatsApp, chat web y email.',
+    'Automatizaciones conectadas a tu CRM para nutrir, puntuar y cerrar leads sin tareas manuales.'
   ];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-brand-950 to-brand-900">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-24 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,25 +104,25 @@ export default function AgentesPage() {
             className="text-center space-y-6"
           >
             <div className="inline-flex items-center space-x-3 mb-6">
-              <Bot className="h-12 w-12 text-brand-300" />
+              <Globe className="h-12 w-12 text-brand-300" />
               <div className="text-sm font-medium text-brand-400 bg-brand-600/20 px-3 py-1 rounded-full">
-                Agentes Inteligentes
+                Presencia + Conversaciones Automatizadas
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-              Agentes IA
+              Embudo IA Autónomo
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              {agentData?.subtitle || "Bots y copilotos con IA para WhatsApp/web"}
+              {funnelData?.subtitle || 'Sitios y agentes coordinados que convierten clientes mientras tú duermes.'}
             </p>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Desde $1,500 USD | Implementación en 4 semanas
+              Desde $2,800 USD | Implementación completa en 6 semanas
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* What We Analyze Section */}
+      {/* Highlights Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -127,15 +133,15 @@ export default function AgentesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Capacidades del Agente
+              Lo que hace único a tu embudo
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Lo que tu agente IA puede hacer por tu negocio
+              {funnelData?.microProof || 'Cada punto de contacto optimizado con IA para convertir a cualquiera hora.'}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {agentData?.bullets?.map((bullet, index) => (
+            {(funnelData?.bullets || []).map((bullet, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -155,14 +161,12 @@ export default function AgentesPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-white/70 leading-relaxed">
-                      {index === 0 ? "Agentes que entienden y responden como humanos, no como chatbots rígidos." :
-                       index === 1 ? "Conexión directa con WhatsApp Business API para comunicaciones oficiales y escalables." :
-                       "Respuestas que recuerdan conversaciones previas y se adaptan al contexto del cliente."}
+                      {highlightExplanations[index] || bullet}
                     </p>
                   </CardContent>
                 </Card>
               </motion.div>
-            )) || []}
+            ))}
           </div>
         </div>
       </section>
@@ -178,10 +182,10 @@ export default function AgentesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Proceso de Desarrollo
+              Así construimos tu Embudo IA
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Metodología probada para agentes IA de alto rendimiento
+              Metodología probada para lanzar y escalar en semanas, no meses.
             </p>
           </motion.div>
 
@@ -192,7 +196,7 @@ export default function AgentesPage() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            {agentProcess.map((step, index) => {
+            {funnelProcess.map((step, index) => {
               const IconComponent = step.icon;
               return (
                 <motion.div
@@ -236,10 +240,10 @@ export default function AgentesPage() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ventajas Competitivas
+              Impacto que medimos juntos
             </h2>
             <p className="text-xl text-white/70 leading-relaxed">
-              Impacto medible en tu negocio
+              El embudo no es teoría: cada semana revisamos resultados y optimizamos.
             </p>
           </motion.div>
 
@@ -275,10 +279,10 @@ export default function AgentesPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Preguntas Frecuentes
+              Preguntas frecuentes
             </h2>
             <p className="text-xl text-white/70 leading-relaxed">
-              Todo sobre nuestros agentes IA
+              Todo lo que necesitas saber antes de lanzar tu embudo.
             </p>
           </motion.div>
 
@@ -323,12 +327,12 @@ export default function AgentesPage() {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              ¿Listo para tu Agente IA?
+              ¿Listo para lanzar tu Embudo IA?
             </h2>
             <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Automatiza tu atención al cliente y libera a tu equipo para tareas de alto valor. Implementación garantizada en 4 semanas.
+              Te acompañamos desde el diseño hasta las primeras ventas cerradas. En 6 semanas tienes un embudo que trabaja solo.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button
                 onClick={handleWhatsApp}
@@ -336,21 +340,20 @@ export default function AgentesPage() {
                 className="bg-green-600 hover:bg-green-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-green-500/25 transition-all duration-300 hover:scale-105 group"
               >
                 <Bot className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
-                Desarrollar Mi Agente
+                Quiero mi Embudo IA
               </Button>
-              
+
               <Button
                 variant="outline"
                 size="lg"
                 className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-brand-300"
-                onClick={() => window.open('https://calendly.com/manaautomations/agentes', '_blank')}
+                onClick={() => window.open('https://calendly.com/manaautomations', '_blank')}
               >
                 <Clock className="mr-3 h-6 w-6" />
                 Agendar Consulta Gratuita
               </Button>
             </div>
 
-            {/* Trust indicators */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -360,15 +363,15 @@ export default function AgentesPage() {
             >
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-sm font-medium">50+ agentes implementados</span>
+                <span className="text-sm font-medium">20+ embudos IA en producción</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-brand-300" />
-                <span className="text-sm font-medium">Precisión del 95%</span>
+                <span className="text-sm font-medium">Mejoras semanales basadas en datos</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-blue-400" />
-                <span className="text-sm font-medium">Soporte 24/7 incluido</span>
+                <span className="text-sm font-medium">Soporte 7 días tras el lanzamiento</span>
               </div>
             </motion.div>
           </motion.div>

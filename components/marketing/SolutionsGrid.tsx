@@ -4,11 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   Search,
-  Bot,
   Workflow,
-  Database,
   Globe,
-  Shield,
   ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,11 +14,8 @@ import { siteContent } from "@/lib/content";
 
 const iconMap = {
   Search,
-  Bot,
   Workflow,
-  Database,
-  Globe,
-  Shield
+  Globe
 };
 
 interface SolutionsGridProps {
@@ -48,12 +42,14 @@ export function SolutionsGrid({ quizResult }: SolutionsGridProps) {
   let orderedItems = [...siteContent.solutions.items];
   if (quizResult) {
     const priorities: { [key: string]: string[] } = {
-      leads: ['datos', 'agentes', 'procesos', 'auditorias', 'sitios', 'garantia'],
-      sales: ['agentes', 'sitios', 'datos', 'procesos', 'auditorias', 'garantia'],
-      processes: ['procesos', 'auditorias', 'agentes', 'datos', 'sitios', 'garantia'],
+      leads: ['embudo-ia', 'auditorias', 'ops-ia'],
+      sales: ['embudo-ia', 'ops-ia', 'auditorias'],
+      processes: ['ops-ia', 'auditorias', 'embudo-ia'],
     };
     const order = priorities[quizResult] || priorities.leads || orderedItems.map(item => item.id);
-    orderedItems = order.map(id => siteContent.solutions.items.find(item => item.id === id)!);
+    orderedItems = order
+      .map((id) => siteContent.solutions.items.find((item) => item.id === id))
+      .filter((item): item is typeof orderedItems[number] => Boolean(item));
   }
 
   const defaultOpen = quizResult ? orderedItems[0].id : undefined;
@@ -130,7 +126,7 @@ export function SolutionsGrid({ quizResult }: SolutionsGridProps) {
                           size="sm"
                           className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 w-full justify-center"
                         >
-                          Ver mÃ¡s
+                          Ver más
                           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                       </Link>

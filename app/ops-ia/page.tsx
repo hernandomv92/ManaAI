@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Globe, Layout, Zap, Code, CheckCircle, Clock, Shield } from 'lucide-react';
+import { Workflow, Settings, Zap, Database, CheckCircle, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -26,61 +26,67 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
-export default function SitiosPage() {
+export default function OpsIAPage() {
   const { solutions } = siteContent;
-  const siteData = solutions.items.find(item => item.id === 'sitios');
+  const opsData = solutions.items.find(item => item.id === 'ops-ia');
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hola, quiero más información sobre Sitios Web con Automatizaciones Incluidas");
+    const message = encodeURIComponent("Hola, quiero Operaciones IA 360 para mi equipo");
     window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, '_blank');
   };
 
-  const siteProcess = [
+  const processSteps = [
     {
-      icon: Layout,
-      title: "Diseño y UX/UI Personalizado",
-      description: "Creamos interfaces intuitivas y conversion-focused basadas en tu marca y audiencia objetivo."
+      icon: Workflow,
+      title: "Mapeo operativo a profundidad",
+      description: "Auditamos flujos clave, dependencias de equipos y cuellos de botella para definir automatizaciones de alto impacto."
     },
     {
-      icon: Code,
-      title: "Desarrollo Full-Stack con IA",
-      description: "Construimos el frontend y backend con las últimas tecnologías, integrando automatizaciones desde el día 1."
+      icon: Settings,
+      title: "Arquitectura n8n + IA",
+      description: "Diseñamos workflows en n8n con lógica avanzada, agentes IA y conectores que sincronizan tus herramientas." 
+    },
+    {
+      icon: Database,
+      title: "Capa de datos enriquecidos",
+      description: "Implementamos scrapers y pipelines que recolectan, limpian y enriquecen datos para alimentar decisiones en tiempo real."
     },
     {
       icon: Zap,
-      title: "Incorporación de Automatizaciones",
-      description: "Embedemos chatbots, lead capture, workflows y analytics directamente en el sitio web."
-    },
-    {
-      icon: Globe,
-      title: "Optimización y Lanzamiento",
-      description: "SEO técnico, performance optimization y deployment en hosting escalable con monitoreo continuo."
+      title: "Monitoreo y optimización continua",
+      description: "Instalamos alertas, tableros y tests automáticos para asegurar performance y detectar mejoras cada semana."
     }
   ];
 
+  const highlightExplanations = [
+    'Workflows n8n coordinan equipos, automatizan aprobaciones y eliminan tareas repetitivas.',
+    'Scrapers y pipelines alimentan dashboards con datos frescos para decisiones al instante.',
+    'Monitoreo proactivo y alertas aseguran continuidad operativa y compliance.'
+  ];
+
   const benefits = [
-    "Aumento del 60% en conversiones orgánicas",
-    "Sitio web con IA integrada desde el lanzamiento",
-    "SEO optimizado para primeros resultados en 90 días",
-    "Mantenimiento y actualizaciones incluidos por 6 meses"
+    "Ahorra 40+ horas semanales automatizando procesos cross-team",
+    "Reduce errores humanos en 90% con datos actualizados y reglas auditables",
+    "Duplica velocidad de campañas y operaciones conectando datos enriquecidos",
+    "Visibilidad total con tableros y alertas que muestran ROI en menos de 60 días"
   ];
 
   const faqs = [
     {
-      question: "¿Qué tecnologías usan para el desarrollo?",
-      answer: "Next.js/React para frontend, Node.js/Supabase para backend, Tailwind CSS para estilos, y herramientas de IA como OpenAI y n8n para automatizaciones. Todo optimizado para performance y SEO."
+      question: "¿Qué incluye Operaciones IA 360?",
+      answer: "Incluye diagnóstico, diseño de workflows n8n, scrapers personalizados, dashboards, alertas y entrenamiento a tu equipo para operar la plataforma sin depender de nosotros." 
     },
     {
-      question: "¿Cuánto tiempo toma desarrollar un sitio?",
-      answer: "Sitios simples: 4-6 semanas. Sitios complejos con e-commerce y múltiples automatizaciones: 8-12 semanas. Incluimos prototipos y revisiones iterativas."
+      question: "¿Cuánto tiempo toma implementar?",
+      answer: "El despliegue estándar toma 6-8 semanas. Iniciamos con los procesos críticos para liberar horas de inmediato y seguimos iterando con datos reales."
     },
     {
-      question: "¿Puedo personalizar el diseño?",
-      answer: "Sí, 100% customizable. Trabajamos con tu identidad de marca, colores, tipografías y flujos de usuario específicos. También ofrecemos diseños desde cero o basados en templates premium."
+      question: "¿Se integra con mis sistemas actuales?",
+      answer: "Sí. n8n y nuestros conectores cubren CRMs, ERPs, bases de datos y APIs propias. Si falta algún conector, lo construimos en la fase de arquitectura." 
     },
     {
-      question: "¿Qué automatizaciones incluyen?",
-      answer: "Chatbots IA, formularios inteligentes con lead scoring, workflows de email marketing, analítica comportamental, integraciones con CRMs y redes sociales, todo configurado y listo para usar."
+      question: "¿Quién mantiene la solución?",
+      answer: "Entregamos monitoreo automatizado y documentación. Tu equipo puede operarlo con un playbook claro o podemos acompañarte con soporte mensual." 
     }
   ];
 
@@ -98,19 +104,19 @@ export default function SitiosPage() {
             className="text-center space-y-6"
           >
             <div className="inline-flex items-center space-x-3 mb-6">
-              <Globe className="h-12 w-12 text-brand-300" />
+              <Workflow className="h-12 w-12 text-brand-300" />
               <div className="text-sm font-medium text-brand-400 bg-brand-600/20 px-3 py-1 rounded-full">
-                Web Inteligente
+                Operaciones sin fricción
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-              Sitios Web con Automatizaciones Incluidas
+              Operaciones IA 360
             </h1>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              {siteData?.subtitle || "Desarrollo completo con IA integrada"}
+              {opsData?.subtitle || "Orquesta workflows n8n y datos frescos para ejecutar sin fricciones."}
             </p>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">
-              Desde $3,000 USD | Entrega en 6-10 semanas
+              Desde $3,200 USD | Implementación en 6-8 semanas
             </p>
           </motion.div>
         </div>
@@ -127,15 +133,15 @@ export default function SitiosPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Características Integradas
+              Lo que hace única a tu operación
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Todo lo que tu sitio web necesita para convertir
+              {opsData?.microProof || 'Automatizaciones y datos coordinados que liberan 40+ horas al mes.'}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {siteData?.bullets?.map((bullet, index) => (
+            {(opsData?.bullets || []).map((bullet, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -155,9 +161,7 @@ export default function SitiosPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-white/70 leading-relaxed">
-                      {index === 0 ? "Sitios web modernos y responsive diseñados específicamente para maximizar conversiones." :
-                       index === 1 ? "Automatizaciones de marketing, atención al cliente y operaciones integradas nativamente." :
-                       "Optimización SEO on-page y performance para posicionamiento rápido y experiencia superior."}
+                      {highlightExplanations[index] || bullet}
                     </p>
                   </CardContent>
                 </Card>
@@ -178,10 +182,10 @@ export default function SitiosPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Proceso de Desarrollo Web
+              Metodología de Implementación
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              De la idea al sitio web inteligente en producción
+              Enfoque probado para transformación operativa
             </p>
           </motion.div>
 
@@ -192,7 +196,7 @@ export default function SitiosPage() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
-            {siteProcess.map((step, index) => {
+            {processSteps.map((step, index) => {
               const IconComponent = step.icon;
               return (
                 <motion.div
@@ -236,10 +240,10 @@ export default function SitiosPage() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Ventajas Digitales
+              Resultados Tangibles
             </h2>
             <p className="text-xl text-white/70 leading-relaxed">
-              Lo que obtienes con nuestro desarrollo web
+              Métricas de éxito probadas en producción
             </p>
           </motion.div>
 
@@ -278,7 +282,7 @@ export default function SitiosPage() {
               Preguntas Frecuentes
             </h2>
             <p className="text-xl text-white/70 leading-relaxed">
-              Todo sobre desarrollo web con IA integrada
+              Todo sobre la orquestación de procesos con n8n
             </p>
           </motion.div>
 
@@ -323,10 +327,10 @@ export default function SitiosPage() {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              ¿Listo para tu Sitio Web Inteligente?
+              ¿Listo para Orquestar tus Procesos?
             </h2>
             <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Desarrollamos tu presencia digital completa con automatizaciones IA incluidas. Desde $3,000 USD con resultados inmediatos.
+              Transforma operaciones ineficientes en máquinas bien engrasadas. Automatización completa con n8n desde $2,000 USD.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -335,15 +339,15 @@ export default function SitiosPage() {
                 size="lg"
                 className="bg-green-600 hover:bg-green-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-green-500/25 transition-all duration-300 hover:scale-105 group"
               >
-                <Globe className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
-                Desarrollar Mi Sitio Web
+                <Workflow className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
+                Optimizar Mis Procesos
               </Button>
               
               <Button
                 variant="outline"
                 size="lg"
                 className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-brand-300"
-                onClick={() => window.open('https://calendly.com/manaautomations/sitios', '_blank')}
+                onClick={() => window.open('https://calendly.com/manaautomations/procesos', '_blank')}
               >
                 <Clock className="mr-3 h-6 w-6" />
                 Agendar Consulta Gratuita
@@ -360,15 +364,15 @@ export default function SitiosPage() {
             >
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-sm font-medium">25+ sitios web entregados</span>
+                <span className="text-sm font-medium">30+ workflows automatizados</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-brand-300" />
-                <span className="text-sm font-medium">Core Web Vitals 100%</span>
+                <span className="text-sm font-medium">99.9% uptime</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-blue-400" />
-                <span className="text-sm font-medium">Hosting incluido</span>
+                <span className="text-sm font-medium">Escalabilidad ilimitada</span>
               </div>
             </motion.div>
           </motion.div>

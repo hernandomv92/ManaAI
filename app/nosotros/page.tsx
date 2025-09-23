@@ -1,6 +1,6 @@
 "use client";
 
-import { Metadata } from 'next';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { CheckCircle, Users, Target, Zap, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -70,20 +70,113 @@ export default function AboutPage() {
             className="max-w-4xl mx-auto"
           >
             <Card className="bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-3xl p-8 md:p-12">
-              <CardHeader className="text-center pb-8">
-                <CardTitle className="text-3xl font-bold text-white mb-4">
+              <CardHeader className="pb-0 text-left">
+                <CardTitle className="text-3xl font-bold text-white">
                   {about.story.title}
                 </CardTitle>
+                {about.story.summary && (
+                  <p className="mt-3 text-base text-white/70 leading-relaxed">
+                    {about.story.summary}
+                  </p>
+                )}
               </CardHeader>
-              <CardContent>
-                <p className="text-lg text-white/80 leading-relaxed text-center">
-                  {about.story.content}
-                </p>
+              <CardContent className="mt-10">
+                <div className="flex flex-col gap-8 md:flex-row md:items-start">
+                  <div className="mx-auto flex flex-col items-center md:mx-0 md:items-start">
+                    <div className="relative h-56 w-56 overflow-hidden rounded-3xl border border-brand-500/40 bg-brand-900/40 shadow-lg shadow-brand-900/40">
+                      <Image
+                        src={about.story.founder?.image ?? '/images/gallery/hernando-headshot.jpg'}
+                        alt={`Foto de ${about.story.founder?.name ?? 'Hernando Morales'}`}
+                        fill
+                        sizes="(min-width: 1024px) 224px, (min-width: 768px) 200px, 70vw"
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                    <div className="mt-4 text-center md:text-left">
+                      <p className="text-lg font-semibold text-white">{about.story.founder?.name}</p>
+                      <p className="text-sm text-white/60">{about.story.founder?.role}</p>
+                    </div>
+                  </div>
+                  <div className="flex-1 space-y-4 text-left">
+                    {about.story.paragraphs?.map((paragraph, index) => (
+                      <p key={index} className="text-lg text-white/80 leading-relaxed">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </motion.div>
         </div>
       </section>
+
+      {about.gallery && (
+        <section className="pb-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center max-w-3xl mx-auto mb-16 space-y-4"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                {about.gallery.title}
+              </h2>
+              <p className="text-xl text-white/70 leading-relaxed">
+                {about.gallery.subtitle}
+              </p>
+              <p className="text-sm uppercase tracking-wide text-brand-300">
+                {about.gallery.callout}
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {about.gallery.items.map((media, index) => (
+                <motion.div key={media.src ?? index} variants={item} className="group">
+                  <Card className="h-full overflow-hidden border-brand-700/50 bg-brand-800/40 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-900/40">
+                    <div
+                      className={"relative w-full overflow-hidden rounded-2xl" + (media.orientation === 'portrait' ? ' aspect-[3/4]' : ' aspect-[4/3]')}
+                    >
+                      <Image
+                        src={media.src}
+                        alt={media.alt}
+                        fill
+                        sizes="(min-width: 1280px) 360px, (min-width: 768px) 45vw, 90vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <CardContent className="space-y-3 pt-6">
+                      {media.description && (
+                        <p className="text-base font-semibold text-white">{media.description}</p>
+                      )}
+                      <p className="text-sm text-white/60">{media.alt}</p>
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="w-full border-brand-500/50 text-brand-200 hover:bg-brand-600/20 hover:text-white transition-colors"
+                      >
+                        <a href={media.src} download target="_blank" rel="noopener noreferrer">
+                          Descargar
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* Process Section */}
       <section className="py-20">
@@ -259,3 +352,4 @@ export default function AboutPage() {
     </main>
   );
 }
+

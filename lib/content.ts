@@ -138,7 +138,44 @@ export const siteContent = {
     },
     story: {
       title: "Nuestra Historia",
-      content: "Fundada por un equipo de ingenieros especializados en IA y automatización, Lumora Partners nació de la necesidad de hacer la inteligencia artificial verdaderamente útil para las empresas. Después de años trabajando en grandes corporaciones, decidimos democratizar el acceso a tecnologías avanzadas para empresas de todos los tamaños."
+      summary: "Lumora Partners nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos.",
+      paragraphs: [
+        "Lumora Partners nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos, con más de 6 años desarrollando soluciones independientes para empresas y profesionales.",
+        "Su enfoque une herramientas low-code/no-code como n8n con una base sólida en JavaScript, HTML, CSS y Git/GitHub, logrando flujos automatizados que son flexibles, confiables y fáciles de escalar.",
+        "Hernando cuenta con certificaciones en automatización low-code con n8n, workflows profesionales, JavaScript y fundamentos de e-commerce, entre otras, lo que refuerza su compromiso con diseñar soluciones prácticas, medibles y enfocadas en resultados.",
+        "En Lumora Partners, la misión es clara: llevar la automatización inteligente a todo tipo de negocios, reduciendo el trabajo manual y aumentando la eficiencia, para que los equipos puedan enfocarse en lo estratégico y crecer con claridad."
+      ],
+      founder: {
+        name: "Hernando Morales",
+        role: "Fundador y especialista en automatización",
+        image: "/images/team/hernando-morales.jpg"
+      }
+    },
+
+    gallery: {
+      title: "Media Kit Visual",
+      subtitle: "Fotografías seleccionadas para prensa, colaboraciones y materiales de marketing.",
+      callout: "Descarga o selecciona las fotos que mejor representen a Lumora Partners.",
+      items: [
+        {
+          src: "/images/gallery/hernando-presentando.jpg",
+          alt: "Hernando Morales presentando una estrategia de automatización",
+          description: "Sesión con clientes corporativos",
+          orientation: "landscape"
+        },
+        {
+          src: "/images/gallery/hernando-workshop.jpg",
+          alt: "Workshop de automatización liderado por Hernando Morales",
+          description: "Workshop con emprendedores",
+          orientation: "landscape"
+        },
+        {
+          src: "/images/gallery/hernando-headshot.jpg",
+          alt: "Retrato profesional de Hernando Morales",
+          description: "Headshot oficial",
+          orientation: "portrait"
+        }
+      ]
     },
     process: {
       title: "Cómo Trabajamos",

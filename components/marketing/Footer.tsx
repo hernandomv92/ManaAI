@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Instagram, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Instagram, Linkedin } from "lucide-react";
 import { siteContent } from "@/lib/content";
 
 export function Footer() {
@@ -23,7 +21,7 @@ export function Footer() {
           </div>
 
           {/* Links & Theme Toggle */}
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-6 pr-20 relative z-20">
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}
               href="https://www.linkedin.com/in/hernando-morales-b657bbb5/"

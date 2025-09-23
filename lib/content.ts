@@ -33,7 +33,7 @@ export const siteContent = {
         icon: "Search",
         title: "Auditorías IA",
         subtitle: "Diagnóstico express que revela oportunidades ocultas",
-        microProof: "Identificamos +25% más oportunidades en 48h para 200+ empresas",
+        microProof: "Identificamos +25% más oportunidades en 48h",
         bullets: [
           "Análisis completo: Identifica +25% más oportunidades de automatización en 48 horas",
           "Plan accionable: Roadmap personalizado para ROI inmediato sin inversión inicial",

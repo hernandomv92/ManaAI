@@ -134,11 +134,11 @@ export const siteContent = {
   about: {
     hero: {
       title: "Automatizamos el futuro de tu negocio",
-      subtitle: "Somos expertos en IA práctica y automatización empresarial con más de 50 proyectos exitosos."
+      subtitle: "Somos expertos en IA práctica y automatización empresarial que impulsa resultados medibles, rápido y sin fricción.",
     },
     story: {
       title: "Nuestra Historia",
-      summary: "Lumora Partners nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos.",
+      summary: "De la experiencia independiente a soluciones empresariales escalables",
       paragraphs: [
         "Lumora Partners nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos, con más de 6 años desarrollando soluciones independientes para empresas y profesionales.",
         "Su enfoque une herramientas low-code/no-code como n8n con una base sólida en JavaScript, HTML, CSS y Git/GitHub, logrando flujos automatizados que son flexibles, confiables y fáciles de escalar.",

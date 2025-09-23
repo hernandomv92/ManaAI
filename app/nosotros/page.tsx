@@ -41,7 +41,7 @@ export default function AboutPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16">
+      <section className="pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -60,7 +60,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -69,7 +69,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <Card className="bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-3xl p-8 md:p-12">
+            <Card className="bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-3xl p-6 md:p-8">
               <CardHeader className="pb-0 text-left">
                 <CardTitle className="text-3xl font-bold text-white">
                   {about.story.title}

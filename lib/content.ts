@@ -10,7 +10,7 @@ export const siteContent = {
   // Navigation
   navigation: [
     { name: "Soluciones", href: "/#soluciones" },
-    { name: "Blog", href: "/blog" },
+    { name: "Productos", href: "/productos" },
     { name: "Nosotros", href: "/nosotros" },
   ],
 
@@ -177,58 +177,55 @@ export const siteContent = {
     ]
   },
 
-  // Blog posts
-  blog: {
-    title: "Blog",
-    subtitle: "Insights sobre automatización e IA para empresas",
-    posts: [
+  // Productos
+  products: {
+    title: "Productos",
+    subtitle: "Soluciones listas para desplegar en días y multiplicar resultados sin fricción.",
+    items: [
       {
-        id: 1,
-        title: "Primer trimestre 2025: OpenAI lanza GPT-5 Turbo Enterprise",
-        excerpt: "El nuevo modelo ofrece controles de cumplimiento y auditoría nativos, convirtiéndose en la referencia para empresas altamente reguladas.",
-        date: "2025-01-18",
-        readTime: "6 min",
-        category: "IA"
+        id: "agentes-ia-voz-humana",
+        title: "Agentes IA con voz humana",
+        offer: [
+          "Olvídate de los chatbots robóticos que frustran a tus clientes. Creamos agentes inteligentes personalizados a tu marca, que responden como un humano real, con empatía, contexto y conocimiento de tu negocio.",
+          "Tus clientes sentirán que hablan con alguien de tu equipo, no con una máquina."
+        ],
+        emphasisTitle: "Beneficios clave",
+        emphasisItems: [
+          "Respuestas rápidas, naturales y siempre alineadas con tu marca.",
+          "Capacidad multicanal (WhatsApp, correo, web).",
+          "Entrenados con tus playbooks, no con prompts genéricos."
+        ],
+        result: "👉 El resultado: clientes felices, mejor experiencia y más cierres sin aumentar tu equipo humano."
       },
       {
-        id: 2,
-        title: "Salesforce Einstein Copilot suma analítica predictiva en tiempo real",
-        excerpt: "La actualización 2025 permite a los equipos comerciales simular escenarios de ventas y coordinar automatizaciones sin escribir código.",
-        date: "2025-01-09",
-        readTime: "7 min",
-        category: "Automatización"
+        id: "automatizacion-procesos-criticos",
+        title: "Automatización de procesos críticos",
+        offer: [
+          "Tu equipo ya no tiene que perder horas revisando correos, copiando datos y organizando documentos. Diseñamos automatizaciones inteligentes que hacen ese trabajo repetitivo por ti."
+        ],
+        flowTitle: "Cómo funciona",
+        flowItems: [
+          "La IA filtra correos y mensajes.",
+          "Extrae y organiza la información clave.",
+          "La entrega lista en una plantilla clara (facturas, cotizaciones, reportes, tickets internos).",
+          "Un humano solo revisa y aprueba → sin retrabajo."
+        ],
+        result: "👉 El resultado: menos errores, más velocidad y tu equipo enfocado en lo que realmente importa."
       },
       {
-        id: 3,
-        title: "Amazon Connect integra agentes generativos para soporte 24/7",
-        excerpt: "La plataforma de contact center ahora detecta intención y resuelve incidencias comunes con IA generativa respaldada por AWS Bedrock.",
-        date: "2025-01-03",
-        readTime: "5 min",
-        category: "CX"
-      },
-      {
-        id: 4,
-        title: "UiPath presenta flujos autónomos certificados para banca",
-        excerpt: "Los nuevos workflows reducen 60% el tiempo de onboarding de clientes y cumplen con las pautas de seguridad financiera europeas.",
-        date: "2024-12-19",
-        readTime: "8 min",
-        category: "Procesos"
-      },
-      {
-        id: 5,
-        title: "Microsoft Fabric incorpora copilotos de datos para BI",
-        excerpt: "Fabric 2025 habilita preguntas en lenguaje natural sobre lakes empresariales y genera dashboards listos para presentar.",
-        date: "2024-12-11",
-        readTime: "9 min",
-        category: "Data"
-      },
-      {
-        id: 6,
-        title: "HubSpot libera automatizaciones multicanal impulsadas por IA",
-        excerpt: "La suite de marketing 2025 ajusta campañas en vivo mezclando email, WhatsApp y anuncios según el comportamiento del lead.",
-        date: "2024-11-28",
-        readTime: "6 min",
-        category: "Growth"
+        id: "sitios-web-7-dias",
+        title: "Sitios web listos en 7 días",
+        offer: [
+          "Un sitio web no tiene que ser un proyecto eterno. Creamos sitios a medida, optimizados para leads y con SEO sólido, en solo 7 días."
+        ],
+        flowTitle: "Cómo lo hacemos tan rápido",
+        flowItems: [
+          "Llenas un formulario de máximo 10 preguntas.",
+          "Creamos un prototipo en 72h.",
+          "Tienes una ronda de cambios.",
+          "Entregamos tu web final lista para vender."
+        ],
+        result: "👉 El resultado: un sitio profesional, sin reuniones infinitas ni dolores de cabeza. Solo simplicidad, velocidad y un diseño que convierte."
       }
     ]
   },

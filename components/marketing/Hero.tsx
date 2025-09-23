@@ -37,7 +37,7 @@ export function Hero() {
 
   const handlePrimaryClick = () => {
     if (typeof window !== "undefined") {
-      window.open("https://calendly.com/manaautomations", "_blank", "noreferrer");
+      window.open("https://calendly.com/hernandomv-xnsf/30min", "_blank", "noreferrer");
     }
   };
 

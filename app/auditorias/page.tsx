@@ -342,7 +342,7 @@ export default function AuditoriasPage() {
                 variant="outline"
                 size="lg"
                 className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-brand-300"
-                onClick={() => window.open('https://calendly.com/manaautomations/auditoria', '_blank')}
+                onClick={() => window.open('https://calendly.com/hernandomv-xnsf/30min', '_blank')}
               >
                 <Clock className="mr-3 h-6 w-6" />
                 Agendar Consulta Gratuita

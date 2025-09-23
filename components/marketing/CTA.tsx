@@ -8,7 +8,7 @@ import { siteContent } from "@/lib/content";
 export function CTA() {
   const handleScheduleCall = () => {
     // TODO: Replace with actual scheduling link (Calendly, Cal.com, etc.)
-    window.open('https://calendly.com/manaautomations', '_blank');
+    window.open('https://calendly.com/hernandomv-xnsf/30min', '_blank');
   };
 
   return (

@@ -18,7 +18,7 @@ export function FloatingWhatsApp() {
   };
 
   const handleCalendly = () => {
-    window.open('https://calendly.com/manaautomations/demo', '_blank');
+    window.open('https://calendly.com/hernandomv-xnsf/30min', '_blank');
   };
 
   return (

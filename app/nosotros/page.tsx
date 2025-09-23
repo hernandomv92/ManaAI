@@ -85,7 +85,7 @@ export default function AboutPage() {
                   <div className="mx-auto flex flex-col items-center md:mx-0 md:items-start">
                     <div className="relative h-56 w-56 overflow-hidden rounded-3xl border border-brand-500/40 bg-brand-900/40 shadow-lg shadow-brand-900/40">
                       <Image
-                        src={about.story.founder?.image ?? '/images/gallery/hernando-headshot.jpg'}
+                        src={about.story.founder?.image ?? '/images/gallery/Nando.webp'}
                         alt={`Foto de ${about.story.founder?.name ?? 'Hernando Morales'}`}
                         fill
                         sizes="(min-width: 1024px) 224px, (min-width: 768px) 200px, 70vw"
@@ -111,72 +111,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-
-      {about.gallery && (
-        <section className="pb-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto mb-16 space-y-4"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                {about.gallery.title}
-              </h2>
-              <p className="text-xl text-white/70 leading-relaxed">
-                {about.gallery.subtitle}
-              </p>
-              <p className="text-sm uppercase tracking-wide text-brand-300">
-                {about.gallery.callout}
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            >
-              {about.gallery.items.map((media, index) => (
-                <motion.div key={media.src ?? index} variants={item} className="group">
-                  <Card className="h-full overflow-hidden border-brand-700/50 bg-brand-800/40 backdrop-blur-md transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-900/40">
-                    <div
-                      className={"relative w-full overflow-hidden rounded-2xl" + (media.orientation === 'portrait' ? ' aspect-[3/4]' : ' aspect-[4/3]')}
-                    >
-                      <Image
-                        src={media.src}
-                        alt={media.alt}
-                        fill
-                        sizes="(min-width: 1280px) 360px, (min-width: 768px) 45vw, 90vw"
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <CardContent className="space-y-3 pt-6">
-                      {media.description && (
-                        <p className="text-base font-semibold text-white">{media.description}</p>
-                      )}
-                      <p className="text-sm text-white/60">{media.alt}</p>
-                      <Button
-                        asChild
-                        variant="outline"
-                        size="sm"
-                        className="w-full border-brand-500/50 text-brand-200 hover:bg-brand-600/20 hover:text-white transition-colors"
-                      >
-                        <a href={media.src} download target="_blank" rel="noopener noreferrer">
-                          Descargar
-                        </a>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-      )}
 
       {/* Process Section */}
       <section className="py-20">

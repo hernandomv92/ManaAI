@@ -148,35 +148,10 @@ export const siteContent = {
       founder: {
         name: "Hernando Morales",
         role: "Fundador y especialista en automatización",
-        image: "/images/team/hernando-morales.jpg"
+        image: "/images/gallery/founder.png"
       }
     },
 
-    gallery: {
-      title: "Media Kit Visual",
-      subtitle: "Fotografías seleccionadas para prensa, colaboraciones y materiales de marketing.",
-      callout: "Descarga o selecciona las fotos que mejor representen a Lumora Partners.",
-      items: [
-        {
-          src: "/images/gallery/hernando-presentando.jpg",
-          alt: "Hernando Morales presentando una estrategia de automatización",
-          description: "Sesión con clientes corporativos",
-          orientation: "landscape"
-        },
-        {
-          src: "/images/gallery/hernando-workshop.jpg",
-          alt: "Workshop de automatización liderado por Hernando Morales",
-          description: "Workshop con emprendedores",
-          orientation: "landscape"
-        },
-        {
-          src: "/images/gallery/hernando-headshot.jpg",
-          alt: "Retrato profesional de Hernando Morales",
-          description: "Headshot oficial",
-          orientation: "portrait"
-        }
-      ]
-    },
     process: {
       title: "Cómo Trabajamos",
       steps: [

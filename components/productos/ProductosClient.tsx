@@ -1,9 +1,11 @@
 ﻿"use client";
 
+import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/marketing/Navbar";
 import { Footer } from "@/components/marketing/Footer";
 import { FloatingWhatsApp } from "@/components/marketing/FloatingWhatsApp";
@@ -26,6 +28,25 @@ const item = {
 
 export function ProductosClient() {
   const { products } = siteContent;
+  const [openOrderId, setOpenOrderId] = useState<string | null>(null);
+  const [emailValues, setEmailValues] = useState<Record<string, string>>({});
+  const [submittedOrderId, setSubmittedOrderId] = useState<string | null>(null);
+
+  const handleOrderToggle = (productId: string) => {
+    setSubmittedOrderId(null);
+    setOpenOrderId((current) => (current === productId ? null : productId));
+  };
+
+  const handleEmailChange = (productId: string, value: string) => {
+    setEmailValues((prev) => ({ ...prev, [productId]: value }));
+  };
+
+  const handleOrderSubmit = (event: FormEvent<HTMLFormElement>, productId: string) => {
+    event.preventDefault();
+    setSubmittedOrderId(productId);
+    setOpenOrderId(null);
+    setEmailValues((prev) => ({ ...prev, [productId]: "" }));
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-brand-950 to-brand-900">
@@ -120,6 +141,57 @@ export function ProductosClient() {
                       <p className="text-brand-200 font-semibold text-base sm:text-lg">
                         {product.result}
                       </p>
+                    )}
+
+                    <div className="flex justify-end">
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        className="border-brand-500/70 text-brand-200 hover:bg-brand-600/20 hover:text-white"
+                        onClick={() => handleOrderToggle(product.id)}
+                      >
+                        Ordena ya
+                      </Button>
+                    </div>
+
+                    {openOrderId === product.id && (
+                      <motion.form
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="mt-4 flex flex-col sm:flex-row gap-3 rounded-xl border border-brand-600/40 bg-brand-900/60 p-4"
+                        onSubmit={(event) => handleOrderSubmit(event, product.id)}
+                      >
+                        <label className="flex-1 text-sm font-medium text-white/70">
+                          Correo electrónico
+                          <input
+                            type="email"
+                            required
+                            value={emailValues[product.id] ?? ""}
+                            onChange={(event) => handleEmailChange(product.id, event.target.value)}
+                            placeholder="tu@empresa.com"
+                            className="mt-2 w-full rounded-lg border border-brand-600/40 bg-brand-950/60 px-4 py-2 text-white placeholder-white/40 focus:border-brand-300 focus:outline-none"
+                          />
+                        </label>
+                        <Button
+                          type="submit"
+                          size="sm"
+                          className="self-end bg-brand-500 hover:bg-brand-400 text-white"
+                        >
+                          Enviar
+                        </Button>
+                      </motion.form>
+                    )}
+
+                    {submittedOrderId === product.id && (
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="text-sm text-brand-200"
+                      >
+                        ¡Gracias! Te contactaremos muy pronto.
+                      </motion.p>
                     )}
                   </CardContent>
                 </Card>

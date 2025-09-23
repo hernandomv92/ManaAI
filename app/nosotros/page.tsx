@@ -126,7 +126,7 @@ export default function AboutPage() {
               {about.process.title}
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Nuestro proceso probado en más de 50 proyectos exitosos
+              Nuestro proceso otorga resultados exitosos en tan sólo 1 semana
             </p>
           </motion.div>
 
@@ -266,7 +266,7 @@ export default function AboutPage() {
             >
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-sm font-medium">Más de 50 proyectos exitosos</span>
+                <span className="text-sm font-medium">Resultados visibles en 1 semana</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-brand-300" />

@@ -257,10 +257,5 @@ export const siteContent = {
   // Footer
   footer: {
     copyright: "© 2025 Lumora Partners. Todos los derechos reservados.",
-    links: [
-      { name: "Privacidad", href: "/privacidad" },
-      { name: "Términos", href: "/terminos" },
-      { name: "Contacto", href: "/contacto" }
-    ]
   }
 };

@@ -31,9 +31,16 @@ export function ProductosClient() {
   const [openOrderId, setOpenOrderId] = useState<string | null>(null);
   const [emailValues, setEmailValues] = useState<Record<string, string>>({});
   const [submittedOrderId, setSubmittedOrderId] = useState<string | null>(null);
+  const [submittingOrderId, setSubmittingOrderId] = useState<string | null>(null);
+  const [submissionErrors, setSubmissionErrors] = useState<Record<string, string | null>>({});
 
   const handleOrderToggle = (productId: string) => {
     setSubmittedOrderId(null);
+    setSubmissionErrors((current) => {
+      const next = { ...current };
+      delete next[productId];
+      return next;
+    });
     setOpenOrderId((current) => (current === productId ? null : productId));
   };
 
@@ -41,11 +48,54 @@ export function ProductosClient() {
     setEmailValues((prev) => ({ ...prev, [productId]: value }));
   };
 
-  const handleOrderSubmit = (event: FormEvent<HTMLFormElement>, productId: string) => {
+  const handleOrderSubmit = async (event: FormEvent<HTMLFormElement>, productId: string) => {
     event.preventDefault();
-    setSubmittedOrderId(productId);
-    setOpenOrderId(null);
-    setEmailValues((prev) => ({ ...prev, [productId]: "" }));
+    const emailValue = emailValues[productId]?.trim() ?? "";
+
+    if (!emailValue) {
+      setSubmissionErrors((prev) => ({ ...prev, [productId]: "Ingresa un correo valido." }));
+      return;
+    }
+
+    setSubmittingOrderId(productId);
+    setSubmissionErrors((prev) => ({ ...prev, [productId]: null }));
+
+    try {
+      const response = await fetch("/api/product-orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: emailValue, productId }),
+      });
+
+      if (!response.ok) {
+        let message = "No se pudo enviar el correo.";
+
+        try {
+          const data = await response.json();
+          if (data && typeof data.error === "string" && data.error.trim().length > 0) {
+            message = data.error;
+          }
+        } catch {
+          // ignore parse errors
+        }
+
+        setSubmissionErrors((prev) => ({ ...prev, [productId]: message }));
+        return;
+      }
+
+      setSubmittedOrderId(productId);
+      setOpenOrderId(null);
+      setEmailValues((prev) => ({ ...prev, [productId]: "" }));
+      setSubmissionErrors((prev) => ({ ...prev, [productId]: null }));
+    } catch (error) {
+      console.error("Error submitting product order", error);
+      setSubmissionErrors((prev) => ({
+        ...prev,
+        [productId]: "Hubo un error al enviar la solicitud. Intenta de nuevo.",
+      }));
+    } finally {
+      setSubmittingOrderId(null);
+    }
   };
 
   return (
@@ -177,10 +227,16 @@ export function ProductosClient() {
                         <Button
                           type="submit"
                           size="sm"
-                          className="self-end bg-brand-500 hover:bg-brand-400 text-white"
+                          disabled={submittingOrderId === product.id}
+                          className="self-end bg-brand-500 hover:bg-brand-400 text-white disabled:opacity-60 disabled:hover:bg-brand-500"
                         >
-                          Enviar
+                          {submittingOrderId === product.id ? "Enviando..." : "Enviar"}
                         </Button>
+                        {submissionErrors[product.id] && (
+                          <p className="text-sm text-red-300 sm:text-base">
+                            {submissionErrors[product.id]}
+                          </p>
+                        )}
                       </motion.form>
                     )}
 

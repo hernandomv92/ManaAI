@@ -1,7 +1,7 @@
 export const siteContent = {
   // Site metadata
   site: {
-    name: "Lumora Partners",
+    name: "Lumora Partner",
     tagline: "Automatiza hoy. Escala mañana.",
     description: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
     url: "https://lumorapartners.com",
@@ -140,10 +140,10 @@ export const siteContent = {
       title: "Nuestra Historia",
       summary: "De la experiencia independiente a soluciones empresariales escalables",
       paragraphs: [
-        "Lumora Partners nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos, con más de 6 años desarrollando soluciones independientes para empresas y profesionales.",
+        "Lumora Partner nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos, con más de 6 años desarrollando soluciones independientes para empresas y profesionales.",
         "Su enfoque une herramientas low-code/no-code como n8n con una base sólida en JavaScript, HTML, CSS y Git/GitHub, logrando flujos automatizados que son flexibles, confiables y fáciles de escalar.",
         "Hernando cuenta con certificaciones en automatización low-code con n8n, workflows profesionales, JavaScript y fundamentos de e-commerce, entre otras, lo que refuerza su compromiso con diseñar soluciones prácticas, medibles y enfocadas en resultados.",
-        "En Lumora Partners, la misión es clara: llevar la automatización inteligente a todo tipo de negocios, reduciendo el trabajo manual y aumentando la eficiencia, para que los equipos puedan enfocarse en lo estratégico y crecer con claridad."
+        "En Lumora Partner, la misión es clara: llevar la automatización inteligente a todo tipo de negocios, reduciendo el trabajo manual y aumentando la eficiencia, para que los equipos puedan enfocarse en lo estratégico y crecer con claridad."
       ],
       founder: {
         name: "Hernando Morales",
@@ -256,6 +256,6 @@ export const siteContent = {
 
   // Footer
   footer: {
-    copyright: "© 2025 Lumora Partners. Todos los derechos reservados.",
+    copyright: "© 2025 Lumora Partner. Todos los derechos reservados.",
   }
 };

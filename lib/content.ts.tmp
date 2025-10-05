@@ -1,7 +1,7 @@
 export const siteContent = {
   // Site metadata
   site: {
-    name: "Lumora Partners",
+    name: "Lumora Partner",
     tagline: "Automatiza hoy. Escala mañana.",
     description: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
     url: "https://lumorapartners.com",

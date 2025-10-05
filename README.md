@@ -1,4 +1,4 @@
-# Lumora Partners - Landing Page
+# Lumora Partner - Landing Page
 
 Una landing page de alta calidad para una agencia de automatizaciones con IA, construida con Next.js 14+ y diseñada para conversión máxima.
 

@@ -30,7 +30,7 @@ export default function AboutPage() {
   const { about } = siteContent;
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hola, quiero conocer más sobre Lumora Partners");
+    const message = encodeURIComponent("Hola, quiero conocer más sobre Lumora Partner");
     window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, '_blank');
   };
 

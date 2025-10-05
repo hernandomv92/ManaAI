@@ -4,6 +4,8 @@ import { z } from "zod";
 import { siteContent } from "@/lib/content";
 
 const requestSchema = z.object({
+  company: z.string().min(1, { message: "Empresa requerida" }).trim(),
+  phone: z.string().min(1, { message: "Telefono requerido" }).trim(),
   email: z.string().email({ message: "Correo invalido" }).trim(),
   productId: z.string().min(1, { message: "Producto requerido" }),
 });
@@ -40,7 +42,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Datos invalidos" }, { status: 400 });
   }
 
-  const { email, productId } = parsed.data;
+  const { company, phone, email, productId } = parsed.data;
   const product = getProductById(productId);
 
   if (!product) {
@@ -61,6 +63,8 @@ export async function POST(request: Request) {
   const lines: string[] = [
     `Nuevo lead interesado en ${product.title}.`,
     "",
+    `Empresa: ${company}`,
+    `Telefono: ${phone}`,
     `Correo del prospecto: ${email}`,
     `ID del producto: ${product.id}`,
   ];

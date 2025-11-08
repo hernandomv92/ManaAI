@@ -180,7 +180,7 @@ export const siteContent = {
       },
       {
         question: "¿Qué garantías ofrecen?",
-        answer: "Garantizamos resultados medibles en 90 días o devolvemos tu inversión. También incluimos 6 meses de soporte gratuito."
+        answer: "Garantizamos resultados medibles en 90 días o devolvemos tu inversión."
       },
       {
         question: "¿Pueden integrarse con nuestros sistemas actuales?",

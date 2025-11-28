@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -50,14 +50,14 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-brand-800/30">
           <div className="flex flex-col items-center space-y-3 text-center">
             <p className="text-white/40 text-xs">
-              Desarrollado con â¤ï¸ para automatizar el futuro de los negocios
+              Desarrollado con ❤️ para automatizar el futuro de los negocios
             </p>
             <div className="flex items-center space-x-6">
               <Link
                 href="/politica-de-privacidad"
                 className="text-white/60 hover:text-brand-300 text-sm transition-colors duration-200"
               >
-                PolÃ­tica de Privacidad
+                Política de Privacidad
               </Link>
             </div>
           </div>
@@ -66,4 +66,3 @@ export function Footer() {
     </footer>
   );
 }
-

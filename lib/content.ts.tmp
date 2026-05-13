@@ -221,6 +221,18 @@ export const siteContent = {
   products: {
     title: "Productos",
     subtitle: "Soluciones prácticas para ordenar procesos, automatizar tareas y mejorar la operación sin promesas mágicas.",
+    processVideo: {
+      eyebrow: "Procesos reales en movimiento",
+      title: "Mirá cómo una orden se convierte en una operación conectada",
+      description: "Este primer recorrido visual muestra una solución desarrollada para Biologix Colombia SAS: recepción de órdenes, respuestas automáticas, notificaciones por WhatsApp y un dashboard responsive para decisiones comerciales en campo.",
+      videoSrc: "/videos/biologix-process-draft.mp4",
+      caption: "Video sin audio: demostración visual del flujo Biologix creado con HyperFrames.",
+      bullets: [
+        "Orden de compra recibida y procesada.",
+        "Correo y WhatsApp conectados al flujo operativo.",
+        "Dashboard RFM híbrido para priorizar acciones comerciales."
+      ]
+    },
     items: [
       {
         id: "agentes-ia-voz-humana",

@@ -149,6 +149,51 @@ export function ProductosClient() {
         </div>
       </section>
 
+      <section className="pb-20" aria-labelledby="process-video-title">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 rounded-3xl border border-white/10 bg-brand-800/40 p-5 shadow-2xl shadow-brand-950/40 backdrop-blur-sm lg:grid-cols-[1.15fr_0.85fr] lg:p-8">
+            <div className="overflow-hidden rounded-2xl border border-brand-500/30 bg-brand-950/70 shadow-xl shadow-brand-950/40">
+              <video
+                className="aspect-video w-full bg-brand-950 object-cover"
+                src={products.processVideo.videoSrc}
+                controls
+                muted
+                playsInline
+                preload="metadata"
+                aria-describedby="process-video-description process-video-caption"
+              >
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+
+            <div className="flex flex-col justify-center space-y-6 text-left">
+              <Badge className="w-fit bg-brand-600/20 text-brand-200 border-brand-500/40 px-4 py-2 text-sm">
+                {products.processVideo.eyebrow}
+              </Badge>
+              <div className="space-y-4">
+                <h2 id="process-video-title" className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+                  {products.processVideo.title}
+                </h2>
+                <p id="process-video-description" className="text-base leading-relaxed text-white/75 md:text-lg">
+                  {products.processVideo.description}
+                </p>
+              </div>
+              <ul className="space-y-3">
+                {products.processVideo.bullets.map((bullet) => (
+                  <li key={bullet} className="flex items-start gap-3 text-sm text-white/80 md:text-base">
+                    <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-300" aria-hidden="true" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+              <p id="process-video-caption" className="rounded-2xl border border-brand-500/30 bg-brand-500/10 p-4 text-sm text-white/70">
+                {products.processVideo.caption}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

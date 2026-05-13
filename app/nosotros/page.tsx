@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { CheckCircle, Users, Target, Zap, MessageCircle } from 'lucide-react';
+import { Award, CheckCircle, Handshake, Lightbulb, MessageCircle, Target, Users, Zap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -35,6 +35,7 @@ export default function AboutPage() {
   };
 
   const processIcons = [Target, Users, Zap];
+  const clientValueIcons = [Lightbulb, Target, Handshake];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-brand-950 to-brand-900">
@@ -67,7 +68,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
             <Card className="bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-3xl p-6 md:p-8">
               <CardHeader className="pb-0 text-left">
@@ -81,14 +82,14 @@ export default function AboutPage() {
                 )}
               </CardHeader>
               <CardContent className="mt-10">
-                <div className="flex flex-col gap-8 md:flex-row md:items-start">
-                  <div className="mx-auto flex flex-col items-center md:mx-0 md:items-start">
-                    <div className="relative h-56 w-56 overflow-hidden rounded-3xl border border-brand-500/40 bg-brand-900/40 shadow-lg shadow-brand-900/40">
+                <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
+                  <div className="mx-auto flex w-full max-w-xs flex-col items-center rounded-3xl border border-brand-600/20 bg-brand-950/40 p-5 md:mx-0 md:items-start">
+                    <div className="relative h-40 w-40 overflow-hidden rounded-2xl border border-brand-500/40 bg-brand-900/40 shadow-lg shadow-brand-900/40 sm:h-44 sm:w-44">
                       <Image
                         src={about.story.founder?.image ?? '/images/gallery/Nando.webp'}
                         alt={`Foto de ${about.story.founder?.name ?? 'Hernando Morales'}`}
                         fill
-                        sizes="(min-width: 1024px) 224px, (min-width: 768px) 200px, 70vw"
+                        sizes="(min-width: 1024px) 176px, (min-width: 768px) 176px, 60vw"
                         className="object-cover"
                         priority
                       />
@@ -112,6 +113,94 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Client Value Section */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              {about.clientValue.title}
+            </h2>
+            <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+              {about.clientValue.subtitle}
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            className="grid gap-6 md:grid-cols-3"
+          >
+            {about.clientValue.items.map((value, index) => {
+              const IconComponent = clientValueIcons[index];
+
+              return (
+                <motion.div key={value.title} variants={item}>
+                  <Card className="h-full rounded-2xl border-brand-700/50 bg-brand-800/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-brand-800/60 hover:shadow-xl hover:shadow-brand-600/10">
+                    <CardHeader>
+                      <div className="mb-4 w-fit rounded-2xl bg-brand-600/20 p-4">
+                        <IconComponent className="h-7 w-7 text-brand-300" />
+                      </div>
+                      <CardTitle className="text-2xl font-bold text-white">
+                        {value.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="leading-relaxed text-white/70">
+                        {value.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Credentials Section */}
+      <section className="py-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <Card className="rounded-3xl border border-brand-600/20 bg-brand-800/30 p-6 backdrop-blur-sm md:p-8">
+              <div className="flex flex-col gap-6 md:flex-row md:items-start">
+                <div className="w-fit rounded-2xl bg-brand-600/20 p-4">
+                  <Award className="h-8 w-8 text-brand-300" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="text-3xl font-bold text-white">
+                    {about.credentials.title}
+                  </h2>
+                  <p className="mt-4 text-lg leading-relaxed text-white/75">
+                    {about.credentials.description}
+                  </p>
+                  <div className="mt-6 grid gap-3">
+                    {about.credentials.items.map((credential) => (
+                      <div key={credential} className="flex gap-3 text-white/80">
+                        <CheckCircle className="mt-1 h-5 w-5 flex-none text-brand-300" />
+                        <span>{credential}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +215,7 @@ export default function AboutPage() {
               {about.process.title}
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              Nuestro proceso otorga resultados exitosos en tan sólo 1 semana
+              {about.process.subtitle}
             </p>
           </motion.div>
 
@@ -230,10 +319,10 @@ export default function AboutPage() {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              ¿Listo para transformar tu negocio?
+              ¿Listo para ordenar y optimizar tu operación?
             </h2>
             <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Comencemos con una conversación. Te mostraremos cómo la automatización puede revolucionar tu empresa.
+              Comencemos con una conversación para entender tus procesos, detectar oportunidades y evaluar dónde la tecnología puede generar impacto real.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -266,15 +355,15 @@ export default function AboutPage() {
             >
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-sm font-medium">Resultados visibles en 1 semana</span>
+                <span className="text-sm font-medium">Soluciones a medida</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-brand-300" />
-                <span className="text-sm font-medium">Garantía de resultados</span>
+                <span className="text-sm font-medium">Foco en impacto operativo</span>
               </div>
               <div className="flex items-center space-x-2 text-white/60">
                 <CheckCircle className="h-5 w-5 text-blue-400" />
-                <span className="text-sm font-medium">Soporte continuo</span>
+                <span className="text-sm font-medium">Acompañamiento cercano</span>
               </div>
             </motion.div>
           </motion.div>

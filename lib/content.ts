@@ -133,58 +133,86 @@ export const siteContent = {
   // About page
   about: {
     hero: {
-      title: "Automatizamos el futuro de tu negocio",
-      subtitle: "Somos expertos en IA práctica y automatización empresarial que impulsa resultados medibles, rápido y sin fricción.",
+      title: "Tecnología aplicada a problemas reales de negocio",
+      subtitle: "En Lumora Partner combinamos consultoría, desarrollo y automatización para optimizar procesos, reducir carga operativa y ayudar a las empresas a escalar con más orden.",
     },
     story: {
-      title: "Nuestra Historia",
-      summary: "De la experiencia independiente a soluciones empresariales escalables",
+      title: "Más que implementar IA: entendemos cómo opera tu negocio",
+      summary: "Consultoría, desarrollo y criterio operativo para convertir dolores reales en soluciones útiles.",
       paragraphs: [
-        "Lumora Partner nace de la experiencia de Hernando Morales, especialista en automatización de procesos, integración de APIs y procesamiento de datos, con más de 6 años desarrollando soluciones independientes para empresas y profesionales.",
-        "Su enfoque une herramientas low-code/no-code como n8n con una base sólida en JavaScript, HTML, CSS y Git/GitHub, logrando flujos automatizados que son flexibles, confiables y fáciles de escalar.",
-        "Hernando cuenta con certificaciones en automatización low-code con n8n, workflows profesionales, JavaScript y fundamentos de e-commerce, entre otras, lo que refuerza su compromiso con diseñar soluciones prácticas, medibles y enfocadas en resultados.",
-        "En Lumora Partner, la misión es clara: llevar la automatización inteligente a todo tipo de negocios, reduciendo el trabajo manual y aumentando la eficiencia, para que los equipos puedan enfocarse en lo estratégico y crecer con claridad."
+        "Lumora Partner nace de una forma muy concreta de trabajar: escuchar primero, entender el problema real y después diseñar una solución tecnológica que tenga sentido para la operación del cliente.",
+        "Hernando Morales combina mirada consultiva, desarrollo web, automatización de procesos, integración de APIs y herramientas low-code/no-code para convertir tareas repetitivas, cuellos de botella y procesos desordenados en sistemas más claros y escalables.",
+        "El valor no está en vender IA por moda. Está en detectar qué parte del negocio necesita orden, qué puede automatizarse, qué debe seguir siendo humano y cómo implementar una solución que se adapte a las necesidades, recursos y limitaciones de cada empresa.",
+        "Por eso trabajamos con foco selectivo: preferimos acompañar bien a cada cliente, entender su contexto y construir soluciones que generen impacto real antes que operar como una fábrica masiva de proyectos."
       ],
       founder: {
         name: "Hernando Morales",
-        role: "Fundador y especialista en automatización",
+        role: "Consultor y desarrollador en optimización de procesos",
         image: "/images/gallery/founder.png"
       }
+    },
+    clientValue: {
+      title: "Lo que más valoran nuestros clientes",
+      subtitle: "Nuestro diferencial está en entender el negocio antes de proponer tecnología.",
+      items: [
+        {
+          title: "Entender el dolor real",
+          description: "Identificamos el problema de fondo detrás de tareas manuales, retrasos, reprocesos o información desordenada."
+        },
+        {
+          title: "Diseñar soluciones viables",
+          description: "Proponemos soluciones prácticas, adaptadas al presupuesto, herramientas actuales y nivel operativo del cliente."
+        },
+        {
+          title: "Acompañar el proceso",
+          description: "Nos acoplamos a las necesidades y limitaciones del negocio para ajustar la solución hasta que realmente funcione."
+        }
+      ]
+    },
+    credentials: {
+      title: "Formación que respalda la práctica",
+      description: "Además de la experiencia construyendo soluciones reales, Hernando cuenta con formación en desarrollo web, automatización, workflows profesionales, JavaScript, e-commerce y optimización comercial con soluciones tecnológicas basadas en IA generativa, incluyendo certificación del SENA y Grupo Multisectorial.",
+      items: [
+        "Optimización comercial en mipymes con soluciones tecnológicas basadas en IA generativa - SENA y Grupo Multisectorial",
+        "Automatización low-code/no-code y workflows profesionales",
+        "Desarrollo web, JavaScript, HTML, CSS, Git/GitHub y fundamentos de e-commerce"
+      ]
     },
 
     process: {
       title: "Cómo Trabajamos",
+      subtitle: "Un proceso consultivo para pasar del problema operativo a una solución implementada, usable y alineada con la realidad del negocio.",
       steps: [
         {
-          title: "Descubrir",
-          description: "Analizamos tu negocio, identificamos oportunidades y definimos objetivos claros con métricas específicas."
+          title: "Entender",
+          description: "Mapeamos cómo opera tu negocio, escuchamos a las personas involucradas y detectamos los dolores que realmente frenan el proceso."
         },
         {
           title: "Diseñar", 
-          description: "Creamos soluciones personalizadas utilizando las mejores herramientas de IA y automatización del mercado."
+          description: "Convertimos el diagnóstico en una solución a medida: simple de usar, posible de implementar y conectada con tus herramientas actuales."
         },
         {
-          title: "Desplegar",
-          description: "Implementamos, probamos y entrenamos a tu equipo para que aproveches al máximo las nuevas automatizaciones."
+          title: "Ajustar",
+          description: "Implementamos, probamos y refinamos junto al cliente para que la solución se adapte al negocio, no al revés."
         }
       ]
     },
     faqs: [
       {
-        question: "¿Cuánto tiempo toma implementar una automatización?",
-        answer: "Dependiendo de la complejidad, entre 2-8 semanas. Proyectos simples como chatbots pueden estar listos en una semana."
+        question: "¿Trabajan solo con inteligencia artificial?",
+        answer: "No. Usamos IA cuando aporta valor, pero el foco es resolver problemas de negocio. A veces la mejor solución es una automatización, una integración, un flujo mejor diseñado o una combinación de varias herramientas."
       },
       {
-        question: "¿Necesito conocimientos técnicos para usar las soluciones?",
-        answer: "No. Diseñamos todas nuestras soluciones para que sean intuitivas y proporcionamos capacitación completa a tu equipo."
+        question: "¿Cómo definen qué solución necesita mi empresa?",
+        answer: "Primero entendemos el proceso, los dolores, las herramientas actuales y las limitaciones reales. Después proponemos una solución viable, no una tecnología impuesta."
       },
       {
-        question: "¿Qué garantías ofrecen?",
-        answer: "Garantizamos resultados medibles en 90 días o devolvemos tu inversión."
+        question: "¿Qué tipo de resultados buscan generar?",
+        answer: "Principalmente reducción de trabajo manual, menos errores, procesos más estandarizados, mejor visibilidad operativa y capacidad de escalar sin aumentar innecesariamente el equipo."
       },
       {
         question: "¿Pueden integrarse con nuestros sistemas actuales?",
-        answer: "Sí, especialidad en integraciones. Trabajamos con APIs, bases de datos y sistemas existentes sin interrumpir operaciones."
+        answer: "Sí. Trabajamos con APIs, formularios, hojas de cálculo, CRMs, plataformas web, herramientas no-code/low-code y sistemas existentes para conectar la operación sin interrumpirla."
       }
     ]
   },

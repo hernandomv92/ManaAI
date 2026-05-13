@@ -235,49 +235,51 @@ export const siteContent = {
     },
     items: [
       {
-        id: "agentes-ia-voz-humana",
-        title: "Agentes IA con voz humana",
+        id: "procesos-operativos-a-medida",
+        title: "Procesos operativos a medida",
         offer: [
-          "Olvídate de los chatbots robóticos que frustran a tus clientes. Creamos agentes inteligentes personalizados a tu marca, que responden como un humano real, con empatía, contexto y conocimiento de tu negocio.",
-          "Tus clientes sentirán que hablan con alguien de tu equipo, no con una máquina."
+          "Diseñamos flujos que reciben información, la validan, responden automáticamente y conectan a las personas correctas sin depender de copiar y pegar.",
+          "Es el tipo de solución que desarrollamos para empresas como Biologix y Genyx: primero entendemos el proceso real y después automatizamos lo que sí tiene sentido."
         ],
-        emphasisTitle: "Beneficios clave",
+        emphasisTitle: "Qué puede incluir",
         emphasisItems: [
-          "Respuestas rápidas, naturales y siempre alineadas con tu marca.",
-          "Capacidad multicanal (WhatsApp, correo, web).",
-          "Entrenados con tus playbooks, no con prompts genéricos."
+          "Lectura y procesamiento de órdenes de compra desde correo o archivos adjuntos.",
+          "Validación de datos antes de responder al cliente o avanzar al siguiente paso.",
+          "Notificaciones internas por correo o WhatsApp para mantener al equipo alineado."
         ],
-        result: "👉 El resultado: clientes felices, mejor experiencia y más cierres sin aumentar tu equipo humano."
+        result: "Resultado: menos reprocesos, trazabilidad y una operación que no depende de estar revisando bandejas todo el día."
       },
       {
-        id: "automatizacion-procesos-criticos",
-        title: "Automatización de procesos críticos",
+        id: "genyx-orden-factura-envio",
+        title: "Flujos de orden, factura y envío",
         offer: [
-          "Tu equipo ya no tiene que perder horas revisando correos, copiando datos y organizando documentos. Diseñamos automatizaciones inteligentes que hacen ese trabajo repetitivo por ti."
+          "Para Genyx SAS desarrollamos un flujo que toma la orden de compra, valida la información, responde la orden, avanza hacia la generación de factura y prepara la guía de envío por Coordinadora.",
+          "Después el sistema se comunica con la bodega Farma Depot para coordinar empaque y alistamiento antes de la entrega al cliente final."
         ],
-        flowTitle: "Cómo funciona",
+        flowTitle: "Cómo se conecta el proceso",
         flowItems: [
-          "La IA filtra correos y mensajes.",
-          "Extrae y organiza la información clave.",
-          "La entrega lista en una plantilla clara (facturas, cotizaciones, reportes, tickets internos).",
-          "Un humano solo revisa y aprueba → sin retrabajo."
+          "Entrada de orden de compra y validación de datos.",
+          "Respuesta automática y paso controlado hacia facturación.",
+          "Generación de guía de envío cuando la factura está lista.",
+          "Comunicación con bodega para alistamiento y despacho."
         ],
-        result: "👉 El resultado: menos errores, más velocidad y tu equipo enfocado en lo que realmente importa."
+        result: "Resultado: un flujo más ordenado entre comercial, facturación, logística y bodega."
       },
       {
-        id: "sitios-web-7-dias",
-        title: "Sitios web listos en 7 días",
+        id: "paninos-tienda-pos-whatsapp",
+        title: "Tiendas en línea conectadas al POS",
         offer: [
-          "Un sitio web no tiene que ser un proyecto eterno. Creamos sitios a medida, optimizados para leads y con SEO sólido, en solo 7 días."
+          "Para Paninos desarrollamos una tienda en línea conectada con su sistema de facturación POS, pensada para operar pedidos reales y no solo recibir formularios bonitos.",
+          "La solución identifica por dirección qué restaurante debe atender el pedido y envía notificaciones por WhatsApp tanto al cliente como a la sede correspondiente."
         ],
-        flowTitle: "Cómo lo hacemos tan rápido",
+        flowTitle: "Qué resuelve",
         flowItems: [
-          "Llenas un formulario de máximo 10 preguntas.",
-          "Creamos un prototipo en 72h.",
-          "Tienes una ronda de cambios.",
-          "Entregamos tu web final lista para vender."
+          "Pedido online conectado al sistema de facturación.",
+          "Asignación del restaurante según la dirección ingresada por el cliente.",
+          "Avisos por WhatsApp para cliente y restaurante.",
+          "Operación lista para recibir pedidos sin perder control interno."
         ],
-        result: "👉 El resultado: un sitio profesional, sin reuniones infinitas ni dolores de cabeza. Solo simplicidad, velocidad y un diseño que convierte."
+        result: "Resultado: una tienda que acompaña la operación del restaurante, no una web aislada del negocio."
       }
     ]
   },

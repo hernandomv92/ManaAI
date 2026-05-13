@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { Calendar, CheckCircle, MessageCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,15 @@ export function ProductosClient() {
   const [submittedOrderId, setSubmittedOrderId] = useState<string | null>(null);
   const [submittingOrderId, setSubmittingOrderId] = useState<string | null>(null);
   const [submissionErrors, setSubmissionErrors] = useState<Record<string, string | null>>({});
+
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent("Hola, vi el caso Biologix y quiero hablar sobre una solución a medida para mi empresa");
+    window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, "_blank", "noreferrer");
+  };
+
+  const handleCalendly = () => {
+    window.open("https://calendly.com/hernandomv-xnsf/30min", "_blank", "noreferrer");
+  };
 
   const handleOrderToggle = (productId: string) => {
     setSubmittedOrderId(null);
@@ -164,6 +173,30 @@ export function ProductosClient() {
               >
                 Tu navegador no soporta video HTML5.
               </video>
+              <div className="border-t border-brand-500/20 bg-brand-950/95 p-5">
+                <p className="mb-4 text-sm text-white/70">
+                  ¿Querés revisar si un flujo parecido aplica para tu operación?
+                </p>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Button
+                    type="button"
+                    className="bg-brand-500 text-white hover:bg-brand-400"
+                    onClick={handleCalendly}
+                  >
+                    <Calendar className="mr-2 h-4 w-4" aria-hidden="true" />
+                    Agendar una cita
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="border-green-400/60 bg-green-500/10 text-green-100 hover:bg-green-500/20 hover:text-white"
+                    onClick={handleWhatsApp}
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
+                    Hablar por WhatsApp
+                  </Button>
+                </div>
+              </div>
             </div>
 
             <div className="flex flex-col justify-center space-y-6 text-left">

@@ -8,44 +8,37 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1920px; height: 1080px; overflow: hidden; background-color: #0A0F1F; }
       #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; background-color: #0A0F1F; }
-      .transition-wipe { position: absolute; inset: 0; z-index: 20; pointer-events: none; overflow: hidden; }
-      .wipe-panel { position: absolute; top: 0; bottom: 0; width: 34%; background: #1D4ED8; box-shadow: 0 0 80px rgba(59,130,246,0.65); }
-      .wipe-panel:nth-child(1) { left: 0; }
-      .wipe-panel:nth-child(2) { left: 33%; background: #3B82F6; }
-      .wipe-panel:nth-child(3) { right: 0; background: #93C5FD; }
+      .soft-transition { position: absolute; inset: 0; z-index: 20; pointer-events: none; background: #0A0F1F; opacity: 0; }
+      .soft-transition::after { content: ""; position: absolute; left: -20%; right: -20%; top: 50%; height: 3px; background: linear-gradient(90deg, rgba(147,197,253,0), rgba(147,197,253,0.75), rgba(147,197,253,0)); box-shadow: 0 0 42px rgba(59,130,246,0.8); transform: translateY(-50%); }
       .final-fade { position: absolute; inset: 0; z-index: 30; background: #0A0F1F; opacity: 0; pointer-events: none; }
 </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="28" data-width="1920" data-height="1080">
-      <div id="scene-1-host" data-composition-id="scene-1" data-composition-src="compositions/scene-1.html" data-start="0" data-duration="6.2" data-track-index="1"></div>
-      <div id="scene-2-host" data-composition-id="scene-2" data-composition-src="compositions/scene-2.html" data-start="6.2" data-duration="7.8" data-track-index="1"></div>
-      <div id="scene-3-host" data-composition-id="scene-3" data-composition-src="compositions/scene-3.html" data-start="14" data-duration="8" data-track-index="1"></div>
-      <div id="scene-4-host" data-composition-id="scene-4" data-composition-src="compositions/scene-4.html" data-start="22" data-duration="6" data-track-index="1"></div>
-
-      <div id="wipe-1" class="transition-wipe clip" data-layout-allow-overflow data-start="5.65" data-duration="0.75" data-track-index="9">
-        <div class="wipe-panel"></div><div class="wipe-panel"></div><div class="wipe-panel"></div>
-      </div>
-      <div id="wipe-2" class="transition-wipe clip" data-layout-allow-overflow data-start="13.45" data-duration="0.75" data-track-index="9">
-        <div class="wipe-panel"></div><div class="wipe-panel"></div><div class="wipe-panel"></div>
-      </div>
-      <div id="wipe-3" class="transition-wipe clip" data-layout-allow-overflow data-start="21.45" data-duration="0.75" data-track-index="9">
-        <div class="wipe-panel"></div><div class="wipe-panel"></div><div class="wipe-panel"></div>
-      </div>
-      <div id="final-fade" class="final-fade clip" data-start="27.45" data-duration="0.45" data-track-index="10"></div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="71" data-width="1920" data-height="1080">
+      <div id="scene-1-host" data-composition-id="scene-1" data-composition-src="compositions/scene-1.html" data-start="0" data-duration="15" data-track-index="1"></div>
+      <div id="scene-2-host" data-composition-id="scene-2" data-composition-src="compositions/scene-2.html" data-start="14" data-duration="15" data-track-index="2"></div>
+      <div id="scene-3-host" data-composition-id="scene-3" data-composition-src="compositions/scene-3.html" data-start="28" data-duration="15" data-track-index="3"></div>
+      <div id="scene-4-host" data-composition-id="scene-4" data-composition-src="compositions/scene-4.html" data-start="42" data-duration="15" data-track-index="4"></div>
+      <div id="scene-5-host" data-composition-id="scene-5" data-composition-src="compositions/scene-5.html" data-start="56" data-duration="15" data-track-index="5"></div>
+      
+      <div id="fade-1" class="soft-transition"></div>
+      <div id="fade-2" class="soft-transition"></div>
+      <div id="fade-3" class="soft-transition"></div>
+      <div id="fade-4" class="soft-transition"></div>
+      <div id="final-fade" class="final-fade clip" data-start="70.25" data-duration="0.65" data-track-index="10"></div>
     </div>
-
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      function wipe(id, start) {
-        tl.fromTo(`${id} .wipe-panel`, { xPercent: -112 }, { xPercent: 0, duration: 0.32, stagger: 0.045, ease: "power3.in" }, start);
-        tl.to(`${id} .wipe-panel`, { xPercent: 112, duration: 0.38, stagger: 0.045, ease: "power3.out" }, start + 0.34);
+      function softFade(id, start) {
+        tl.fromTo(id, { opacity: 0 }, { opacity: 0.68, duration: 0.75, ease: "sine.inOut" }, start);
+        tl.to(id, { opacity: 0, duration: 0.95, ease: "sine.inOut" }, start + 0.8);
       }
-      wipe("#wipe-1", 5.65);
-      wipe("#wipe-2", 13.45);
-      wipe("#wipe-3", 21.45);
-      tl.to("#final-fade", { opacity: 1, duration: 0.42, ease: "sine.inOut" }, 27.48);
+      softFade("#fade-1", 13.0);
+      softFade("#fade-2", 27.0);
+      softFade("#fade-3", 41.0);
+      softFade("#fade-4", 55.0);
+      tl.to("#final-fade", { opacity: 1, duration: 0.62, ease: "sine.inOut" }, 70.28);
       window.__timelines["main"] = tl;
     </script>
   </body>

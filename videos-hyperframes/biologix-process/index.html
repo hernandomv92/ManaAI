@@ -17,22 +17,22 @@
 </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="18" data-width="1920" data-height="1080">
-      <div id="scene-1-host" data-composition-id="scene-1" data-composition-src="compositions/scene-1.html" data-start="0" data-duration="4.6" data-track-index="1"></div>
-      <div id="scene-2-host" data-composition-id="scene-2" data-composition-src="compositions/scene-2.html" data-start="4.6" data-duration="4.8" data-track-index="1"></div>
-      <div id="scene-3-host" data-composition-id="scene-3" data-composition-src="compositions/scene-3.html" data-start="9.4" data-duration="4.9" data-track-index="1"></div>
-      <div id="scene-4-host" data-composition-id="scene-4" data-composition-src="compositions/scene-4.html" data-start="14.3" data-duration="3.7" data-track-index="1"></div>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="28" data-width="1920" data-height="1080">
+      <div id="scene-1-host" data-composition-id="scene-1" data-composition-src="compositions/scene-1.html" data-start="0" data-duration="6.2" data-track-index="1"></div>
+      <div id="scene-2-host" data-composition-id="scene-2" data-composition-src="compositions/scene-2.html" data-start="6.2" data-duration="7.8" data-track-index="1"></div>
+      <div id="scene-3-host" data-composition-id="scene-3" data-composition-src="compositions/scene-3.html" data-start="14" data-duration="8" data-track-index="1"></div>
+      <div id="scene-4-host" data-composition-id="scene-4" data-composition-src="compositions/scene-4.html" data-start="22" data-duration="6" data-track-index="1"></div>
 
-      <div id="wipe-1" class="transition-wipe clip" data-layout-allow-overflow data-start="4.15" data-duration="0.75" data-track-index="9">
+      <div id="wipe-1" class="transition-wipe clip" data-layout-allow-overflow data-start="5.65" data-duration="0.75" data-track-index="9">
         <div class="wipe-panel"></div><div class="wipe-panel"></div><div class="wipe-panel"></div>
       </div>
-      <div id="wipe-2" class="transition-wipe clip" data-layout-allow-overflow data-start="8.95" data-duration="0.75" data-track-index="9">
+      <div id="wipe-2" class="transition-wipe clip" data-layout-allow-overflow data-start="13.45" data-duration="0.75" data-track-index="9">
         <div class="wipe-panel"></div><div class="wipe-panel"></div><div class="wipe-panel"></div>
       </div>
-      <div id="wipe-3" class="transition-wipe clip" data-layout-allow-overflow data-start="13.85" data-duration="0.75" data-track-index="9">
+      <div id="wipe-3" class="transition-wipe clip" data-layout-allow-overflow data-start="21.45" data-duration="0.75" data-track-index="9">
         <div class="wipe-panel"></div><div class="wipe-panel"></div><div class="wipe-panel"></div>
       </div>
-      <div id="final-fade" class="final-fade clip" data-start="17.55" data-duration="0.45" data-track-index="10"></div>
+      <div id="final-fade" class="final-fade clip" data-start="27.45" data-duration="0.45" data-track-index="10"></div>
     </div>
 
     <script>
@@ -42,10 +42,10 @@
         tl.fromTo(`${id} .wipe-panel`, { xPercent: -112 }, { xPercent: 0, duration: 0.32, stagger: 0.045, ease: "power3.in" }, start);
         tl.to(`${id} .wipe-panel`, { xPercent: 112, duration: 0.38, stagger: 0.045, ease: "power3.out" }, start + 0.34);
       }
-      wipe("#wipe-1", 4.15);
-      wipe("#wipe-2", 8.95);
-      wipe("#wipe-3", 13.85);
-      tl.to("#final-fade", { opacity: 1, duration: 0.42, ease: "sine.inOut" }, 17.58);
+      wipe("#wipe-1", 5.65);
+      wipe("#wipe-2", 13.45);
+      wipe("#wipe-3", 21.45);
+      tl.to("#final-fade", { opacity: 1, duration: 0.42, ease: "sine.inOut" }, 27.48);
       window.__timelines["main"] = tl;
     </script>
   </body>

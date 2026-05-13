@@ -226,7 +226,7 @@ export const siteContent = {
       title: "Mirá cómo una orden se convierte en una operación conectada",
       description: "Este primer recorrido visual muestra una solución desarrollada para Biologix Colombia SAS: recepción de órdenes, respuestas automáticas, notificaciones por WhatsApp y un dashboard responsive para decisiones comerciales en campo.",
       videoSrc: "/videos/biologix-process-draft.mp4",
-      caption: "Video sin audio: demostración visual del flujo Biologix creado con HyperFrames.",
+      caption: "Recorrido visual basado en una solución real desarrollada para Biologix Colombia SAS.",
       bullets: [
         "Orden de compra recibida y procesada.",
         "Correo y WhatsApp conectados al flujo operativo.",

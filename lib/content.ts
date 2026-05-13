@@ -148,7 +148,7 @@ export const siteContent = {
       founder: {
         name: "Hernando Morales",
         role: "Consultor y desarrollador en optimización de procesos",
-        image: "/images/gallery/founder.png"
+        image: "/images/gallery/fotositionegro.webp"
       }
     },
     clientValue: {

@@ -1,26 +1,38 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { CheckCircle2, Compass, Settings2 } from "lucide-react";
+import { BarChart3, ReceiptText, Store } from "lucide-react";
 
-const PRINCIPLES = [
+const CLIENT_CASES = [
   {
-    title: "Primero el problema",
+    client: "Marcela Pardo",
+    company: "Biologix Colombia SAS",
+    title: "Automatización comercial y dashboard operativo",
     description:
-      "Antes de hablar de IA o automatización, entendemos qué parte del proceso está generando fricción, errores o pérdida de tiempo.",
-    icon: Compass,
+      "Automatizamos la recepción de órdenes de compra, las respuestas por correo, la búsqueda de jefes de finca y las notificaciones por WhatsApp para clientes y equipo interno.",
+    detail:
+      "También construimos una base de datos y un dashboard responsive con RFM híbrido para detectar cambios en el comportamiento de compra y priorizar visitas en ruta.",
+    icon: BarChart3,
   },
   {
-    title: "Después la herramienta",
+    client: "Jaime Osorio",
+    company: "Genyx SAS",
+    title: "Flujo automático de órdenes, facturación y despacho",
     description:
-      "Elegimos desarrollo, integraciones, no-code, automatización o IA según el contexto. La tecnología no se impone: se justifica.",
-    icon: Settings2,
+      "Procesamos órdenes de compra, validamos información, respondemos solicitudes y avanzamos hacia la generación de facturas de forma automática.",
+    detail:
+      "Después conectamos la creación de guías por Coordinadora y la comunicación con Farma Depot para preparar pedidos hasta su entrega al cliente final.",
+    icon: ReceiptText,
   },
   {
-    title: "Mejoras sostenibles",
+    client: "Paninos",
+    company: "Restaurante",
+    title: "Tienda en línea conectada al POS",
     description:
-      "Buscamos soluciones que tu equipo pueda usar, revisar y mejorar con claridad, no sistemas mágicos imposibles de mantener.",
-    icon: CheckCircle2,
+      "Desarrollamos una tienda online conectada al sistema de facturación, capaz de identificar por dirección qué restaurante debe atender cada pedido.",
+    detail:
+      "El flujo incluye notificaciones por WhatsApp para clientes y para cada sede, manteniendo la operación conectada desde el pedido hasta la preparación.",
+    icon: Store,
   },
 ];
 
@@ -61,13 +73,13 @@ export function Testimonials() {
         >
           <div className="space-y-4 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-200/70">
-              Adopción tecnológica responsable
+              Clientes y soluciones reales
             </p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-              La IA sirve cuando resuelve un problema claro, no cuando se usa por moda
+              Desarrollos a medida que ya operan en negocios reales
             </h2>
             <p className="mx-auto max-w-3xl text-base text-white/70 sm:text-lg">
-              Nuestro enfoque no parte de prometer porcentajes. Parte de entender la operación, diseñar una mejora viable y acompañar su implementación.
+              Cada solución nace de entender cómo trabaja el cliente: sus herramientas, sus equipos, sus rutas y sus procesos críticos.
             </p>
           </div>
 
@@ -78,23 +90,34 @@ export function Testimonials() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {PRINCIPLES.map((principle) => {
-              const Icon = principle.icon;
+            {CLIENT_CASES.map((caseItem) => {
+              const Icon = caseItem.icon;
 
               return (
                 <motion.article
-                  key={principle.title}
+                  key={`${caseItem.client}-${caseItem.company}`}
                   variants={item}
                   className="flex h-full flex-col gap-5 rounded-3xl border border-white/10 bg-brand-800/40 p-6 text-left shadow-lg backdrop-blur-sm"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 ring-1 ring-white/10">
-                    <Icon className="h-6 w-6 text-brand-300" aria-hidden="true" />
-                  </span>
+                  <div className="flex items-start gap-4">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/5 ring-1 ring-white/10">
+                      <Icon className="h-6 w-6 text-brand-300" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-white">{caseItem.client}</p>
+                      <p className="text-xs uppercase tracking-[0.2em] text-brand-200/70">
+                        {caseItem.company}
+                      </p>
+                    </div>
+                  </div>
 
                   <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-white">{principle.title}</h3>
-                    <p className="text-base leading-relaxed text-white/75">
-                      {principle.description}
+                    <h3 className="text-xl font-semibold text-white">{caseItem.title}</h3>
+                    <p className="text-sm leading-relaxed text-white/75">
+                      {caseItem.description}
+                    </p>
+                    <p className="rounded-2xl border border-brand-500/30 bg-brand-500/10 p-4 text-sm leading-relaxed text-white/75">
+                      {caseItem.detail}
                     </p>
                   </div>
                 </motion.article>

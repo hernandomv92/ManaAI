@@ -4,7 +4,7 @@ export const siteContent = {
     name: "Lumora Partner",
     tagline: "Automatiza hoy. Escala mañana.",
     description: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
-    url: "https://lumorapartners.com",
+    url: "https://lumorapartner.com",
   },
 
   // Navigation

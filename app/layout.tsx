@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   authors: [{ name: siteContent.site.name }],
   creator: siteContent.site.name,
   metadataBase: new URL(siteContent.site.url),
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+  },
   alternates: {
     canonical: '/',
   },

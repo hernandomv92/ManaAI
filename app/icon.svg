@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Lumora Partner</title>
+  <desc id="desc">Monograma LP de Lumora Partner sobre fondo azul oscuro.</desc>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="432" y2="472" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#112044"/>
+      <stop offset="0.52" stop-color="#0E1630"/>
+      <stop offset="1" stop-color="#0A0F1F"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="150" y1="120" x2="370" y2="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#EAF2FF"/>
+      <stop offset="0.45" stop-color="#93C5FD"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <circle cx="378" cy="132" r="92" fill="#1D4ED8" opacity="0.18"/>
+  <circle cx="134" cy="390" r="120" fill="#3B82F6" opacity="0.12"/>
+  <path d="M112 384V128h58v204h116v52H112Z" fill="url(#mark)" filter="url(#glow)"/>
+  <path d="M282 384V128h98c58 0 94 34 94 84 0 52-38 86-96 86h-38v86h-58Zm58-135h34c26 0 41-14 41-36s-15-35-41-35h-34v71Z" fill="url(#mark)" filter="url(#glow)" opacity="0.96"/>
+  <path d="M96 96h320" stroke="#93C5FD" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
+  <path d="M96 416h320" stroke="#3B82F6" stroke-width="8" stroke-linecap="round" opacity="0.18"/>
+</svg>

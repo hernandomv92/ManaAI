@@ -3,23 +3,23 @@
 import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const GUARANTEE = {
-  title: "Crecimiento con bases sólidas",
-  subtitle: "Organizamos tus procesos y unificamos tus canales para que tu negocio crezca sin caos ni sobresaltos.",
+  title: "Transparencia antes que promesas vacías",
+  subtitle: "No prometemos resultados mágicos ni porcentajes inventados. Trabajamos sobre problemas concretos, alcance claro y mejoras verificables.",
   steps: [
     {
-      title: "Diagnóstico claro",
-      description: "Revisamos contigo cómo trabajas hoy y detectamos dónde se pierden tiempo y oportunidades."
+      title: "Diagnóstico honesto",
+      description: "Entendemos tu operación actual, tus limitaciones y qué vale la pena mejorar primero."
     },
     {
-      title: "Procesos ordenados",
-      description: "Unificamos canales y estructuramos flujos simples, para que todo tu equipo trabaje con claridad."
+      title: "Solución viable",
+      description: "Proponemos tecnología útil para tu contexto: automatización, integración, desarrollo o simplemente un flujo mejor diseñado."
     },
     {
-      title: "Crecimiento enfocado",
-      description: "Con la casa en orden, tú y tu equipo se enfocan en lo importante: clientes, ventas y expansión."
+      title: "Implementación acompañada",
+      description: "Ajustamos junto a tu equipo para que la solución se adopte bien y no quede como otra herramienta abandonada."
     }
   ],
-  note: "Sin promesas vacías: nuestro trabajo no es magia, es orden. Cuando tu negocio opera con claridad, el crecimiento llega solo."
+  note: "La tecnología no arregla un proceso mal entendido. Primero ordenamos el problema; después automatizamos lo que tenga sentido."
 };
 
 export function GuaranteeBlock() {
@@ -30,7 +30,7 @@ export function GuaranteeBlock() {
           <div className="space-y-6 text-left">
             <span className="inline-flex items-center gap-2 rounded-full border border-brand-500/40 bg-brand-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-brand-200">
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              Garantía de enfoque real
+              Enfoque responsable
             </span>
             <div className="space-y-4">
               <h2 className="text-3xl font-semibold text-white sm:text-4xl">{GUARANTEE.title}</h2>
@@ -39,7 +39,7 @@ export function GuaranteeBlock() {
           </div>
 
           <div className="space-y-4 rounded-3xl border border-white/10 bg-black/20 p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Cómo aseguramos el resultado</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-white/60">Cómo trabajamos con claridad</h3>
             <ul className="space-y-4">
               {GUARANTEE.steps.map((step) => (
                 <li key={step.title} className="flex items-start gap-3 text-sm text-white/80">

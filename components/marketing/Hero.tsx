@@ -5,35 +5,35 @@ import { ArrowRight, Shield } from "lucide-react";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 
 const heroCard = {
-  title: "Automatizamos lo que hoy te consume horas.",
-  subtitle: "Deja que la IA organice tus flujos mientras tu te enfocas en crecer.",
+  title: "Ordenamos lo que hoy frena tu operación.",
+  subtitle: "Primero entendemos tu proceso; después aplicamos tecnología, automatización o IA solo donde realmente aporta valor.",
   items: [
     {
-      title: "Correos filtrados automáticamente",
-      description: "Detectamos facturas, cotizaciones y pedidos en tu inbox."
+      title: "Procesos entendidos antes de automatizar",
+      description: "Mapeamos cómo trabaja tu equipo para encontrar cuellos de botella reales, no supuestos."
     },
     {
-      title: "Datos organizados en segundos",
-      description: "La información se extrae y se guarda en tu base de datos o Google Sheets sin errores."
+      title: "Información más clara para decidir",
+      description: "Conectamos formularios, hojas, CRMs o bases de datos para reducir copias manuales y retrabajo."
     },
     {
-      title: "Procesos conectados",
-      description: "Cada dato alimenta tu CRM, tu contabilidad o tus reportes sin que tengas que mover un dedo."
+      title: "Automatizaciones con criterio",
+      description: "Diseñamos flujos que acompañan tu operación actual y pueden crecer sin volverse un caos."
     },
     {
-      title: "Respuestas inteligentes",
-      description: "El sistema envía confirmaciones o notificaciones al instante, para que nada quede pendiente."
+      title: "Acompañamiento durante la implementación",
+      description: "Probamos, ajustamos y documentamos contigo para que la solución sea usable por tu equipo."
     }
   ],
-  closing: "Menos revisiones manuales, más control y tiempo libre para enfocarte en tus clientes."
+  closing: "Menos promesas mágicas. Más claridad, implementación responsable y mejoras que tu equipo puede sostener."
 };
 
 export function Hero() {
-  const badge = "Asegura el futuro de tu negocio";
-  const primaryCTA = "Agenda tu Auditoria Gratuita";
-  const titleBase = "Del desorden a la claridad: tu negocio,";
-  const titleHighlight = "potenciado con IA";
-  const subtitle = "Haz más con menos esfuerzo (y cero estrés).";
+  const badge = "Tecnología aplicada con criterio";
+  const primaryCTA = "Agenda una conversación inicial";
+  const titleBase = "Procesos más claros, equipos más enfocados,";
+  const titleHighlight = "tecnología mejor aplicada";
+  const subtitle = "Consultoría, desarrollo y automatización para resolver problemas reales de operación.";
 
   const handlePrimaryClick = () => {
     if (typeof window !== "undefined") {

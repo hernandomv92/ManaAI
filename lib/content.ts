@@ -2,8 +2,8 @@ export const siteContent = {
   // Site metadata
   site: {
     name: "Lumora Partner",
-    tagline: "Automatiza hoy. Escala mañana.",
-    description: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
+    tagline: "Ordená procesos. Aplicá tecnología con criterio.",
+    description: "Combinamos consultoría, desarrollo y automatización para ordenar procesos y aplicar tecnología donde realmente aporta valor.",
     url: "https://lumorapartner.com",
   },
 
@@ -16,52 +16,52 @@ export const siteContent = {
 
   // Hero section
   hero: {
-    title: "Utiliza IA Probada para Multiplicar Ventas en 30 Días (Comprobado por 500+ Negocios), o Te Devolvemos el 100%.",
-    subtitle: "Agentes con IA, procesos orquestados y datos listos para vender más.",
-    primaryCTA: "Obtén tu Plan de IA (en 30 Segundos)",
+    title: "Tecnología aplicada a procesos reales de negocio",
+    subtitle: "Consultoría, desarrollo y automatización para reducir carga operativa, ordenar información y mejorar la forma en que trabaja tu equipo.",
+    primaryCTA: "Agenda una conversación inicial",
     secondaryCTA: "Habla con un experto",
     whatsappNumber: "573238253871", // WhatsApp number for +573238253871
   },
 
   // Solutions section
   solutions: {
-    title: "Nuestras Soluciones",
-    intro: "Implementamos IA práctica para resultados medibles, rápido y sin fricción.",
+    title: "Cómo podemos ayudarte",
+    intro: "Combinamos consultoría, desarrollo y automatización para ordenar procesos y aplicar tecnología donde realmente aporta valor.",
     items: [
       {
         id: "auditorias",
         icon: "Search",
-        title: "Auditorías IA",
-        subtitle: "Diagnóstico express que revela oportunidades ocultas",
-        microProof: "Identificamos +25% más oportunidades en 48h",
+        title: "Auditorías de procesos e IA",
+        subtitle: "Entendemos tu operación antes de proponer tecnología",
+        microProof: "Mapeamos dolores, prioridades y oportunidades reales de mejora",
         bullets: [
-          "Análisis completo: Identifica +25% más oportunidades de automatización en 48 horas",
-          "Plan accionable: Roadmap personalizado para ROI inmediato sin inversión inicial",
-          "Resultados reales: Clientes ven 2x eficiencia operativa en el primer mes"
+          "Revisamos procesos, herramientas y puntos donde hoy se pierde tiempo o información.",
+          "Priorizamos mejoras viables según impacto, complejidad, presupuesto y capacidad del equipo.",
+          "Definimos próximos pasos claros para avanzar sin comprar tecnología innecesaria."
         ]
       },
       {
         id: "embudo-ia",
         icon: "Globe",
-        title: "Embudo IA Autónomo",
-        subtitle: "Sitio y agentes coordinados que captan, nutren y cierran ventas solos",
-        microProof: "Webs +35% en conversión y agentes con +30% cierres en WhatsApp",
+        title: "Sistemas digitales para captar y atender mejor",
+        subtitle: "Webs, formularios y asistentes conectados para mejorar seguimiento y respuesta",
+        microProof: "Diseñamos experiencias claras para que tus prospectos entiendan, consulten y avancen mejor",
         bullets: [
-          "Presencia 24/7: Sitios personalizados que adaptan el mensaje y elevan conversiones +35%",
-          "Conversaciones inteligentes: Agentes IA multicanal que responden y cierran +30% más oportunidades",
-          "Seguimiento automático: Integración con tu CRM para nutrir leads sin esfuerzo"
+          "Presencia digital: sitios y formularios pensados para explicar tu oferta y capturar oportunidades con orden.",
+          "Atención asistida: agentes o flujos que responden preguntas frecuentes, califican consultas y derivan cuando hace falta criterio humano.",
+          "Seguimiento conectado: integración con CRM, hojas o correo para que ninguna consulta quede perdida."
         ]
       },
       {
         id: "ops-ia",
         icon: "Workflow",
-        title: "Operaciones IA 360",
-        subtitle: "Orquesta workflows n8n con datos frescos para ejecutar sin fricciones",
-        microProof: "Equipos que ahorran 40+ horas y elevan campañas con datos enriquecidos",
+        title: "Automatización de procesos operativos",
+        subtitle: "Conectamos herramientas y reducimos tareas repetitivas con flujos sostenibles",
+        microProof: "Menos copias manuales, menos reprocesos y más visibilidad sobre lo que ocurre",
         bullets: [
-          "Automatización integral: Flujos n8n conectan equipos y reducen errores humanos en 90%",
-          "Datos en tiempo real: Scrapers éticos nutren decisiones y elevan conversiones en 50%",
-          "Gobernanza clara: Monitoreo y alertas para iterar procesos sin detener operaciones"
+          "Automatización gradual: conectamos herramientas para reducir tareas manuales donde el proceso ya está claro.",
+          "Datos ordenados: estructuramos información para reportes, seguimiento comercial u operación interna.",
+          "Control y mantenimiento: dejamos trazabilidad, alertas y documentación para que el sistema pueda sostenerse."
         ]
       }
     ]
@@ -69,46 +69,46 @@ export const siteContent = {
 
   // Social proof
   socialProof: {
-    title: "Confiado por empresas líderes",
+    title: "Trabajo responsable, sin vender humo",
     testimonial: {
-      text: "Pasamos de caos a 3x más leads procesados—gracias a su IA",
-      author: "María González",
-      role: "CEO",
-      company: "TechStart Pro",
+      text: "Ordenamos procesos antes de automatizar. Esa es la base para que la tecnología funcione.",
+      author: "Equipo Lumora Partner",
+      role: "Enfoque de trabajo",
+      company: "Lumora Partner",
       avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80"
     },
     companies: [
-      "TechStart Pro",
-      "Digital Ventures",
-      "Growth Labs",
-      "InnovateCorp",
-      "FutureFlow",
-      "DataDriven"
+      "Lumora Partner",
+      "Procesos claros",
+      "Automatización útil",
+      "Implementación responsable",
+      "Acompañamiento real",
+      "Mejora continua"
     ],
     companiesWithProof: [
       {
-        name: "TechStart Pro",
-        proof: "Nuestras ventas subieron 40% en un mes gracias a sus bots IA"
+        name: "Lumora Partner",
+        proof: "Primero entendemos el problema; después proponemos la herramienta."
       },
       {
-        name: "Digital Ventures",
-        proof: "Redujimos tiempo de respuesta en 70% con sus agentes automáticos"
+        name: "Procesos claros",
+        proof: "Automatizamos solo lo que tiene sentido para la operación."
       },
       {
-        name: "Growth Labs",
-        proof: "Generamos 2x más leads cualificados con scrapers inteligentes"
+        name: "Automatización útil",
+        proof: "Evitamos soluciones genéricas y promesas imposibles de sostener."
       },
       {
-        name: "InnovateCorp",
-        proof: "Optimizamos procesos internos ahorrando 50 horas semanales"
+        name: "Implementación responsable",
+        proof: "Diseñamos flujos que el equipo pueda usar y mantener."
       },
       {
-        name: "FutureFlow",
-        proof: "Aumentamos conversiones en 35% con sitios web automatizados"
+        name: "Acompañamiento real",
+        proof: "Acompañamos la implementación, pruebas y ajustes."
       },
       {
-        name: "DataDriven",
-        proof: "Mejoramos ROI en 60% gracias a la orquestación n8n"
+        name: "Mejora continua",
+        proof: "Buscamos mejoras medibles sin inflar expectativas."
       }
     ]
   },
@@ -116,7 +116,7 @@ export const siteContent = {
   // Glossary for tooltips
   glossary: {
     IA: "Inteligencia Artificial que automatiza ventas y procesos sin complicaciones",
-    ROI: "Retorno de Inversión: Mide el beneficio económico de nuestras soluciones",
+    mejora: "Cambio observable en un proceso: menos tareas manuales, menos errores, mejor seguimiento o mayor claridad operativa.",
     n8n: "Herramienta de orquestación que conecta apps y automatiza flujos de trabajo",
     Scrapers: "Herramientas que extraen datos valiosos de internet de forma automática y ética",
     agentes: "Bots inteligentes que interactúan con clientes como un equipo humano 24/7",
@@ -126,7 +126,7 @@ export const siteContent = {
   // Final CTA
   finalCTA: {
     title: "¿Listo para acelerar?",
-    subtitle: "Agenda una llamada gratuita y descubre cómo automatizar tu negocio en 30 días.",
+    subtitle: "Agenda una conversación inicial para revisar si tiene sentido automatizar, integrar o rediseñar tu proceso.",
     cta: "Agendar una llamada"
   },
 
@@ -220,7 +220,7 @@ export const siteContent = {
   // Productos
   products: {
     title: "Productos",
-    subtitle: "Soluciones listas para desplegar en días y multiplicar resultados sin fricción.",
+    subtitle: "Soluciones prácticas para ordenar procesos, automatizar tareas y mejorar la operación sin promesas mágicas.",
     items: [
       {
         id: "agentes-ia-voz-humana",

@@ -1,32 +1,26 @@
-﻿"use client";
+"use client";
 
-import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
+import { CheckCircle2, Compass, Settings2 } from "lucide-react";
 
-const EXTERNAL_QUOTES = [
+const PRINCIPLES = [
   {
-    author: "Sam Altman",
-    role: "CEO, OpenAI",
-    quote:
-      "Pronto será impensable no tener inteligencia integrada en cada producto y servicio. La IA será tan evidente como tener una app móvil hoy.",
-    company: "OpenAI",
-    logo: "https://logo.clearbit.com/openai.com",
+    title: "Primero el problema",
+    description:
+      "Antes de hablar de IA o automatización, entendemos qué parte del proceso está generando fricción, errores o pérdida de tiempo.",
+    icon: Compass,
   },
   {
-    author: "Jeff Bezos",
-    role: "Presidente, Amazon",
-    quote:
-      "La IA elevará la calidad del trabajo y permitirá carreras con más sentido gracias a la automatización de tareas que antes eran imposibles.",
-    company: "Amazon",
-    logo: "https://logo.clearbit.com/amazon.com",
+    title: "Después la herramienta",
+    description:
+      "Elegimos desarrollo, integraciones, no-code, automatización o IA según el contexto. La tecnología no se impone: se justifica.",
+    icon: Settings2,
   },
   {
-    author: "Bill Gates",
-    role: "Cofundador, Microsoft",
-    quote:
-      "La IA es una oportunidad comercial enorme que transformará empresas y países cuando se construye para resolver necesidades reales.",
-    company: "Microsoft",
-    logo: "https://logo.clearbit.com/microsoft.com",
+    title: "Mejoras sostenibles",
+    description:
+      "Buscamos soluciones que tu equipo pueda usar, revisar y mejorar con claridad, no sistemas mágicos imposibles de mantener.",
+    icon: CheckCircle2,
   },
 ];
 
@@ -67,11 +61,14 @@ export function Testimonials() {
         >
           <div className="space-y-4 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-brand-200/70">
-              Voces que lideran la IA
+              Adopción tecnológica responsable
             </p>
             <h2 className="text-3xl font-semibold text-white sm:text-4xl">
-              Referentes globales ven la IA como el nuevo estándar competitivo
+              La IA sirve cuando resuelve un problema claro, no cuando se usa por moda
             </h2>
+            <p className="mx-auto max-w-3xl text-base text-white/70 sm:text-lg">
+              Nuestro enfoque no parte de prometer porcentajes. Parte de entender la operación, diseñar una mejora viable y acompañar su implementación.
+            </p>
           </div>
 
           <motion.div
@@ -81,37 +78,28 @@ export function Testimonials() {
             viewport={{ once: true, margin: "-60px" }}
             className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {EXTERNAL_QUOTES.map((reference) => (
-              <motion.blockquote
-                key={reference.author}
-                variants={item}
-                className="flex h-full flex-col gap-6 rounded-3xl border border-white/10 bg-brand-800/40 p-6 text-left shadow-lg backdrop-blur-sm"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5">
-                    <Image
-                      src={reference.logo}
-                      alt={`Logotipo de ${reference.company}`}
-                      width={40}
-                      height={40}
-                      className="h-10 w-10 object-contain"
-                    />
+            {PRINCIPLES.map((principle) => {
+              const Icon = principle.icon;
+
+              return (
+                <motion.article
+                  key={principle.title}
+                  variants={item}
+                  className="flex h-full flex-col gap-5 rounded-3xl border border-white/10 bg-brand-800/40 p-6 text-left shadow-lg backdrop-blur-sm"
+                >
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/5 ring-1 ring-white/10">
+                    <Icon className="h-6 w-6 text-brand-300" aria-hidden="true" />
                   </span>
-                  <div>
-                    <p className="text-sm font-semibold text-white">{reference.author}</p>
-                    <p className="text-xs text-white/60">{reference.role}</p>
+
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-semibold text-white">{principle.title}</h3>
+                    <p className="text-base leading-relaxed text-white/75">
+                      {principle.description}
+                    </p>
                   </div>
-                </div>
-
-                <p className="text-base leading-relaxed text-white/80">
-                  “{reference.quote}”
-                </p>
-
-                <cite className="mt-auto text-xs font-semibold uppercase tracking-[0.25em] text-brand-200/70">
-                  {reference.company}
-                </cite>
-              </motion.blockquote>
-            ))}
+                </motion.article>
+              );
+            })}
           </motion.div>
         </motion.div>
       </div>

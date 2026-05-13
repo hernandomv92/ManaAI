@@ -103,7 +103,7 @@ export function SolutionsGrid({ quizResult }: SolutionsGridProps) {
                           <div>
                             <h3 className="text-xl font-bold text-white">{solution.title}</h3>
                             <p className="text-sm text-white/60">{solution.subtitle}</p>
-                            <p className="text-xs text-brand-300 mt-1 italic">"{solution.microProof}"</p>
+                            <p className="text-xs text-brand-300 mt-1 italic">{solution.microProof}</p>
                           </div>
                         </div>
                         <div className="text-xs font-medium text-brand-300 bg-brand-600/10 px-3 py-1 rounded-full">

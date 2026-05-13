@@ -45,14 +45,14 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <p className="text-white/80 leading-relaxed">
                   <strong>LUMORA PARTNER</strong> (Identificado legalmente como{" "}
-                  <strong>Hernando Morales Vélez</strong>, en adelante "LUMORA"), es una agencia y
+                  <strong>Hernando Morales Vélez</strong>, en adelante &ldquo;LUMORA&rdquo;), es una agencia y
                   proveedor de tecnología con domicilio en Colombia, dedicada a la prestación de
                   servicios de automatización de la comunicación digital.
                 </p>
                 <p className="text-white/80 leading-relaxed">
-                  Esta Política de Privacidad y Tratamiento de Datos Personales (la "Política")
+                  Esta Política de Privacidad y Tratamiento de Datos Personales (la &ldquo;Política&rdquo;)
                   informa sobre cómo <strong>LUMORA</strong> trata la información personal de los
-                  usuarios finales (los "Titulares") de nuestros clientes, en cumplimiento de la{" "}
+                  usuarios finales (los &ldquo;Titulares&rdquo;) de nuestros clientes, en cumplimiento de la{" "}
                   <strong>Ley 1581 de 2012</strong> (Habeas Data) y los términos de{" "}
                   <strong>Meta Platforms, Inc.</strong> para la Plataforma WhatsApp Business API.
                 </p>

@@ -56,12 +56,12 @@ const DIFFERENTIATORS = {
     },
     {
       label: "Transparencia total",
-      summary: "Ves el impacto en tiempo real.",
-      metric: "Datos claros, sin humo",
-      detail: "Mostramos cómo trabajamos y qué resultados logramos en cada etapa. Tú sabes siempre dónde estamos y hacia dónde vamos.",
+      summary: "Sabés qué estamos haciendo y por qué.",
+      metric: "Criterio claro, sin humo",
+      detail: "Explicamos el alcance, los límites y los avances reales de cada etapa. Si algo no conviene automatizar, también lo decimos.",
       icon: "Eye",
       footerTitle: "Todo claro, siempre",
-      footerBadges: ["Datos", "Confianza"],
+      footerBadges: ["Claridad", "Confianza"],
     },
   ] satisfies DifferentiatorItem[],
 } as const;

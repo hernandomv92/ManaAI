@@ -372,7 +372,7 @@ export function Hero() {
         </motion.div>
       </div>
 
-      <div className="bg-[#F7F9FC] py-8 sm:py-10">
+      <div className="bg-[#F7F9FC] py-8 sm:py-10" style={{ overflowAnchor: "none" }}>
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-xl border border-[#D7E0EA] bg-white">
             <div className="flex min-h-12 items-center gap-2.5 border-b border-[#D7E0EA] px-4 py-3 text-sm sm:px-6">
@@ -380,7 +380,7 @@ export function Hero() {
                 className="h-2 w-2 flex-none rounded-full bg-[#155EEF]"
                 aria-hidden="true"
               />
-              <span className="text-[#5D6B7C]">Proceso en curso:</span>
+              <span className="whitespace-nowrap text-[#5D6B7C]">Proceso en curso:</span>
               <strong className="min-w-0 truncate font-semibold text-[#10233B]">
                 {liveStatus}
               </strong>

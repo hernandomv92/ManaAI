@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'es_ES',
+    locale: 'es_CO',
     url: siteContent.site.url,
     title: `${siteContent.site.name} - ${siteContent.site.tagline}`,
     description: siteContent.site.description,
@@ -83,3 +83,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+\n

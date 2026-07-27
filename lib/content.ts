@@ -2,7 +2,7 @@ export const siteContent = {
   // Site metadata
   site: {
     name: "Lumora Partner",
-    tagline: "Ordená procesos. Aplicá tecnología con criterio.",
+    tagline: "Ordenamos procesos. Aplicamos tecnología con criterio.",
     description: "Combinamos consultoría, desarrollo y automatización para ordenar procesos y aplicar tecnología donde realmente aporta valor.",
     url: "https://lumorapartner.com",
   },
@@ -288,3 +288,5 @@ export const siteContent = {
     copyright: "© 2025 Lumora Partner. Todos los derechos reservados.",
   }
 };
+
+\n

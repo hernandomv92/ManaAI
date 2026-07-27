@@ -288,5 +288,3 @@ export const siteContent = {
     copyright: "© 2025 Lumora Partner. Todos los derechos reservados.",
   }
 };
-
-\n

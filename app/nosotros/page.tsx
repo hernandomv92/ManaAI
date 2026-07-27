@@ -1,374 +1,93 @@
 "use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Award, CheckCircle, Handshake, Lightbulb, MessageCircle, Target, Users, Zap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Navbar } from '@/components/marketing/Navbar';
-import { Footer } from '@/components/marketing/Footer';
-import { FloatingWhatsApp } from '@/components/marketing/FloatingWhatsApp';
-import { siteContent } from '@/lib/content';
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, Handshake, MessageCircle, Search, Sparkles, Wrench } from "lucide-react";
+import { Navbar } from "@/components/marketing/Navbar";
+import { Footer } from "@/components/marketing/Footer";
+import { FloatingWhatsApp } from "@/components/marketing/FloatingWhatsApp";
+import { siteContent } from "@/lib/content";
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0 }
-};
+const valueIcons = [Search, Sparkles, Handshake];
+const processIcons = [MessageCircle, Search, Sparkles, Wrench, CheckCircle2];
 
 export default function AboutPage() {
   const { about } = siteContent;
 
   const handleWhatsApp = () => {
-    const message = encodeURIComponent("Hola, quiero conocer más sobre Lumora Partner");
-    window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, '_blank');
+    const message = encodeURIComponent("Hola, quiero conversar sobre la operación de mi empresa");
+    window.open(`https://wa.me/${siteContent.hero.whatsappNumber}?text=${message}`, "_blank");
   };
 
-  const processIcons = [Target, Users, Zap];
-  const clientValueIcons = [Lightbulb, Target, Handshake];
-
   return (
-    <main className="min-h-screen bg-gradient-to-b from-brand-950 to-brand-900">
+    <main className="min-h-screen bg-white text-[#0B2440]">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-20 pb-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center space-y-6"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-              {about.hero.title}
-            </h1>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              {about.hero.subtitle}
-            </p>
+
+      <section className="border-b border-[#D7E0EA] bg-[#F7F9FC] py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#155EEF]">Nosotros</p>
+            <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#0B2440] sm:text-6xl">{about.hero.title}</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-[#5D6B7C] sm:text-xl">{about.hero.subtitle}</p>
           </motion.div>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
-          >
-            <Card className="bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-3xl p-6 md:p-8">
-              <CardHeader className="pb-0 text-left">
-                <CardTitle className="text-3xl font-bold text-white">
-                  {about.story.title}
-                </CardTitle>
-                {about.story.summary && (
-                  <p className="mt-3 text-base text-white/70 leading-relaxed">
-                    {about.story.summary}
-                  </p>
-                )}
-              </CardHeader>
-              <CardContent className="mt-10">
-                <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
-                  <div className="mx-auto flex w-full max-w-xs flex-col items-center rounded-3xl border border-brand-600/20 bg-brand-950/40 p-5 md:mx-0 md:items-start">
-                    <div className="relative h-40 w-40 overflow-hidden rounded-2xl border border-brand-500/40 bg-brand-900/40 shadow-lg shadow-brand-900/40 sm:h-44 sm:w-44">
-                      <Image
-                        src={about.story.founder?.image ?? '/images/gallery/Nando.webp'}
-                        alt={`Foto de ${about.story.founder?.name ?? 'Hernando Morales'}`}
-                        fill
-                        sizes="(min-width: 1024px) 176px, (min-width: 768px) 176px, 60vw"
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
-                    <div className="mt-4 text-center md:text-left">
-                      <p className="text-lg font-semibold text-white">{about.story.founder?.name}</p>
-                      <p className="text-sm text-white/60">{about.story.founder?.role}</p>
-                    </div>
-                  </div>
-                  <div className="flex-1 space-y-4 text-left">
-                    {about.story.paragraphs?.map((paragraph, index) => (
-                      <p key={index} className="text-lg text-white/80 leading-relaxed">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+      <section className="border-b border-[#D7E0EA] py-16 sm:py-24" aria-labelledby="story-title">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-20">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#155EEF]">Una forma de trabajar</p>
+              <h2 id="story-title" className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.035em] sm:text-4xl">{about.story.title}</h2>
+              <p className="mt-5 border-l-2 border-[#155EEF] pl-5 text-lg font-medium leading-8 text-[#334A63]">{about.story.summary}</p>
+              <div className="mt-8 overflow-hidden border border-[#CFDDF6] bg-[#EEF4FF] p-4">
+                <div className="relative aspect-[4/3] overflow-hidden bg-white">
+                  <Image src={about.story.founder.image} alt={`Foto de ${about.story.founder.name}`} fill sizes="(min-width: 1024px) 360px, 90vw" className="object-cover" priority />
                 </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Client Value Section */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              {about.clientValue.title}
-            </h2>
-            <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
-              {about.clientValue.subtitle}
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid gap-6 md:grid-cols-3"
-          >
-            {about.clientValue.items.map((value, index) => {
-              const IconComponent = clientValueIcons[index];
-
-              return (
-                <motion.div key={value.title} variants={item}>
-                  <Card className="h-full rounded-2xl border-brand-700/50 bg-brand-800/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-brand-800/60 hover:shadow-xl hover:shadow-brand-600/10">
-                    <CardHeader>
-                      <div className="mb-4 w-fit rounded-2xl bg-brand-600/20 p-4">
-                        <IconComponent className="h-7 w-7 text-brand-300" />
-                      </div>
-                      <CardTitle className="text-2xl font-bold text-white">
-                        {value.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="leading-relaxed text-white/70">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Credentials Section */}
-      <section className="py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Card className="rounded-3xl border border-brand-600/20 bg-brand-800/30 p-6 backdrop-blur-sm md:p-8">
-              <div className="flex flex-col gap-6 md:flex-row md:items-start">
-                <div className="w-fit rounded-2xl bg-brand-600/20 p-4">
-                  <Award className="h-8 w-8 text-brand-300" />
-                </div>
-                <div className="flex-1">
-                  <h2 className="text-3xl font-bold text-white">
-                    {about.credentials.title}
-                  </h2>
-                  <p className="mt-4 text-lg leading-relaxed text-white/75">
-                    {about.credentials.description}
-                  </p>
-                  <div className="mt-6 grid gap-3">
-                    {about.credentials.items.map((credential) => (
-                      <div key={credential} className="flex gap-3 text-white/80">
-                        <CheckCircle className="mt-1 h-5 w-5 flex-none text-brand-300" />
-                        <span>{credential}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <p className="mt-4 text-lg font-semibold text-[#0B2440]">{about.story.founder.name}</p>
+                <p className="mt-1 text-sm leading-6 text-[#5D6B7C]">{about.story.founder.role}</p>
               </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {about.process.title}
-            </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
-              {about.process.subtitle}
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {about.process.steps.map((step, index) => {
-              const IconComponent = processIcons[index];
-              
-              return (
-                <motion.div
-                  key={index}
-                  variants={item}
-                  className="group"
-                >
-                  <Card className="bg-brand-800/50 border-brand-700/50 backdrop-blur-sm hover:bg-brand-800/70 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-600/10 rounded-2xl h-full">
-                    <CardHeader className="text-center pb-4">
-                      <div className="mx-auto mb-4 p-4 bg-brand-600/20 rounded-2xl group-hover:bg-brand-600/30 transition-colors w-fit">
-                        <IconComponent className="h-8 w-8 text-brand-300" />
-                      </div>
-                      <div className="text-sm font-medium text-brand-300 bg-brand-600/10 px-4 py-2 rounded-full w-fit mx-auto mb-4">
-                        Paso {index + 1}
-                      </div>
-                      <CardTitle className="text-2xl font-bold text-white group-hover:text-brand-300 transition-colors">
-                        {step.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="text-center">
-                      <p className="text-white/70 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Preguntas Frecuentes
-            </h2>
-            <p className="text-xl text-white/70 leading-relaxed">
-              Respuestas a las dudas más comunes sobre nuestros servicios
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <Accordion type="single" collapsible className="space-y-4">
-              {about.faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-brand-800/30 backdrop-blur-sm border border-brand-600/20 rounded-2xl px-6"
-                >
-                  <AccordionTrigger className="text-white hover:text-brand-300 transition-colors text-left py-6 text-lg font-semibold hover:no-underline">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-white/80 leading-relaxed pb-6 pt-2">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-radial from-brand-600/20 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-radial from-brand-300/15 to-transparent rounded-full blur-3xl" />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              ¿Listo para ordenar y optimizar tu operación?
-            </h2>
-            <p className="text-xl text-white/70 leading-relaxed max-w-2xl mx-auto">
-              Comencemos con una conversación para entender tus procesos, detectar oportunidades y evaluar dónde la tecnología puede generar impacto real.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button
-                onClick={handleWhatsApp}
-                size="lg"
-                className="bg-green-600 hover:bg-green-500 text-white px-8 py-6 text-lg font-semibold rounded-2xl shadow-xl hover:shadow-green-500/25 transition-all duration-300 hover:scale-105 group"
-              >
-                <MessageCircle className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
-                Conversar por WhatsApp
-              </Button>
-              
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-white/20 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-2xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-brand-300"
-                onClick={() => window.open('https://calendly.com/hernandomv-xnsf/30min', '_blank')}
-              >
-                Agendar llamada
-              </Button>
             </div>
-
-            {/* Trust indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 pt-8"
-            >
-              <div className="flex items-center space-x-2 text-white/60">
-                <CheckCircle className="h-5 w-5 text-green-400" />
-                <span className="text-sm font-medium">Soluciones a medida</span>
-              </div>
-              <div className="flex items-center space-x-2 text-white/60">
-                <CheckCircle className="h-5 w-5 text-brand-300" />
-                <span className="text-sm font-medium">Foco en impacto operativo</span>
-              </div>
-              <div className="flex items-center space-x-2 text-white/60">
-                <CheckCircle className="h-5 w-5 text-blue-400" />
-                <span className="text-sm font-medium">Acompañamiento cercano</span>
-              </div>
-            </motion.div>
-          </motion.div>
+            <div className="space-y-6 text-lg leading-8 text-[#5D6B7C]">
+              {about.story.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <p className="border-t border-[#D7E0EA] pt-6 font-semibold text-[#0B2440]">El resultado: más claridad para decidir, menos carga para operar y una base que permite seguir mejorando.</p>
+            </div>
+          </div>
         </div>
       </section>
+
+      <section className="bg-[#F7F9FC] py-16 sm:py-24" aria-labelledby="values-title">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#155EEF]">Lo que importa en la práctica</p>
+            <h2 id="values-title" className="mt-4 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">{about.clientValue.title}</h2>
+            <p className="mt-4 text-lg leading-8 text-[#5D6B7C]">{about.clientValue.subtitle}</p>
+          </div>
+          <div className="mt-10 grid gap-px border border-[#CFDDF6] bg-[#CFDDF6] md:grid-cols-3">
+            {about.clientValue.items.map((value, index) => {
+              const Icon = valueIcons[index];
+              return <article key={value.title} className="bg-white p-7 sm:p-8"><div className="flex h-11 w-11 items-center justify-center bg-[#EEF4FF] text-[#155EEF]"><Icon className="h-5 w-5" aria-hidden="true" /></div><h3 className="mt-8 text-xl font-semibold text-[#0B2440]">{value.title}</h3><p className="mt-4 leading-7 text-[#5D6B7C]">{value.description}</p></article>;
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#D7E0EA] py-16 sm:py-24" aria-labelledby="process-title">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+            <div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#155EEF]">Implementación sin fricción</p><h2 id="process-title" className="mt-4 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">{about.process.title}</h2><p className="mt-5 text-lg leading-8 text-[#5D6B7C]">{about.process.subtitle}</p></div>
+            <div className="divide-y divide-[#D7E0EA] border-y border-[#D7E0EA]">
+              {about.process.steps.map((step, index) => { const Icon = processIcons[index]; return <div key={step.title} className="grid gap-4 py-6 sm:grid-cols-[4rem_1fr] sm:gap-6"><div className="flex h-11 w-11 items-center justify-center bg-[#EEF4FF] text-[#155EEF]"><Icon className="h-5 w-5" aria-hidden="true" /></div><div><p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#155EEF]">0{index + 1}</p><h3 className="mt-2 text-xl font-semibold text-[#0B2440]">{step.title}</h3><p className="mt-2 leading-7 text-[#5D6B7C]">{step.description}</p></div></div>; })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24" aria-labelledby="faq-title">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"><p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#155EEF]">Preguntas frecuentes</p><h2 id="faq-title" className="mt-4 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">Una transición clara para tu equipo.</h2><div className="mt-8 divide-y divide-[#D7E0EA] border-y border-[#D7E0EA]">{about.faqs.map((faq) => <details key={faq.question} className="group py-5"><summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-[#0B2440] marker:hidden">{faq.question}<span className="float-right text-[#155EEF] transition-transform group-open:rotate-45">+</span></summary><p className="mt-3 max-w-3xl leading-7 text-[#5D6B7C]">{faq.answer}</p></details>)}</div></div>
+      </section>
+
+      <section className="bg-[#155EEF] py-14 text-white sm:py-16" aria-labelledby="about-cta-title"><div className="mx-auto flex max-w-6xl flex-col gap-7 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"><div><p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#DDE9FF]">El primer paso es entender</p><h2 id="about-cta-title" className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">Conversemos sobre lo que hoy le quita tiempo a tu equipo.</h2></div><button type="button" onClick={handleWhatsApp} className="inline-flex min-h-12 items-center justify-center gap-3 bg-white px-5 py-3 text-sm font-semibold text-[#0B2440] transition-colors hover:bg-[#EEF4FF] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#155EEF]">Conversar sobre mi operación<ArrowRight className="h-4 w-4" aria-hidden="true" /></button></div></section>
 
       <Footer />
       <FloatingWhatsApp />

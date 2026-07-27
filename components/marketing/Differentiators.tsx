@@ -1,157 +1,94 @@
-﻿"use client";
-
-import { useState } from "react";
-import { Sparkles, Wrench, Handshake, BarChart3, Eye, ArrowRight } from "lucide-react";
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
-
-const iconMap = {
-  Wrench,
-  Handshake,
-  BarChart3,
-  Eye,
-} as const;
-
-type DifferentiatorIcon = keyof typeof iconMap;
-
-type DifferentiatorItem = {
-  label: string;
-  summary: string;
-  metric: string;
-  detail: string;
-  icon: DifferentiatorIcon;
-  footerTitle: string;
-  footerBadges?: string[];
-};
-
-const DIFFERENTIATORS = {
-  title: "Lo que nos hace distintos",
-  intro: "No ofrecemos soluciones genéricas. Diseñamos orden real adaptado a tu negocio.",
-  items: [
-    {
-      label: "Soluciones a tu medida",
-      summary: "Procesos diseñados para tu forma de trabajar.",
-      metric: "Nada de plantillas genéricas",
-      detail: "Diagnosticamos tu operación y adaptamos cada flujo a tu realidad. La solución encaja contigo, no al revés.",
-      icon: "Wrench",
-      footerTitle: "Adaptado a tu negocio",
-      footerBadges: ["Flexible", "Personalizado"],
-    },
-    {
-      label: "Implementación acompañada",
-      summary: "No entregamos software y nos vamos.",
-      metric: "Iteramos contigo paso a paso",
-      detail: "Trabajamos junto a tu equipo hasta que todo fluya con claridad y sin fricciones. Estamos presentes en cada ajuste.",
-      icon: "Handshake",
-      footerTitle: "Caminamos contigo",
-      footerBadges: ["Cercano", "Práctico"],
-    },
-    {
-      label: "Visión a largo plazo",
-      summary: "Evitamos que el caos vuelva a empezar.",
-      metric: "Bases sólidas que escalan",
-      detail: "Creamos procesos que crecen contigo, para que el orden se mantenga aunque tu negocio y tus equipos se expandan.",
-      icon: "BarChart3",
-      footerTitle: "Crece sin caos",
-      footerBadges: ["Escalable", "Duradero"],
-    },
-    {
-      label: "Transparencia total",
-      summary: "Sabés qué estamos haciendo y por qué.",
-      metric: "Criterio claro, sin humo",
-      detail: "Explicamos el alcance, los límites y los avances reales de cada etapa. Si algo no conviene automatizar, también lo decimos.",
-      icon: "Eye",
-      footerTitle: "Todo claro, siempre",
-      footerBadges: ["Claridad", "Confianza"],
-    },
-  ] satisfies DifferentiatorItem[],
-} as const;
+const methodSteps = [
+  {
+    number: "01",
+    title: "Entender",
+    description:
+      "Escuchamos a quienes conocen el proceso y revisamos cómo trabajan hoy, qué herramientas utilizan y qué restricciones debemos respetar.",
+  },
+  {
+    number: "02",
+    title: "Evidenciar",
+    description:
+      "Mapeamos el estado actual para hacer visibles los tiempos perdidos, reprocesos, riesgos y dependencias que hoy frenan la operación.",
+  },
+  {
+    number: "03",
+    title: "Priorizar",
+    description:
+      "Elegimos una mejora viable y de alto impacto antes de ampliar el alcance. Así el negocio puede percibir valor rápidamente.",
+  },
+  {
+    number: "04",
+    title: "Implementar",
+    description:
+      "Construimos, conectamos y probamos la solución alrededor de la operación existente, sin trasladar la carga del proyecto a tu equipo.",
+  },
+  {
+    number: "05",
+    title: "Ajustar",
+    description:
+      "Acompañamos el uso real, corregimos fricciones y dejamos una base clara para extender la mejora hacia nuevos procesos.",
+  },
+];
 
 export function Differentiators() {
-  const [active, setActive] = useState(0);
-  const activeItem = DIFFERENTIATORS.items[active];
-  const IconComp = iconMap[activeItem.icon];
-
-  const handleCTA = () => {
-    if (typeof window !== "undefined") {
-      window.open("https://calendly.com/hernandomv-xnsf/30min", "_blank", "noreferrer");
-    }
-  };
-
   return (
-    <section className="bg-brand-950/90 py-18">
+    <section
+      className="border-t border-[#D7E0EA] bg-[#F7F9FC] py-20 text-[#10233B] sm:py-24"
+      aria-labelledby="consulting-method-heading"
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 rounded-3xl border border-white/10 bg-brand-900/60 px-6 py-12 sm:px-10 md:grid-cols-[0.9fr_1.1fr]">
-          <div className="space-y-6 text-left">
-            <span className="inline-flex items-center gap-2 rounded-full border border-brand-400/30 bg-brand-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-brand-200">
-              <Sparkles className="h-4 w-4" aria-hidden="true" />
-              Diferenciadores clave
-            </span>
-            <div className="space-y-4">
-              <h2 className="text-3xl font-semibold text-white sm:text-4xl">{DIFFERENTIATORS.title}</h2>
-              <p className="text-base text-white/75 sm:text-lg">{DIFFERENTIATORS.intro}</p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {DIFFERENTIATORS.items.map((item, index) => {
-                const isActive = index === active;
-                return (
-                  <button
-                    key={item.label}
-                    type="button"
-                    onMouseEnter={() => setActive(index)}
-                    onFocus={() => setActive(index)}
-                    onClick={() => setActive(index)}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-900 ${
-                      isActive
-                        ? "bg-brand-500 text-brand-900"
-                        : "bg-white/5 text-white/60 hover:bg-white/10"
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                );
-              })}
-            </div>
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
+          <div>
+            <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#155EEF]">
+              <span className="h-0.5 w-6 bg-[#155EEF]" aria-hidden="true" />
+              Consultoría que avanza
+            </p>
+
+            <h2
+              id="consulting-method-heading"
+              className="mt-5 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0B2440] sm:text-4xl lg:text-5xl"
+            >
+              De entender el proceso a poner la mejora en marcha.
+            </h2>
           </div>
 
-          <div className="flex min-h-[280px] flex-col justify-between rounded-3xl border border-white/10 bg-black/20 p-6 md:p-8">
-            <div className="space-y-2">
-              <p className="text-sm font-semibold uppercase tracking-wide text-brand-200">{activeItem.metric}</p>
-              <h3 className="text-2xl font-semibold text-white">{activeItem.summary}</h3>
-              <p className="text-base text-white/75">{activeItem.detail}</p>
-            </div>
+          <div className="max-w-2xl">
+            <p className="text-base leading-relaxed text-[#5D6B7C] sm:text-lg">
+              Organizamos reuniones con un propósito claro: entender, decidir o
+              validar. El análisis y la implementación quedan en nuestras manos
+              para que tu equipo no tenga que administrar otro proyecto.
+            </p>
 
-            <div className="group mt-6 flex items-center justify-between gap-4 border-t border-white/10 pt-4">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-colors group-hover:bg-white/10 group-hover:ring-white/20">
-                  <IconComp className="text-sky-300" size={28} strokeWidth={1.75} aria-hidden />
-                </span>
-                <div className="text-sm text-white/70">{activeItem.footerTitle}</div>
-              </div>
-
-              {activeItem.footerBadges && activeItem.footerBadges.length > 0 ? (
-                <div className="hidden items-center gap-2 md:flex">
-                  {activeItem.footerBadges.map((badge) => (
-                    <span
-                      key={badge}
-                      className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10"
-                    >
-                      {badge}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-            </div>
+            <p className="mt-5 text-base font-semibold leading-relaxed text-[#0B2440]">
+              Menos reuniones sin avance. Más decisiones respaldadas por el
+              conocimiento real de la operación.
+            </p>
           </div>
         </div>
 
-        <div className="mt-12 flex justify-center">
-          <PrimaryButton onClick={handleCTA} className="max-w-xs sm:max-w-none sm:px-12 sm:py-4">
-            Agenda tu Auditoría Gratuita
-            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-          </PrimaryButton>
-        </div>
+        <ol className="mt-14 grid border-y border-[#CFD8E3] lg:grid-cols-5">
+          {methodSteps.map((step) => (
+            <li
+              key={step.number}
+              className="border-b border-[#CFD8E3] px-0 py-7 last:border-b-0 lg:border-b-0 lg:border-r lg:px-5 lg:py-8 lg:last:border-r-0"
+            >
+              <span
+                className="text-sm font-semibold text-[#155EEF]"
+                aria-hidden="true"
+              >
+                {step.number}
+              </span>
+              <h3 className="mt-4 text-lg font-semibold text-[#0B2440]">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#5D6B7C]">
+                {step.description}
+              </p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
 }
-

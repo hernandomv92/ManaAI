@@ -10,7 +10,7 @@ export const siteContent = {
   // Navigation
   navigation: [
     { name: "Soluciones", href: "/#soluciones" },
-    { name: "Productos", href: "/productos" },
+    { name: "Implementaciones", href: "/productos" },
     { name: "Nosotros", href: "/nosotros" },
   ],
 
@@ -133,17 +133,16 @@ export const siteContent = {
   // About page
   about: {
     hero: {
-      title: "Tecnología aplicada a problemas reales de negocio",
-      subtitle: "En Lumora Partner combinamos consultoría, desarrollo y automatización para optimizar procesos, reducir carga operativa y ayudar a las empresas a escalar con más orden.",
+      title: "Hacemos simple lo complejo de tu operación.",
+      subtitle: "Entendemos cómo trabaja tu empresa, diseñamos con criterio y nos hacemos cargo de implementar mejoras que liberan tiempo sin interrumpir el negocio."
     },
     story: {
-      title: "Más que implementar IA: entendemos cómo opera tu negocio",
-      summary: "Consultoría, desarrollo y criterio operativo para convertir dolores reales en soluciones útiles.",
+      title: "Primero entendemos. Después construimos.",
+      summary: "La confianza se gana cuando una solución funciona en la realidad del equipo.",
       paragraphs: [
-        "Lumora Partner nace de una forma muy concreta de trabajar: escuchar primero, entender el problema real y después diseñar una solución tecnológica que tenga sentido para la operación del cliente.",
-        "Hernando Morales combina mirada consultiva, desarrollo web, automatización de procesos, integración de APIs y herramientas low-code/no-code para convertir tareas repetitivas, cuellos de botella y procesos desordenados en sistemas más claros y escalables.",
-        "El valor no está en vender IA por moda. Está en detectar qué parte del negocio necesita orden, qué puede automatizarse, qué debe seguir siendo humano y cómo implementar una solución que se adapte a las necesidades, recursos y limitaciones de cada empresa.",
-        "Por eso trabajamos con foco selectivo: preferimos acompañar bien a cada cliente, entender su contexto y construir soluciones que generen impacto real antes que operar como una fábrica masiva de proyectos."
+        "Lumora Partner nace de una forma concreta de trabajar: escuchar a las personas que conocen la operación, revisar cómo fluye la información y encontrar dónde se pierde tiempo, claridad o capacidad de respuesta.",
+        "Hernando Morales combina mirada consultiva, desarrollo e integración de herramientas para convertir procesos complejos en sistemas más claros, útiles y fáciles de sostener.",
+        "En proyectos como Genyx y Biologix, el objetivo no es sumar tecnología por moda. Es asumir el trabajo necesario para que el cliente pueda avanzar con más tranquilidad mientras la mejora llega a producción."
       ],
       founder: {
         name: "Hernando Morales",
@@ -152,74 +151,78 @@ export const siteContent = {
       }
     },
     clientValue: {
-      title: "Lo que más valoran nuestros clientes",
-      subtitle: "Nuestro diferencial está en entender el negocio antes de proponer tecnología.",
+      title: "Lo que nuestros clientes valoran",
+      subtitle: "El diferencial está en entender el negocio antes de proponer tecnología.",
       items: [
         {
-          title: "Entender el dolor real",
-          description: "Identificamos el problema de fondo detrás de tareas manuales, retrasos, reprocesos o información desordenada."
+          title: "Entender antes de proponer",
+          description: "Escuchamos, auditamos y hacemos visible el problema real antes de decidir qué conviene construir."
         },
         {
-          title: "Diseñar soluciones viables",
-          description: "Proponemos soluciones prácticas, adaptadas al presupuesto, herramientas actuales y nivel operativo del cliente."
+          title: "Hacer simple lo complejo",
+          description: "Ordenamos procesos y conectamos herramientas para que el equipo pueda trabajar con menos fricción."
         },
         {
-          title: "Acompañar el proceso",
-          description: "Nos acoplamos a las necesidades y limitaciones del negocio para ajustar la solución hasta que realmente funcione."
+          title: "Acompañar hasta que funcione",
+          description: "Diseñamos, implementamos, probamos y ajustamos sin trasladar toda la carga de la transición al cliente."
         }
       ]
     },
     credentials: {
-      title: "Formación que respalda la práctica",
-      description: "Además de la experiencia construyendo soluciones reales, Hernando cuenta con formación en desarrollo web, automatización, workflows profesionales, JavaScript, e-commerce y optimización comercial con soluciones tecnológicas basadas en IA generativa, incluyendo certificación del SENA y Grupo Multisectorial.",
+      title: "Experiencia aplicada a operaciones reales",
+      description: "La formación técnica importa, pero el impacto aparece cuando se combina con criterio operativo y responsabilidad durante la implementación.",
       items: [
-        "Optimización comercial en mipymes con soluciones tecnológicas basadas en IA generativa - SENA y Grupo Multisectorial",
-        "Automatización low-code/no-code y workflows profesionales",
-        "Desarrollo web, JavaScript, HTML, CSS, Git/GitHub y fundamentos de e-commerce"
+        "Consultoría y auditoría de procesos administrativos.",
+        "Automatización, integraciones de APIs y workflows profesionales.",
+        "Desarrollo web, JavaScript y herramientas low-code/no-code.",
+        "Diseño de soluciones que pueden crecer con la empresa."
       ]
     },
-
     process: {
-      title: "Cómo Trabajamos",
+      title: "Cómo trabajamos",
       subtitle: "Un proceso consultivo para pasar del problema operativo a una solución implementada, usable y alineada con la realidad del negocio.",
       steps: [
         {
+          title: "Escuchar",
+          description: "Conversamos con las personas involucradas y entendemos qué necesita realmente la operación."
+        },
+        {
           title: "Entender",
-          description: "Mapeamos cómo opera tu negocio, escuchamos a las personas involucradas y detectamos los dolores que realmente frenan el proceso."
+          description: "Mapeamos herramientas, responsabilidades, datos y puntos donde el proceso pierde tiempo."
         },
         {
-          title: "Diseñar", 
-          description: "Convertimos el diagnóstico en una solución a medida: simple de usar, posible de implementar y conectada con tus herramientas actuales."
+          title: "Diseñar",
+          description: "Convertimos el diagnóstico en una solución viable, conectada con los sistemas que ya utiliza la empresa."
         },
         {
-          title: "Ajustar",
-          description: "Implementamos, probamos y refinamos junto al cliente para que la solución se adapte al negocio, no al revés."
+          title: "Implementar",
+          description: "Construimos, probamos y acompañamos la transición para que el negocio siga avanzando."
+        },
+        {
+          title: "Mejorar",
+          description: "Medimos lo aprendido y dejamos una base clara para continuar optimizando otras áreas."
         }
       ]
     },
     faqs: [
       {
-        question: "¿Trabajan solo con inteligencia artificial?",
-        answer: "No. Usamos IA cuando aporta valor, pero el foco es resolver problemas de negocio. A veces la mejor solución es una automatización, una integración, un flujo mejor diseñado o una combinación de varias herramientas."
+        question: "¿Tienen que cambiar todos sus sistemas?",
+        answer: "No necesariamente. Primero revisamos lo que ya existe y conectamos o ajustamos únicamente lo que puede generar un impacto claro."
       },
       {
-        question: "¿Cómo definen qué solución necesita mi empresa?",
-        answer: "Primero entendemos el proceso, los dolores, las herramientas actuales y las limitaciones reales. Después proponemos una solución viable, no una tecnología impuesta."
+        question: "¿El equipo debe asumir más reuniones y tareas?",
+        answer: "Buscamos lo contrario: concentrar las conversaciones importantes, asumir la implementación y reducir la carga operativa durante la transición."
       },
       {
-        question: "¿Qué tipo de resultados buscan generar?",
-        answer: "Principalmente reducción de trabajo manual, menos errores, procesos más estandarizados, mejor visibilidad operativa y capacidad de escalar sin aumentar innecesariamente el equipo."
-      },
-      {
-        question: "¿Pueden integrarse con nuestros sistemas actuales?",
-        answer: "Sí. Trabajamos con APIs, formularios, hojas de cálculo, CRMs, plataformas web, herramientas no-code/low-code y sistemas existentes para conectar la operación sin interrumpirla."
+        question: "¿Pueden comenzar por un solo proceso?",
+        answer: "Sí. Priorizamos una oportunidad concreta y construimos una base que luego permita optimizar otros procesos de la empresa."
       }
     ]
   },
 
   // Productos
   products: {
-    title: "Productos",
+    title: "Implementaciones",
     subtitle: "Soluciones prácticas para ordenar procesos, automatizar tareas y mejorar la operación sin promesas mágicas.",
     processVideo: {
       eyebrow: "Procesos reales en movimiento",
@@ -265,23 +268,7 @@ export const siteContent = {
         ],
         result: "Resultado: un flujo más ordenado entre comercial, facturación, logística y bodega."
       },
-      {
-        id: "paninos-tienda-pos-whatsapp",
-        title: "Tiendas en línea conectadas al POS",
-        offer: [
-          "Para Paninos desarrollamos una tienda en línea conectada con su sistema de facturación POS, pensada para operar pedidos reales y no solo recibir formularios bonitos.",
-          "La solución identifica por dirección qué restaurante debe atender el pedido y envía notificaciones por WhatsApp tanto al cliente como a la sede correspondiente."
-        ],
-        flowTitle: "Qué resuelve",
-        flowItems: [
-          "Pedido online conectado al sistema de facturación.",
-          "Asignación del restaurante según la dirección ingresada por el cliente.",
-          "Avisos por WhatsApp para cliente y restaurante.",
-          "Operación lista para recibir pedidos sin perder control interno."
-        ],
-        result: "Resultado: una tienda que acompaña la operación del restaurante, no una web aislada del negocio."
-      }
-    ]
+    ],
   },
 
   // Chat widget

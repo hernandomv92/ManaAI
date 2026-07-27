@@ -1,66 +1,67 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Instagram, Linkedin } from "lucide-react";
 import { siteContent } from "@/lib/content";
 
+const socialLinks = [
+  {
+    label: "LinkedIn de Lumora Partner",
+    href: "https://www.linkedin.com/in/hernando-morales-b657bbb5/",
+    icon: Linkedin,
+  },
+  {
+    label: "Instagram de Lumora Partner",
+    href: "https://www.instagram.com/hernando_mv/",
+    icon: Instagram,
+  },
+] as const;
+
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-brand-950 border-t border-brand-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-          {/* Logo & Copyright */}
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+    <footer className="border-t border-[#D7E0EA] bg-[#F7F9FC] text-[#0B2440]">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div className="max-w-xl">
             <Link
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent hover:from-brand-200 hover:to-brand-400 transition-colors duration-300"
+              className="inline-flex min-h-11 items-center text-xl font-semibold text-[#155EEF] transition-colors hover:text-[#0B4DD8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#155EEF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F9FC]"
             >
               {siteContent.site.name}
             </Link>
-            <p className="text-white/60 text-sm">{siteContent.footer.copyright}</p>
+            <p className="mt-4 leading-7 text-[#5D6B7C]">
+              Consultoría, diseño e implementación de sistemas para operaciones
+              más claras.
+            </p>
           </div>
 
-          {/* Links & Theme Toggle */}
-          <div className="flex items-center space-x-6 pr-20 relative z-20">
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              href="https://www.linkedin.com/in/hernando-morales-b657bbb5/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/60 hover:text-brand-300 transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05, y: -2 }}
-              href="https://www.instagram.com/hernando_mv/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white/60 hover:text-brand-300 transition-colors duration-200"
-              aria-label="Instagram"
-            >
-              <Instagram className="h-5 w-5" />
-            </motion.a>
-          </div>
+          <nav aria-label="Redes sociales" className="flex items-center gap-3">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="inline-flex h-11 w-11 items-center justify-center border border-[#CFD8E3] bg-white text-[#5D6B7C] transition-colors hover:border-[#155EEF] hover:text-[#0B4DD8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#155EEF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F9FC]"
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </a>
+            ))}
+          </nav>
         </div>
 
-        {/* Additional info */}
-        <div className="mt-8 pt-8 border-t border-brand-800/30">
-          <div className="flex flex-col items-center space-y-3 text-center">
-            <p className="text-white/40 text-xs">
-              Desarrollado con ❤️ para automatizar el futuro de los negocios
-            </p>
-            <div className="flex items-center space-x-6">
-              <Link
-                href="/politica-de-privacidad"
-                className="text-white/60 hover:text-brand-300 text-sm transition-colors duration-200"
-              >
-                Política de Privacidad
-              </Link>
-            </div>
-          </div>
+        <div className="mt-10 flex flex-col gap-4 border-t border-[#D7E0EA] pt-6 text-sm text-[#5D6B7C] sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {currentYear} {siteContent.site.name}. Todos los derechos
+            reservados.
+          </p>
+          <Link
+            href="/politica-de-privacidad"
+            className="inline-flex min-h-11 items-center transition-colors hover:text-[#0B4DD8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#155EEF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F9FC]"
+          >
+            Política de Privacidad
+          </Link>
         </div>
       </div>
     </footer>

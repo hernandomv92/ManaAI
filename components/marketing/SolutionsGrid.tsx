@@ -1,142 +1,167 @@
-﻿"use client";
+const firstFlow = [
+  "Orden recibida",
+  "Facturación",
+  "Logística",
+  "Notificación",
+];
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import {
-  Search,
-  Workflow,
-  Globe,
-  ArrowRight
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { siteContent } from "@/lib/content";
+const nextFlow = [
+  "Cartera",
+  "Identificar el pago",
+  "Relacionar la factura",
+  "Conciliar",
+];
 
-const iconMap = {
-  Search,
-  Workflow,
-  Globe
-};
+const foundations = [
+  "Datos estructurados",
+  "Integraciones reutilizables",
+  "Reglas operativas",
+  "Trazabilidad",
+];
 
-interface SolutionsGridProps {
-  quizResult?: string | null;
-}
+const expansionAreas = [
+  "CRM y seguimiento",
+  "WhatsApp",
+  "Reportes administrativos",
+  "Control documental",
+  "Indicadores operativos",
+];
 
-export function SolutionsGrid({ quizResult }: SolutionsGridProps) {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0 }
-  };
-
-  // Reorder solutions based on quiz result
-  let orderedItems = [...siteContent.solutions.items];
-  if (quizResult) {
-    const priorities: { [key: string]: string[] } = {
-      leads: ['embudo-ia', 'auditorias', 'ops-ia'],
-      sales: ['embudo-ia', 'ops-ia', 'auditorias'],
-      processes: ['ops-ia', 'auditorias', 'embudo-ia'],
-    };
-    const order = priorities[quizResult] || priorities.leads || orderedItems.map(item => item.id);
-    orderedItems = order
-      .map((id) => siteContent.solutions.items.find((item) => item.id === id))
-      .filter((item): item is typeof orderedItems[number] => Boolean(item));
-  }
-
-  const defaultOpen = quizResult ? orderedItems[0].id : undefined;
+function ProcessSequence({
+  items,
+  tone,
+}: {
+  items: string[];
+  tone: "primary" | "secondary";
+}) {
+  const itemClasses =
+    tone === "primary"
+      ? "border-[#155EEF] bg-[#EEF4FF] text-[#0B4DD8]"
+      : "border-[#AFC8F6] bg-white text-[#0B2440]";
 
   return (
-    <section id="soluciones" className="py-20 bg-gradient-to-b from-brand-950 to-brand-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
+    <ol className="grid gap-3 sm:grid-cols-2" aria-label="Etapas del proceso">
+      {items.map((item, index) => (
+        <li
+          key={item}
+          className={`flex min-h-14 items-center gap-3 border px-4 py-3 text-sm font-semibold ${itemClasses}`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {siteContent.solutions.title}
-          </h2>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            {siteContent.solutions.intro}
-          </p>
-        </motion.div>
+          <span className="text-xs text-[#155EEF]" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+          {item}
+        </li>
+      ))}
+    </ol>
+  );
+}
 
-        {/* Solutions Accordion */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <Accordion type="single" collapsible defaultValue={defaultOpen} className="w-full">
-            {orderedItems.map((solution, index) => {
-              const IconComponent = iconMap[solution.icon as keyof typeof iconMap];
-              
-              return (
-                <motion.div
-                  key={solution.id}
-                  variants={item}
-                  className="mb-4"
+export function SolutionsGrid() {
+  return (
+    <section
+      id="soluciones"
+      className="border-t border-[#D7E0EA] bg-white py-20 text-[#10233B] sm:py-24"
+      aria-labelledby="connected-growth-heading"
+    >
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end lg:gap-20">
+          <div>
+            <p className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.08em] text-[#155EEF]">
+              <span className="h-0.5 w-6 bg-[#155EEF]" aria-hidden="true" />
+              Una mejora prepara la siguiente
+            </p>
+
+            <h2
+              id="connected-growth-heading"
+              className="mt-5 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#0B2440] sm:text-4xl lg:text-5xl"
+            >
+              Optimizar un proceso crea la base para ordenar los demás.
+            </h2>
+          </div>
+
+          <div className="max-w-2xl">
+            <p className="text-base leading-relaxed text-[#5D6B7C] sm:text-lg">
+              Cuando la información, las reglas y los sistemas comienzan a
+              trabajar de forma coordinada, la empresa no solo resuelve una
+              tarea: construye una base operativa que facilita nuevas mejoras y
+              permite crecer con mayor control.
+            </p>
+
+            <p className="mt-5 text-base font-semibold leading-relaxed text-[#0B2440]">
+              Comenzamos por un flujo de alto impacto y avanzamos desde ahí
+              hacia los procesos administrativos conectados.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-14 grid border-y border-[#CFD8E3] lg:grid-cols-[minmax(0,1fr)_18rem_minmax(0,1fr)]">
+          <article className="py-8 lg:pr-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#155EEF]">
+              Primer flujo consolidado
+            </p>
+            <h3 className="mt-3 text-xl font-semibold text-[#0B2440]">
+              La operación deja de depender de tareas separadas.
+            </h3>
+            <p className="mb-6 mt-3 text-sm leading-relaxed text-[#5D6B7C]">
+              Un proceso real puede comenzar conectando el ingreso de la orden
+              con facturación, logística y comunicación.
+            </p>
+            <ProcessSequence items={firstFlow} tone="primary" />
+          </article>
+
+          <div className="border-y border-[#CFD8E3] bg-[#0B4DD8] px-6 py-8 text-white lg:border-x lg:border-y-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-white/75">
+              Base operativa común
+            </p>
+            <ul className="mt-5 space-y-4">
+              {foundations.map((foundation) => (
+                <li
+                  key={foundation}
+                  className="border-t border-white/25 pt-4 text-sm font-semibold first:border-t-0 first:pt-0"
                 >
-                  <AccordionItem value={solution.id} className="border-brand-700/50 bg-brand-800/30 backdrop-blur-sm rounded-2xl overflow-hidden">
-                    <AccordionTrigger className="px-6 py-4 text-left hover:no-underline bg-transparent border-none">
-                      <div className="flex items-center justify-between w-full">
-                        <div className="flex items-center space-x-4">
-                          <motion.div
-                            whileHover={{ scale: 1.1, rotate: 5 }}
-                            className="p-3 bg-brand-600/20 rounded-xl transition-colors"
-                          >
-                            <IconComponent className="h-6 w-6 text-brand-300" />
-                          </motion.div>
-                          <div>
-                            <h3 className="text-xl font-bold text-white">{solution.title}</h3>
-                            <p className="text-sm text-white/60">{solution.subtitle}</p>
-                            <p className="text-xs text-brand-300 mt-1 italic">{solution.microProof}</p>
-                          </div>
-                        </div>
-                        <div className="text-xs font-medium text-brand-300 bg-brand-600/10 px-3 py-1 rounded-full">
-                          0{index + 1}
-                        </div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6 pb-6 pt-0 bg-brand-800/50">
-                      <ul className="space-y-2 mb-6">
-                        {solution.bullets.map((bullet, bulletIndex) => (
-                          <li key={bulletIndex} className="flex items-start space-x-2 text-sm text-white/70">
-                            <div className="w-1.5 h-1.5 bg-brand-300 rounded-full mt-2 flex-shrink-0" />
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link href={`/${solution.id}`}>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="text-brand-300 hover:text-white hover:bg-brand-600/20 transition-all duration-200 w-full justify-center"
-                        >
-                          Ver más
-                          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                        </Button>
-                      </Link>
-                    </AccordionContent>
-                  </AccordionItem>
-                </motion.div>
-              );
-            })}
-          </Accordion>
-        </motion.div>
+                  {foundation}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <article className="py-8 lg:pl-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#155EEF]">
+              Siguiente expansión
+            </p>
+            <h3 className="mt-3 text-xl font-semibold text-[#0B2440]">
+              La misma base permite abordar un nuevo problema.
+            </h3>
+            <p className="mb-6 mt-3 text-sm leading-relaxed text-[#5D6B7C]">
+              Con el flujo inicial organizado, cartera y conciliación pueden
+              construirse sobre información que ya es trazable.
+            </p>
+            <ProcessSequence items={nextFlow} tone="secondary" />
+          </article>
+        </div>
+
+        <div className="grid gap-8 border-b border-[#CFD8E3] py-8 lg:grid-cols-[0.55fr_1.45fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold text-[#0B2440]">
+              La base también puede extenderse hacia:
+            </p>
+          </div>
+          <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#5D6B7C]">
+            {expansionAreas.map((area) => (
+              <li
+                key={area}
+                className="border-l-2 border-[#AFC8F6] pl-3"
+              >
+                {area}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="mx-auto mt-10 max-w-3xl text-center text-lg font-semibold leading-relaxed text-[#0B2440] sm:text-xl">
+          De resolver un punto crítico a construir una operación conectada de
+          principio a fin.
+        </p>
       </div>
     </section>
   );

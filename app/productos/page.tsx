@@ -1,12 +1,12 @@
-﻿import { Metadata } from "next";
+import { Metadata } from "next";
 import { ProductosClient } from "@/components/productos/ProductosClient";
 import { siteContent } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Productos",
+  title: "Implementaciones",
   description: siteContent.products.subtitle,
   openGraph: {
-    title: `Productos - ${siteContent.site.name}`,
+    title: `Implementaciones - ${siteContent.site.name}`,
     description: siteContent.products.subtitle,
   },
 };
